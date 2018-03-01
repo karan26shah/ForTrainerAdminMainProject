@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/common_recycler_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        style="@style/homescreen_recyclerview"
+        app:layout_behavior="@string/collapsibleAppBarBehaviour" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+        <include layout="@layout/layout_iw_progress_ring" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageview_retry"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerInParent="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:hapticFeedbackEnabled="true"
+        android:padding="16dp"
+        android:src="@drawable/ic_launcher_background"
+        android:visibility="invisible" />
+</RelativeLayout>

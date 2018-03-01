@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimaryDark">@color/iw_background_muted</color>
+    <color name="colorAccent">@color/iw_blue_gray_bg</color>
+    <color name="textColorPrimary">@color/iw_blue_gray_text</color>
+    <color name="textColorSecondary">@color/iw_text_muted</color>
+
+    <color name="appbarContentColor">#fff</color>
+    <color name="appbarContentInactiveColor">@color/textColorSecondary</color>
+
+    <!--google colors-->
+    <!--Google yellow palette-->
+    <color name="google_yellow_50">#FFFDE7</color>
+    <color name="google_yellow_100">#FFF9C4</color>
+    <color name="google_yellow_200">#FFF59D</color>
+    <color name="google_yellow_300">#FFF176</color>
+    <color name="google_yellow_400">#FFEE58</color>
+    <color name="google_yellow_500">#FFEB3B</color>
+    <color name="google_yellow_600">#FDD835</color>
+    <color name="google_yellow_700">#FBC02D</color>
+    <color name="google_yellow_800">#F9A825</color>
+    <color name="google_yellow_900">#f57517</color>
+    <!---->
+    <!--Google grey palette-->
+    <color name="google_gray_50">#FAFAFA</color>
+    <color name="google_gray_100">#F5F5F5</color>
+    <color name="google_gray_200">#EEEEEE</color>
+    <color name="google_gray_300">#E0E0E0</color>
+    <color name="google_gray_400">#BDBDBD</color>
+    <color name="google_gray_500">#9E9E9E</color>
+    <color name="google_gray_600">#757575</color>
+    <color name="google_gray_700">#616161</color>
+    <color name="google_gray_800">#424242</color>
+    <color name="google_gray_900">#212121</color>
+    <!---->
+    <!--Google deep oarnge palette-->
+    <color name="google_deep_orange_50">#FF5722</color>
+    <color name="google_deep_orange_100">#FFCCBC</color>
+    <color name="google_deep_orange_200">#FFAB91</color>
+    <color name="google_deep_orange_300">#FF8A65</color>
+    <color name="google_deep_orange_400">#FF7043</color>
+    <color name="google_deep_orange_500">#FF5722</color>
+    <color name="google_deep_orange_600">#F4511E</color>
+    <color name="google_deep_orange_700">#E64A19</color>
+    <color name="google_deep_orange_800">#D84315</color>
+    <color name="google_deep_orange_900">#BF360C</color>
+
+    <!--Google red palette-->
+    <color name="google_red_50">#FFEBEE</color>
+    <color name="google_red_100">#FFCDD2</color>
+    <color name="google_red_200">#EF9A9A</color>
+    <color name="google_red_300">#E57373</color>
+    <color name="google_red_400">#EF5350</color>
+    <color name="google_red_500">#F44336</color>
+    <color name="google_red_600">#E53935</color>
+    <color name="google_red_700">#D32F2F</color>
+    <color name="google_red_800">#C62828</color>
+    <color name="google_red_900">#B71C1C</color>
+    <!---->
+
+    <!-- google deep purple palette-->
+    <color name="google_deepPurple_50">#EDE7F6</color>
+    <color name="google_deepPurple_100">#D1C4E9</color>
+    <color name="google_deepPurple_200">#B39DDB</color>
+    <color name="google_deepPurple_300">#9575CD</color>
+    <color name="google_deepPurple_400">#7E57C2</color>
+    <color name="google_deepPurple_500">#673AB7</color>
+    <color name="google_deepPurple_600">#5E35B1</color>
+    <color name="google_deepPurple_700">#512DA8</color>
+    <color name="google_deepPurple_800">#4527A0</color>
+    <color name="google_deepPurple_900">#311B92</color>
+    <!---->
+    <!--Google blue palette-->
+    <color name="google_blue_50">#e3f2fd</color>
+    <color name="google_blue_100">#bbdefb</color>
+    <color name="google_blue_200">#90caf9</color>
+    <color name="google_blue_300">#64b5f6</color>
+    <color name="google_blue_400">#42a5f5</color>
+    <color name="google_blue_500">#2196f3</color>
+    <color name="google_blue_600">#1e88e5</color>
+    <color name="google_blue_700">#1976d2</color>
+    <color name="google_blue_800">#1565c0</color>
+    <color name="google_blue_900">#0d47a1</color>
+    <!---->
+
+    <!--Google green palette-->
+    <color name="google_green_50">#e8f5e9</color>
+    <color name="google_green_100">#c8e6c9</color>
+    <color name="google_green_200">#a5d6a7</color>
+    <color name="google_green_300">#81C784</color>
+    <color name="google_green_400">#66bb6a</color>
+    <color name="google_green_500">#4CAF50</color>
+    <color name="google_green_600">#43a047</color>
+    <color name="google_green_700">#388E3C</color>
+    <color name="google_green_800">#2e7d32</color>
+    <color name="google_green_900">#1b5e20</color>
+    <!---->
+
+    <!-- google 500s-->
+    <color name="google_indigo_500">#3F51B5</color>
+    <color name="google_pink_500">#E91E63</color>
+    <color name="google_purple_500">#9C27B0</color>
+    <color name="google_light_blue_500">#03A9F4</color>
+    <color name="google_cyan_500">#00BCD4</color>
+    <color name="google_teal_500">#009688</color>
+    <color name="google_light_green_500">#8BC34A</color>
+    <color name="google_lime_500">#CDDC39</color>
+    <color name="google_amber_500">#FFC107</color>
+    <color name="google_orange_500">#FF9800</color>
+    <color name="google_brown_500">#795548</color>
+
+    <color name="white">#fff</color>
+
+    <color name="black">#000</color>
+
+    <color name="green_card_background">#30a66f</color>
+    <color name="green_card_background_pressed">#1a5d3f</color>
+    <color name="green_card_shadow">#5633ac71</color>
+
+    <color name="sun_morning">#cffffe</color>
+    <color name="sun_afternoon">#faed7e</color>
+    <color name="sun_evening">#b1bff2</color>
+    <color name="text_sun_morning">#444651</color>
+    <color name="text_sun_afternoon">#444651</color>
+    <color name="text_sun_evening">#fff9f4</color>
+
+    <color name="iw_rose_gold">#ECCFBB</color>
+    <color name="iw_background_alive">#F6E6Da</color> <!--earlier iw_rose_gold_light-->
+    <color name="iw_blue_gray_text">#5f6273</color>
+    <color name="iw_blue_gray_bg">#444651</color>
+    <color name="iw_very_dark_gray">#5b5957</color>
+    <color name="iw_text_muted">#858280</color>
+    <color name="iw_light_gray">#c6c2bf</color>
+    <color name="iw_college_placeholder_bg">#c6c2bf</color>
+    <color name="iw_preview_placeholder_bg">#eeeae7</color>
+    <color name="iw_trans_preview_placeholder_bg">#c3eeeae7</color>
+    <!--verylight gray => back_muted-->
+    <color name="iw_background_muted">#EFEBE8</color>
+
+
+    <color name="shadow_end">#82606060</color>
+    <color name="shadow_start">#0effffff</color>
+
+    <color name="social_google">#4285F4</color>
+    <color name="social_fb">#475a96</color>
+
+    <color name="google_error">#ff0000</color>
+    <color name="divider_color">@color/google_gray_100</color>
+    <color name="transparent">#00000000</color>
+    <color name="black_semi_transparent">#B2000000</color>
+    <color name="background">#e5e5e5</color>
+    <color name="half_black">#808080</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="pink">#e91e63</color>
+    <color name="pink_pressed">#ec407a</color>
+    <color name="blue_semi_transparent">#805677fc</color>
+    <color name="blue_semi_transparent_pressed">#80738ffe</color>
+    <color name="app_primary">#1976D2</color>
+    <color name="app_primary_dark">#1565C0</color>
+    <color name="grey">#DDDDDD</color>
+    <color name="light_grey">#EEEEEE</color>
+    <color name="white_transparent">#99FFFFFF</color>
+
+    <!--image gallery-->
+    <color name="black_text">#222124</color>
+    <color name="black_trans">#be000000</color>
+    <color name="minimap_bg">@color/google_gray_50</color>
+    <color name="color222124">#222124</color>
+    <color name="mark">@color/google_blue_800</color>
+</resources>

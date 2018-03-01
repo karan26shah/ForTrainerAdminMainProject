@@ -1,0 +1,29 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--google dimens-->
+    <dimen name="google_1x">8dp</dimen>
+    <dimen name="google_1_5x">12dp</dimen>
+    <dimen name="google_2x">16dp</dimen>
+    <dimen name="google_3x">24dp</dimen>
+    <dimen name="google_4x">36dp</dimen>
+    <dimen name="google_5x">48dp</dimen>
+    <dimen name="google_6x">56dp</dimen>
+    <dimen name="google_7x">64dp</dimen>
+    <dimen name="google_8x">72dp</dimen>
+    <dimen name="google_9x">80dp</dimen>
+    <dimen name="google_10x">96dp</dimen>
+    <dimen name="google_11x">128dp</dimen>
+    <dimen name="google_12x">150dp</dimen>
+    <dimen name="google_13x">180dp</dimen>
+    <dimen name="google_14x">200dp</dimen>
+    <dimen name="google_15x">240dp</dimen>
+    <dimen name="google_16x">280dp</dimen>
+    <dimen name="google_17x">320dp</dimen>
+    <dimen name="google_18x">400dp</dimen>
+    <dimen name="error">12sp</dimen>
+    <dimen name="appbar_elevation">4dp</dimen>
+    <dimen name="google_0_5x">4dp</dimen>
+    </resources>
