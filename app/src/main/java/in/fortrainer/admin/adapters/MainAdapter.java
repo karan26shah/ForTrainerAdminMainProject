@@ -13,7 +13,11 @@ import in.fortrainer.admin.viewholders.BannerViewHolder;
 /**
  * Created by root on 16/1/17.
  */
+public class MainAdapter{
 
+}
+
+/*
 public class MainAdapter extends MasterAdapter {
     public MainAdapter(Context context, List<CommonRecyclerItem> recyclerItems) {
         super(context, recyclerItems);
@@ -45,3 +49,4 @@ public class MainAdapter extends MasterAdapter {
         }
     }
 }
+*/

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import in.fortrainer.admin.R;
+import in.fortrainer.admin.models.Order;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
 
 /**
@@ -21,5 +22,9 @@ public class LoadingViewHolder extends RecyclerView.ViewHolder {
 
     public void bindCRITem(Context context, CommonRecyclerItem commonRecyclerItem) {
         llProgressHolder.setVisibility(View.VISIBLE);
+    }
+
+    public void bindData(Context context, Order order) {
+
     }
 }

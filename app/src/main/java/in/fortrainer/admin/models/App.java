@@ -4,21 +4,24 @@ package in.fortrainer.admin.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class User {
+public class App {
 
     @SerializedName("id")
     @Expose
-    public Integer UserId;
+    private Integer AppId;
     @SerializedName("name")
     @Expose
-    public String name;
+    private String name;
+    @SerializedName("short_description")
+    @Expose
+    private String shortDescription;
 
     public Integer getId() {
-        return UserId;
+        return AppId;
     }
 
     public void setId(Integer id) {
-        this.UserId = UserId;
+        this.AppId = AppId;
     }
 
     public String getName() {
@@ -27,6 +30,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
 }

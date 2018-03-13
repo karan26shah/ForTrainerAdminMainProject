@@ -17,4 +17,16 @@ public class UserActivity extends AppCompatActivity {
         loadBanners();
 
     }
+
+    private void loadBanners() {
+
+    }
+
+    private void setClickListener() {
+
+    }
+
+    private void setAdapter() {
+
+    }
 }

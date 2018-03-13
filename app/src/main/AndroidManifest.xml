@@ -17,19 +17,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".activities.SplashActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.Design.NoActionBar">
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.UserActivity" />
+        <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.HomeActivity" />
-        <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.UserActivity"></activity>
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.OrderActivity" />
+        <activity android:name=".activities.BannerActivity" />
+        <activity android:name=".activities.EventActivity" />
+        <activity android:name=".activities.HomeActivity"></activity>
     </application>
 
 </manifest>

@@ -50,8 +50,8 @@ public class RetrofitHelper {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(context.getString(R.string.base_url) + context.getString(R.string.api_version) + "/")
                 .addConverterFactory(GsonConverterFactory.create())
-              //  .client(getLocalhostHttpInterceptedClient(context))
-               .client(getInterceptedClient(context))
+                .client(getLocalhostHttpInterceptedClient(context))
+              // .client(getInterceptedClient(context))
                 .build();
 
         return retrofit.create(RetrofitService.class);
@@ -100,8 +100,8 @@ public class RetrofitHelper {
                             .addHeader(context.getString(R.string.authHeader), context.getString(R.string.accessToken))
                             .method(original.method(), original.body());
 
-                    builder.addHeader("platform", "Android");
-                    builder.addHeader("version-code", BuildConfig.VERSION_CODE + "");
+               //     builder.addHeader("platform", "Android");
+              //      builder.addHeader("version-code", BuildConfig.VERSION_CODE + "");
                     Request request = builder.build();
                     return chain.proceed(request);
                 }

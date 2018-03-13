@@ -15,6 +15,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="App_Id"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/App_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="App_id" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -22,49 +35,23 @@
                 android:textStyle="bold"/>
 
             <TextView
-            android:id="@+id/id1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:text="name" />
+                android:id="@+id/App_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="Name" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title"
-                android:textStyle="bold"/>
-
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/product_name"
-                android:text="title" />
-
-           <!-- <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Description"
+                android:text="Short_Description"
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/description"
+                android:id="@+id/App_sd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="description"/>-->
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Link"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/linkurl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="link"/>
+                android:text="Short_description"/>
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

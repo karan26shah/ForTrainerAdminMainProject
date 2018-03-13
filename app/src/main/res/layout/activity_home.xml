@@ -4,14 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.fortrainer.admin.activities.SplashActivity">
+    tools:context="in.fortrainer.admin.activities.HomeActivity">
 
-    <ImageView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/appList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        android:paddingVertical="@dimen/google_9x"
-
-        android:src="@drawable/image2" />
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>

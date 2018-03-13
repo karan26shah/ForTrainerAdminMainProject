@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">ForTrainerAdmin</string>
-    <string name="base_url">https://</string>
+     <string name="base_url">http://192.168.2.83:3000/api/mobile/manager/v1</string>
+    <!--<string name="base_url">http://172.20.10.12:3000/api/mobile/manager/v1</string>-->
     <string name="collapsibleAppBarBehaviour">@string/appbar_scrolling_view_behavior</string>
     <string name="lbl_poor_internet_connection">Looks like you have slow internet connection, it may take a while please wait...</string>
     <string name="lbl_no_internet_connection">Oops! Looks like you are not connected to internet</string>
+    <string name="api_version" />
+    <string name="youtube_base_url" />
 
 </resources>
