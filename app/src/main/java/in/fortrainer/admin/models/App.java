@@ -8,19 +8,19 @@ public class App {
 
     @SerializedName("id")
     @Expose
-    private Integer AppId;
+    public Integer AppId;
     @SerializedName("name")
     @Expose
-    private String name;
+    public String name;
     @SerializedName("short_description")
     @Expose
-    private String shortDescription;
+    public String shortDescription;
 
-    public Integer getId() {
+    public Integer getAppId() {
         return AppId;
     }
 
-    public void setId(Integer id) {
+    public void setAppId(Integer id) {
         this.AppId = AppId;
     }
 

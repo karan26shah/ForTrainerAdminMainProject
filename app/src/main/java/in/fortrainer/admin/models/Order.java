@@ -25,7 +25,7 @@ public class Order {
     public Boolean succeeded;
     @SerializedName("app_user")
     @Expose
-    public User user;
+    public AppUser appUser;
 
     public Integer getId() {
         return id;
@@ -67,12 +67,12 @@ public class Order {
         this.succeeded = succeeded;
     }
 
-    public User getUser() {
-        return user;
+    public AppUser getAppUser() {
+        return appUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 
     public static List<Order> getOrderslist(int itemCount) {

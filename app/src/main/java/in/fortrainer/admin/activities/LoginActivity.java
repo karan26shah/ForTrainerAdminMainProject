@@ -13,7 +13,9 @@ import android.widget.Toast;
 import com.google.gson.JsonObject;
 
 import in.fortrainer.admin.R;
+import in.fortrainer.admin.models.Admin;
 import in.fortrainer.admin.models.userLogin;
+import in.fortrainer.admin.utilities.AppStorageManager;
 import in.fortrainer.admin.utilities.RetrofitHelper;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -50,24 +52,29 @@ public class LoginActivity extends AppCompatActivity {
         userLogin userLogin = new userLogin();
         userLogin.setPassword(mPassword.getText().toString());
         userLogin.setLogin(mUsername.getText().toString());
-        Call<JsonObject> jsonObjectCall = RetrofitHelper.getRetrofitService(context).loginin(userLogin);
-        jsonObjectCall.enqueue(new Callback<JsonObject>() {
+        Call<Admin> jsonObjectCall = RetrofitHelper.getRetrofitService(context).loginin(userLogin);
+        jsonObjectCall.enqueue(new Callback<Admin>() {
             @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+            public void onResponse(Call<Admin> call, Response<Admin> response) {
                 int statusCode = response.code();
-                JsonObject user = response.body();
-                if ( response.isSuccessful()){
-                    JsonObject jsonObject = response.body();
-                   // String authKey = jsonObject.get("auth_key").getAsString();
-                    launchActivity();
-                    Toast.makeText(LoginActivity.this, "Successful", Toast.LENGTH_SHORT).show();
-                }
+                Admin receivedAdmin = response.body();
+
+                if ( response.isSuccessful()) {
+                    if(receivedAdmin != null){
+                        //AppStorageManager.setSharedStoreString(context,"auth_key",receivedAdmin.getAuthKey());
+                       // AppStorageManager.setSharedStoreInt(context,"admin_id",receivedAdmin.getId());
+                        //AppStorageManager.setSharedStoreInt(context,"app_id",receivedAdmin.getA);
+                        receivedAdmin.login(context);
+                        Toast.makeText(LoginActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                        launchActivity();
+                    }
+                   }
                 else{
                     Toast.makeText(LoginActivity.this, "fail", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
+            public void onFailure(Call<Admin> call, Throwable t) {
                 Toast.makeText(LoginActivity.this,"fail",Toast.LENGTH_SHORT).show();
 
             }

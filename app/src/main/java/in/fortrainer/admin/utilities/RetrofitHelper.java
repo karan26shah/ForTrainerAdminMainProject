@@ -16,7 +16,7 @@ import javax.net.ssl.X509TrustManager;
 
 import in.fortrainer.admin.BuildConfig;
 import in.fortrainer.admin.R;
-import in.fortrainer.admin.utilities.RetrofitService;
+import in.fortrainer.admin.models.Admin;
 import okhttp3.ConnectionSpec;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -35,6 +35,7 @@ public class RetrofitHelper {
     private static RetrofitService retrofitService;
     private static String TAG = "<<RETRO CONTROLLER>> ";
 
+    private static  String activeAuthToken = null;
 
     private RetrofitHelper() {
 
@@ -55,6 +56,18 @@ public class RetrofitHelper {
                 .build();
 
         return retrofit.create(RetrofitService.class);
+    }
+
+    private static void setupAuthToken(Context context) {
+        //set auth token
+        if (Admin.getCurrentUser(context) != null) {
+            activeAuthToken = "Token token=\"" + Admin.getCurrentUser(context).getAuthKey() + "\""; // config will have plain token e.g. "da384eb1e7775f3d3023ca1ec0873cd2", but in header we need to pass in different format, Token token="da384eb1e7775f3d3023ca1ec0873cd2"
+        }
+    }
+
+    private static String getActiveAuthToken(Context context){
+        setupAuthToken(context);
+        return activeAuthToken;
     }
 
     /**
@@ -96,9 +109,19 @@ public class RetrofitHelper {
                 @Override
                 public Response intercept(Chain chain) throws IOException {
                     Request original = chain.request();
-                    Request.Builder builder = original.newBuilder()
-                            .addHeader(context.getString(R.string.authHeader), context.getString(R.string.accessToken))
+                    Request.Builder builder  = original.newBuilder().addHeader("platform-code","android")
                             .method(original.method(), original.body());
+                    Admin currentAdmin = Admin.getCurrentUser(context);
+                    if( currentAdmin != null){
+                        if(Admin.isLoggedIn(context)) {
+                            builder.addHeader("user-id", currentAdmin.getId().toString())
+                                    .addHeader(context.getString(R.string.authHeader), getActiveAuthToken(context))
+                                    .method(original.method(), original.body());
+                        }
+                    }else{
+                       Log.d("TAG","curret admin null") ;
+                    }
+
 
                //     builder.addHeader("platform", "Android");
               //      builder.addHeader("version-code", BuildConfig.VERSION_CODE + "");
@@ -230,7 +253,7 @@ public class RetrofitHelper {
 
                     builder.addHeader("platform", "Android");
                     builder.addHeader("version-code", BuildConfig.VERSION_CODE + "");
-                    builder.addHeader("user-id", userID + "");
+                    builder.addHeader("appUser-id", userID + "");
 
                     Request request = builder.build();
                     return chain.proceed(request);
@@ -272,7 +295,7 @@ public class RetrofitHelper {
                         .method(original.method(), original.body());
 
                 builder.addHeader("platform", "Android");
-                builder.addHeader("user-id", userID + "");
+                builder.addHeader("appUser-id", userID + "");
                 Request request = builder.build();
                 return chain.proceed(request);
             }

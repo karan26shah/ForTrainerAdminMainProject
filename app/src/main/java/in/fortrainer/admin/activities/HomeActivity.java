@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import in.fortrainer.admin.R;
@@ -27,7 +28,7 @@ import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 public class HomeActivity extends AppCompatActivity {
     RecyclerView appList;
     HomeAdpater homeAdpater;
-    List<App> apps;
+    List<App> apps = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     JsonObject jsonObject = response.body();
 
-                    apps = new Gson().fromJson(jsonObject.getAsJsonArray("app_events"), new TypeToken<List<Event>>() {
+                    apps = new Gson().fromJson(jsonObject.getAsJsonArray("apps"), new TypeToken<List<App>>() {
                     }.getType());
                     setProductsToAdapter();
                     // Show the products on the screen

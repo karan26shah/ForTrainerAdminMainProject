@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 
 import java.util.List;
 
+import in.fortrainer.admin.models.Admin;
 import in.fortrainer.admin.models.Banner;
 import in.fortrainer.admin.models.userLogin;
 import retrofit2.Call;
@@ -21,7 +22,7 @@ import retrofit2.http.Query;
 public interface RetrofitService {
 
     @POST("users/sign_in")
-    Call<JsonObject> loginin(@Body userLogin userLogin);
+    Call<Admin> loginin(@Body userLogin userLogin);
 
     @GET("app-events.json")
     Call<JsonObject> getEventlist();
