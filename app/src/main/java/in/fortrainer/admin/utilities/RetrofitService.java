@@ -24,13 +24,13 @@ public interface RetrofitService {
     @POST("users/sign_in")
     Call<Admin> loginin(@Body userLogin userLogin);
 
-    @GET("app-events.json")
-    Call<JsonObject> getEventlist();
+    @GET("apps/{id}/events")
+    Call<JsonObject> getEventlist(@Path("id") int id);
 
-    @GET("app-orders.json")
-    Call<JsonObject> getOrderslist(@Query("page") int i,@Query("per_page") int perpage);
+    @GET("apps/{id}/orders")
+    Call<JsonObject> getOrderslist(@Path("id") int id, @Query("page") int i,@Query("per_page") int perpage);
 
-    @GET("banners/index.json")
+    @GET("apps/:id/banners")
     Call<List<Banner>> listBanner();
 
     @GET("apps.json")

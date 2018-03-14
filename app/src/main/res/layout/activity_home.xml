@@ -6,9 +6,20 @@
     android:layout_height="match_parent"
     tools:context="in.fortrainer.admin.activities.HomeActivity">
 
+  <!-- <LinearLayout
+       android:id="@+id/LL_appListHolder"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+   </LinearLayout>-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/appList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
+
+   <!-- <include layout="@layout/vh_app">
+
+    </include>
+-->
 </RelativeLayout>

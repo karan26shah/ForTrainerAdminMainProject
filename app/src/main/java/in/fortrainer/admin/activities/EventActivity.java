@@ -29,10 +29,17 @@ public class EventActivity extends AppCompatActivity {
     private TextView responseText;
     List<Event> appEvents;
     EventAdapter eventAdapter;
+    int appId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(getIntent().getIntExtra("APP_ID",0)!= 0){
+            appId = getIntent().getIntExtra("APP_ID",0);
+        }
+        else{
+            Toast.makeText(EventActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
+        }
         setContentView(R.layout.activity_event);
         eventlist = (RecyclerView) findViewById(R.id.eventlist);
         getProducts();
@@ -41,7 +48,7 @@ public class EventActivity extends AppCompatActivity {
     private void getProducts() {
 
 
-        Call<JsonObject> eventListCall = RetrofitHelper.getRetrofitService(context).getEventlist();
+        Call<JsonObject> eventListCall = RetrofitHelper.getRetrofitService(context).getEventlist(appId);
         eventListCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {

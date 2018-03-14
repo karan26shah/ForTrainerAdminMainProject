@@ -34,17 +34,24 @@ public class OrderActivity extends AppCompatActivity implements OrderAdpater.OnP
     public static int PER_PAGE = 10;
     private int totalEntries;
     List<Order> receivedOrder;
+    int appId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(getIntent().getIntExtra("APP_ID",0)!= 0){
+            appId = getIntent().getIntExtra("APP_ID",0);
+        }
+        else{
+            Toast.makeText(OrderActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
+        }
         setContentView(R.layout.activity_order);
         mRecyclerView = findViewById(R.id.my_recycler_view);
         getOrders();
     }
 
     public void getOrders() {
-        Call<JsonObject> orderslistCall = RetrofitHelper.getRetrofitService(context).getOrderslist(loadedpage+1,PER_PAGE);
+        Call<JsonObject> orderslistCall = RetrofitHelper.getRetrofitService(context).getOrderslist(appId,loadedpage+1,PER_PAGE);
         orderslistCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {

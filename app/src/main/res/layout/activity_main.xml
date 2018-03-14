@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="51dp"
         android:text="ORDER" />
 
     <Button
@@ -23,16 +23,49 @@
         android:layout_alignLeft="@+id/bt_order"
         android:layout_alignStart="@+id/bt_order"
         android:layout_below="@+id/bt_order"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="32dp"
         android:text="EVENTS" />
+
 
     <Button
         android:id="@+id/bt_banner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/bt_event"
-        android:layout_alignStart="@+id/bt_event"
-        android:layout_below="@+id/bt_event"
-        android:layout_marginTop="74dp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_toLeftOf="@+id/bt_event"
+        android:layout_toStartOf="@+id/bt_event"
         android:text="BANNERS" />
+
+    <Button
+        android:id="@+id/bt_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bt_banner"
+        android:layout_alignStart="@+id/bt_banner"
+        android:layout_below="@+id/bt_banner"
+        android:layout_marginTop="48dp"
+        android:text="Logout" />
+
+    <Button
+        android:id="@+id/bt_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/bt_banner"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_toEndOf="@+id/bt_event"
+        android:layout_toRightOf="@+id/bt_event"
+        android:text="USER" />
+
+    <Button
+        android:id="@+id/bt_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bt_logout"
+        android:layout_alignEnd="@+id/bt_user"
+        android:layout_alignRight="@+id/bt_user"
+        android:text="POST" />
+
 </RelativeLayout>

@@ -45,6 +45,7 @@ public class HomeViewHolder extends RecyclerView.ViewHolder {
         App_sd.setText(apps.getShortDescription());
         ll_app.setOnClickListener( view -> {
             Intent intent = new Intent(context,MainActivity.class);
+            intent.putExtra("APP_ID",apps.getAppId());
             context.startActivity(intent);
         });
     }

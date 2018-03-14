@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -29,12 +31,17 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView appList;
     HomeAdpater homeAdpater;
     List<App> apps = new ArrayList();
+    LinearLayout llApp;
+    LinearLayout llApp1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         appList = findViewById(R.id.appList);
+        //llApp = findViewById(R.id.ll_app);
+        //llApp1 = findViewById(R.id.LL_appListHolder);
+
         getApps();
     }
 
@@ -50,11 +57,22 @@ public class HomeActivity extends AppCompatActivity {
                     apps = new Gson().fromJson(jsonObject.getAsJsonArray("apps"), new TypeToken<List<App>>() {
                     }.getType());
                     setProductsToAdapter();
+              //      if (apps.size() == 0)
+                    {
+                      //  llApp.setVisibility(View.VISIBLE);
+                    //    llApp1.setVisibility(View.GONE);
+
+                    }
+                    //else{
+                       // llApp1.setVisibility(View.VISIBLE);
+
+                    }
+
                     // Show the products on the screen
 
-                    String name = apps.get(0).getName();
+                 //   String name = apps.get(0).getName();
                 }
-            }
+
 
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
