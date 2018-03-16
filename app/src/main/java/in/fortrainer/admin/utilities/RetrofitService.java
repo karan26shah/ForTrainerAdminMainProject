@@ -36,5 +36,8 @@ public interface RetrofitService {
     @GET("apps.json")
     Call<JsonObject> getApplist();
 
+    @GET("apps/{id}/posts")
+    Call<JsonObject> getPostlist(@Path("id") int id);
+
 
 }

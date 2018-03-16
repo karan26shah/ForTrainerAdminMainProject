@@ -6,4 +6,8 @@
     android:layout_height="match_parent"
     tools:context="in.fortrainer.admin.activities.PostActivity">
 
+    <include layout="@layout/layout_common_recycler">
+
+    </include>
+
 </android.support.constraint.ConstraintLayout>

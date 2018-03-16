@@ -40,10 +40,6 @@ public class EventViewHolder extends RecyclerView.ViewHolder{
 
     }
     public void bindData(Context context, Event eventList){
-
-
-
-
         id.setText(String.valueOf(eventList.getId()));
         name.setText(eventList.getName());
         venue.setText(eventList.getAddressLine1());

@@ -1,71 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="in.fortrainer.admin.activities.MainActivity">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll1">
 
     <Button
         android:id="@+id/bt_order"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="51dp"
-        android:text="ORDER" />
+        android:layout_width="186dp"
+        android:layout_height="100dp"
+        android:text="ORDER"
+        android:paddingRight="30dp" />
 
     <Button
         android:id="@+id/bt_event"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/bt_order"
-        android:layout_alignStart="@+id/bt_order"
-        android:layout_below="@+id/bt_order"
-        android:layout_marginTop="32dp"
+        android:layout_width="186dp"
+        android:layout_height="100dp"
         android:text="EVENTS" />
+</LinearLayout>
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/ll1"
+    android:id="@+id/ll2">
     <Button
         android:id="@+id/bt_banner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="14dp"
-        android:layout_marginRight="14dp"
-        android:layout_toLeftOf="@+id/bt_event"
-        android:layout_toStartOf="@+id/bt_event"
+        android:layout_width="186dp"
+        android:layout_height="100dp"
         android:text="BANNERS" />
 
     <Button
-        android:id="@+id/bt_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/bt_banner"
-        android:layout_alignStart="@+id/bt_banner"
-        android:layout_below="@+id/bt_banner"
-        android:layout_marginTop="48dp"
-        android:text="Logout" />
+        android:id="@+id/bt_post"
+        android:layout_width="186dp"
+        android:layout_height="100dp"
+        android:text="POST" />
+</LinearLayout>
 
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/ll2">
     <Button
         android:id="@+id/bt_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/bt_banner"
-        android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp"
-        android:layout_toEndOf="@+id/bt_event"
-        android:layout_toRightOf="@+id/bt_event"
+        android:layout_width="186dp"
+        android:layout_height="100dp"
         android:text="USER" />
 
     <Button
-        android:id="@+id/bt_post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bt_logout"
-        android:layout_alignEnd="@+id/bt_user"
-        android:layout_alignRight="@+id/bt_user"
-        android:text="POST" />
-
+        android:id="@+id/bt_logout"
+        android:layout_width="186dp"
+        android:layout_height="100dp"
+        android:text="Logout" />
+     </LinearLayout>
 </RelativeLayout>
