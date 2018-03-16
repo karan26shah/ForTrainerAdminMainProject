@@ -74,7 +74,8 @@ public class CommonRecyclerItem {
 
     public enum ItemType {
         LOADING(0),
-        BANNER(1);
+        BANNER(1),
+        USER(2);
 
 
         private final int id;

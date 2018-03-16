@@ -9,15 +9,12 @@ import java.util.List;
 import in.fortrainer.admin.R;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
 import in.fortrainer.admin.viewholders.BannerViewHolder;
+import in.fortrainer.admin.viewholders.UserViewHolder;
 
 /**
  * Created by root on 16/1/17.
  */
-public class MainAdapter{
 
-}
-
-/*
 public class MainAdapter extends MasterAdapter {
     public MainAdapter(Context context, List<CommonRecyclerItem> recyclerItems) {
         super(context, recyclerItems);
@@ -30,8 +27,8 @@ public class MainAdapter extends MasterAdapter {
             return masterViewHolder;
         } else {
             RecyclerView.ViewHolder viewHolder = null;
-            if (CommonRecyclerItem.ItemType.BANNER.matches(viewType)) {
-                viewHolder = new BannerViewHolder(generateRootView(R.layout.vh_banner, parent));
+            if (CommonRecyclerItem.ItemType.USER.matches(viewType)) {
+                viewHolder = new UserViewHolder(generateRootView(R.layout.vh_user, parent));
             }
             return viewHolder;
         }
@@ -42,11 +39,9 @@ public class MainAdapter extends MasterAdapter {
         if (!super.onMaterBindViewHolder(holder, position)) {
             int viewType = getItemViewType(position);
 
-            if (CommonRecyclerItem.ItemType.BANNER.matches(viewType)) {
-                ((BannerViewHolder) holder).bindCRItem(context, recyclerItems.get(position));
-            }
+            if (CommonRecyclerItem.ItemType.USER.matches(viewType))
+                ((UserViewHolder) holder).bindData(context, recyclerItems.get(position));
 
         }
     }
 }
-*/

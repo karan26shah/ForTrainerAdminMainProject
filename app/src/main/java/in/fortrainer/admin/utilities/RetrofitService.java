@@ -26,6 +26,9 @@ public interface RetrofitService {
     @GET("app-events.json")
     Call<JsonObject> getEventlist();
 
+    @GET("users.json")
+    Call<JsonObject> getuserslist(@Query("page") int i,@Query("per_page") int perpage);
+
     @GET("app-orders.json")
     Call<JsonObject> getOrderslist(@Query("page") int i,@Query("per_page") int perpage);
 

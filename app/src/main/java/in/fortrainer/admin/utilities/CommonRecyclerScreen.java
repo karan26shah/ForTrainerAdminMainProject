@@ -42,7 +42,7 @@ public class CommonRecyclerScreen {
     ScreenMode activeScreenMode = null;
     private android.support.v7.widget.RecyclerView recyclerView;
     private ImageView imageView_retryButton;
-    private LinearLayout llProgressHolder;
+    private RelativeLayout llProgressHolder;
 
     public CommonRecyclerScreen(Context context, View view, MasterAdapter adapter) {
         this.context = context;
@@ -83,7 +83,7 @@ public class CommonRecyclerScreen {
     private void bindViews(View rootView) {
         recyclerView = (android.support.v7.widget.RecyclerView) rootView.findViewById(R.id.recyclerView);
         imageView_retryButton = (ImageView) rootView.findViewById(R.id.imageview_retry);
-        llProgressHolder = (LinearLayout) rootView.findViewById(R.id.ll_iw_progress_holder);
+        llProgressHolder = (RelativeLayout) rootView.findViewById(R.id.ll_iw_progress_holder);
         relative_recyclerHolder = (RelativeLayout) rootView.findViewById(R.id.common_recycler_screen);
         swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout);
     }
@@ -96,7 +96,7 @@ public class CommonRecyclerScreen {
                     case LOADING:
                         Log.d(TAG, "setting loading");
                         if (swipeRefreshLayout == null || !swipeRefreshLayout.isRefreshing())
-                          //  AdminHelper.startIWProgressRing(llProgressHolder);
+                            llProgressHolder.setVisibility(View.VISIBLE);
                         break;
                     case RETRY:
                         Log.d(TAG, "setting retry");
@@ -108,6 +108,7 @@ public class CommonRecyclerScreen {
                         if (swipeRefreshLayout != null) {
                             swipeRefreshLayout.setRefreshing(false);
                         }
+                        llProgressHolder.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.VISIBLE);
                         break;
                 }

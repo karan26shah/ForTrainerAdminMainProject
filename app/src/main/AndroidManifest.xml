@@ -30,7 +30,8 @@
         <activity android:name=".activities.OrderActivity" />
         <activity android:name=".activities.BannerActivity" />
         <activity android:name=".activities.EventActivity" />
-        <activity android:name=".activities.HomeActivity"></activity>
+        <activity android:name=".activities.HomeActivity" />
+        <activity android:name=".activities.WebViewActivity"></activity>
     </application>
 
 </manifest>
