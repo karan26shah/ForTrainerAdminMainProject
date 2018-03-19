@@ -13,7 +13,9 @@ import in.fortrainer.admin.activities.HomeActivity;
 import in.fortrainer.admin.activities.MainActivity;
 import in.fortrainer.admin.activities.OrderActivity;
 import in.fortrainer.admin.models.App;
+import in.fortrainer.admin.models.AppPost;
 import in.fortrainer.admin.models.Order;
+import in.fortrainer.admin.utilities.CommonRecyclerItem;
 
 /**
  * Created by Vivek on 3/13/2018.
@@ -39,7 +41,9 @@ public class HomeViewHolder extends RecyclerView.ViewHolder {
         App_sd = itemView.findViewById(R.id.App_sd);
         ll_app = itemView.findViewById(R.id.ll_app);
     }
-    public void bindData(Context context, App apps){
+    public void bindData(Context context, CommonRecyclerItem commonRecyclerItem){
+
+        App apps = (App) commonRecyclerItem.getItem();
         App_id.setText(String.valueOf(apps.getAppId()));
         App_name.setText(apps.getName());
         App_sd.setText(apps.getShortDescription());

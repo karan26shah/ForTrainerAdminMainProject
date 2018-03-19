@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/FortrainerColor"
     tools:context="in.fortrainer.admin.activities.LoginActivity">
 
     <LinearLayout
@@ -11,12 +12,13 @@
         android:paddingTop="25dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="120dp"
-            android:src="@drawable/iwlogo"
+            android:src="@drawable/ft_logo"
             android:layout_marginBottom="23dp"
             android:layout_gravity="center_horizontal" />
 
@@ -33,7 +35,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:drawableLeft="@drawable/ic_person_black_24dp"
-        android:hint="Username" />
+        android:hint="Email" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout

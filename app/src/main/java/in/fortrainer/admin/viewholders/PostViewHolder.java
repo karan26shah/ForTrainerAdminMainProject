@@ -42,6 +42,5 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         Post_id.setText(String.valueOf(appPost.getId()));
         Post_title.setText(appPost.getTitle());
         Post_sd.setText(appPost.getDescription());
-
     }
 }

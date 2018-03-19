@@ -13,8 +13,9 @@ import java.util.List;
 
 import in.fortrainer.admin.R;
 import in.fortrainer.admin.adapters.PostAdpater;
+import in.fortrainer.admin.adapters.ProductAdpater;
 import in.fortrainer.admin.models.AppPost;
-import in.fortrainer.admin.models.Event;
+import in.fortrainer.admin.models.AppProduct;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
 import in.fortrainer.admin.utilities.CommonRecyclerScreen;
 import in.fortrainer.admin.utilities.RetrofitHelper;
@@ -24,68 +25,65 @@ import retrofit2.Response;
 
 import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 
-public class PostActivity extends AppCompatActivity {
+public class ProductActivity extends AppCompatActivity {
 
     int appId;
-    List<AppPost> appPosts;
-    PostAdpater postAdpater;
+    List<AppProduct> appProducts;
     CommonRecyclerScreen crs;
+    ProductAdpater productAdpater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post);
+        setContentView(R.layout.activity_product);
         if(getIntent().getIntExtra("APP_ID",0)!= 0){
             appId = getIntent().getIntExtra("APP_ID",0);
         }
         else{
-            Toast.makeText(PostActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
+            Toast.makeText(ProductActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
         }
         //set screen
         setScreen();
-
     }
-
     private void setScreen(){
         crs = CommonRecyclerScreen.setupWithActivity(this);
-        postAdpater = new PostAdpater(this,crs.recyclerItems);
+        productAdpater = new ProductAdpater(this,crs.recyclerItems);
         crs.setLayoutManager(new LinearLayoutManager(this));
-        crs.attachAdapter(postAdpater);
-        getPosts();
+        crs.attachAdapter(productAdpater);
+        getProducts();
     }
 
-    private void getPosts() {
+    private void getProducts() {
         crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
-        Call<JsonObject> eventListCall = RetrofitHelper.getRetrofitService(context).getPostlist(appId);
-        eventListCall.enqueue(new Callback<JsonObject>() {
+        Call<JsonObject> productListCall = RetrofitHelper.getRetrofitService(context).getProductslist(appId);
+        productListCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 if(response.isSuccessful()){
                     JsonObject jsonObject = response.body();
-                    appPosts = new Gson().fromJson(jsonObject.getAsJsonArray("app_posts"), new TypeToken<List<AppPost>>() {
+                    appProducts = new Gson().fromJson(jsonObject.getAsJsonArray("app_products"), new TypeToken<List<AppProduct>>() {
                     }.getType());
 
-                    if (appPosts.size() == 0)
+                    if (appProducts.size() == 0)
                     {
                         CommonRecyclerItem commonRecyclerItem =new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK,"No posts yet",this);
                         crs.recyclerItems.add(commonRecyclerItem);
                     }else {
-                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.POSTS, appPosts,this));
+                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.POSTS, appProducts,this));
                     }
-                     postAdpater.notifyDataSetChanged();
+                    productAdpater.notifyDataSetChanged();
                     crs.setScreen(CommonRecyclerScreen.ScreenMode.DONE);
 
                 }else{
-                    Toast.makeText(PostActivity.this, "please try again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProductActivity.this, "please try again", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
-                Toast.makeText(PostActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProductActivity.this, "failed", Toast.LENGTH_SHORT).show();
 
             }
-         }
+        }
         );}
-
 }

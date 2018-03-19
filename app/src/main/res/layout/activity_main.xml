@@ -45,6 +45,7 @@
     <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+        android:id="@+id/ll3"
     android:layout_below="@id/ll2">
     <Button
         android:id="@+id/bt_user"
@@ -58,4 +59,15 @@
         android:layout_height="100dp"
         android:text="Logout" />
      </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll3">
+        <Button
+            android:id="@+id/bt_product"
+            android:layout_width="186dp"
+            android:layout_height="100dp"
+            android:text="PRODUCT" />
+    </LinearLayout>
 </RelativeLayout>

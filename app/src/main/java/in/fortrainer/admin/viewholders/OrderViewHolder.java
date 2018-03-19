@@ -8,7 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import in.fortrainer.admin.R;
+import in.fortrainer.admin.models.AppPost;
 import in.fortrainer.admin.models.Order;
+import in.fortrainer.admin.utilities.CommonRecyclerItem;
 
 import java.text.CollationElementIterator;
 
@@ -46,8 +48,9 @@ public class OrderViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    public void bindData(Context context, Order order){
+    public void bindData(Context context, CommonRecyclerItem commonRecyclerItem){
 
+        Order order = (Order) commonRecyclerItem.getItem();
     orderId.setText(String.valueOf(order.getId()));
     orderTotal.setText(String.valueOf(order.orderTotal));
     orderCode.setText(order.code);

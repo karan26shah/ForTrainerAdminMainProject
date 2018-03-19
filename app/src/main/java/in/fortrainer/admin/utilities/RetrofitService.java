@@ -30,14 +30,17 @@ public interface RetrofitService {
     @GET("apps/{id}/orders")
     Call<JsonObject> getOrderslist(@Path("id") int id, @Query("page") int i,@Query("per_page") int perpage);
 
-    @GET("apps/:id/banners")
-    Call<List<Banner>> listBanner();
+    @GET("apps/{id}/banners")
+    Call<List<Banner>> listBanner(@Path("id") int id);
 
     @GET("apps.json")
     Call<JsonObject> getApplist();
 
     @GET("apps/{id}/posts")
     Call<JsonObject> getPostlist(@Path("id") int id);
+
+    @GET("apps/{id}/products")
+    Call<JsonObject> getProductslist(@Path("id") int id);
 
 
 }

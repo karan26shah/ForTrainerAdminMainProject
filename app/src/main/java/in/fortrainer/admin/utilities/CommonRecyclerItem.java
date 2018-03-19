@@ -78,7 +78,11 @@ public class CommonRecyclerItem {
         LOADING(0),
         BANNER(1),
         POSTS(2),
-        CARD_ACK(3);
+        CARD_ACK(3),
+        ORDERS(4),
+        EVENTS(5),
+        PRODUCTS(6),
+        APPS(7);
 
 
         private final int id;

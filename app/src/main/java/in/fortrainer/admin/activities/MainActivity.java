@@ -77,6 +77,14 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        button = findViewById(R.id.bt_product);
+        button.setOnClickListener( view -> {
+            Intent intent = new Intent(MainActivity.this,ProductActivity.class);
+            intent.putExtra("APP_ID",appId);
+            startActivity(intent);
+        });
+
+
 
 
         setAdapter();

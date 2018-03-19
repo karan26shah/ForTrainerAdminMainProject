@@ -16,7 +16,10 @@ import java.util.List;
 
 import in.fortrainer.admin.R;
 import in.fortrainer.admin.adapters.EventAdapter;
+import in.fortrainer.admin.adapters.PostAdpater;
 import in.fortrainer.admin.models.Event;
+import in.fortrainer.admin.utilities.CommonRecyclerItem;
+import in.fortrainer.admin.utilities.CommonRecyclerScreen;
 import in.fortrainer.admin.utilities.RetrofitHelper;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,29 +28,34 @@ import retrofit2.Response;
 import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 
 public class EventActivity extends AppCompatActivity {
-    RecyclerView eventlist;
-    private TextView responseText;
+
     List<Event> appEvents;
     EventAdapter eventAdapter;
     int appId;
+    CommonRecyclerScreen crs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_event);
         if(getIntent().getIntExtra("APP_ID",0)!= 0){
             appId = getIntent().getIntExtra("APP_ID",0);
         }
         else{
             Toast.makeText(EventActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
         }
-        setContentView(R.layout.activity_event);
-        eventlist = (RecyclerView) findViewById(R.id.eventlist);
-        getProducts();
+        setScreen();
+    }
+    private void setScreen(){
+        crs = CommonRecyclerScreen.setupWithActivity(this);
+        eventAdapter = new EventAdapter(this,crs.recyclerItems);
+        crs.setLayoutManager(new LinearLayoutManager(this));
+        crs.attachAdapter(eventAdapter);
+        getEvents();
     }
 
-    private void getProducts() {
-
-
+    private void getEvents() {
+        crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
         Call<JsonObject> eventListCall = RetrofitHelper.getRetrofitService(context).getEventlist(appId);
         eventListCall.enqueue(new Callback<JsonObject>() {
             @Override
@@ -55,13 +63,20 @@ public class EventActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     JsonObject jsonObject = response.body();
-
                     appEvents = new Gson().fromJson(jsonObject.getAsJsonArray("app_events"), new TypeToken<List<Event>>() {
                     }.getType());
-                    setProductsToAdapter();
-                    // Show the products on the screen
 
-                    String name = appEvents.get(0).getName();
+                    if (appEvents.size() == 0) {
+                        CommonRecyclerItem commonRecyclerItem = new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK, "No data yet", this);
+                        crs.recyclerItems.add(commonRecyclerItem);
+                    } else {
+                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.EVENTS, appEvents, this));
+                    }
+                    eventAdapter.notifyDataSetChanged();
+                    crs.setScreen(CommonRecyclerScreen.ScreenMode.DONE);
+
+                } else {
+                    Toast.makeText(EventActivity.this, "please try again", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -71,16 +86,5 @@ public class EventActivity extends AppCompatActivity {
             }
         });
     }
-    private void setProductsToAdapter()
-    {
-        // Add products to a adapter
-        // Add adapter to the recycler view
-        // jsonlist.setHasFixedSize(true);
-        eventlist.setLayoutManager(new LinearLayoutManager(this));
-        eventAdapter = new EventAdapter(this,appEvents);
-        eventlist.setAdapter(eventAdapter);
-        eventAdapter.notifyDataSetChanged();
 
-
-    }
 }
