@@ -42,7 +42,7 @@ public class CommonRecyclerScreen {
     ScreenMode activeScreenMode = null;
     private android.support.v7.widget.RecyclerView recyclerView;
     private ImageView imageView_retryButton;
-    private RelativeLayout llProgressHolder;
+    private LinearLayout llProgressHolder;
 
     public CommonRecyclerScreen(Context context, View view, MasterAdapter adapter) {
         this.context = context;
@@ -81,11 +81,11 @@ public class CommonRecyclerScreen {
     }
 
     private void bindViews(View rootView) {
-        recyclerView = (android.support.v7.widget.RecyclerView) rootView.findViewById(R.id.recyclerView);
-        imageView_retryButton = (ImageView) rootView.findViewById(R.id.imageview_retry);
-        llProgressHolder = (RelativeLayout) rootView.findViewById(R.id.ll_iw_progress_holder);
-        relative_recyclerHolder = (RelativeLayout) rootView.findViewById(R.id.common_recycler_screen);
-        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout);
+        recyclerView = rootView.findViewById(R.id.recyclerView);
+        imageView_retryButton = rootView.findViewById(R.id.imageview_retry);
+        llProgressHolder = rootView.findViewById(R.id.ll_iw_progress_holder);
+        relative_recyclerHolder = rootView.findViewById(R.id.common_recycler_screen);
+        swipeRefreshLayout = rootView.findViewById(R.id.swipeRefreshLayout);
     }
 
     public void setScreen(ScreenMode screenMode) {
@@ -96,7 +96,7 @@ public class CommonRecyclerScreen {
                     case LOADING:
                         Log.d(TAG, "setting loading");
                         if (swipeRefreshLayout == null || !swipeRefreshLayout.isRefreshing())
-                            llProgressHolder.setVisibility(View.VISIBLE);
+                          //  AdminHelper.startIWProgressRing(llProgressHolder);
                         break;
                     case RETRY:
                         Log.d(TAG, "setting retry");
@@ -108,7 +108,6 @@ public class CommonRecyclerScreen {
                         if (swipeRefreshLayout != null) {
                             swipeRefreshLayout.setRefreshing(false);
                         }
-                        llProgressHolder.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.VISIBLE);
                         break;
                 }

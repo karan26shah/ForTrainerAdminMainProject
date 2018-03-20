@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import in.fortrainer.admin.models.Event;
 import in.fortrainer.admin.R;
+import in.fortrainer.admin.utilities.CommonRecyclerItem;
 
 
 /**
@@ -31,37 +32,30 @@ public class EventViewHolder extends RecyclerView.ViewHolder{
     }
     public void bindViews(View rootView){
 
-        id = (TextView)rootView.findViewById(R.id.id);
-        name =(TextView)rootView.findViewById(R.id.name);
-        venue = (TextView)rootView.findViewById(R.id.venue);
-        amt =(TextView)rootView.findViewById(R.id.amt);
-        time = (TextView)rootView.findViewById(R.id.time);
-        llEventHolder = (LinearLayout) rootView.findViewById(R.id.ll_event_holder);
+        id = rootView.findViewById(R.id.id);
+        name = rootView.findViewById(R.id.name);
+        venue = rootView.findViewById(R.id.venue);
+        amt = rootView.findViewById(R.id.amt);
+        time = rootView.findViewById(R.id.time);
+        llEventHolder = rootView.findViewById(R.id.ll_event_holder);
 
     }
-    public void bindData(Context context, Event eventList){
-
-
-
-
-        id.setText(String.valueOf(eventList.getId()));
-        name.setText(eventList.getName());
-        venue.setText(eventList.getAddressLine1());
-        if(eventList.getIsPaid()){
+    public void bindData(Context context, CommonRecyclerItem commonRecyclerItem){
+        Event event = (Event) commonRecyclerItem.getItem();
+        id.setText(String.valueOf(event.getId()));
+        name.setText(event.getName());
+        venue.setText(event.getAddressLine1());
+        if(event.getIsPaid()){
             amt.setText("true");
         }else{
             amt.setText("false");
         }
-        time.setText(eventList.getStartDatetime());
+        time.setText(event.getStartDatetime());
         llEventHolder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
-
-
     }
-
-
 }

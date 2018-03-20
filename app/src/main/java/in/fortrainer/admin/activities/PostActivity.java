@@ -1,11 +1,8 @@
 package in.fortrainer.admin.activities;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -15,8 +12,8 @@ import com.google.gson.reflect.TypeToken;
 import java.util.List;
 
 import in.fortrainer.admin.R;
-import in.fortrainer.admin.adapters.EventAdapter;
 import in.fortrainer.admin.adapters.PostAdpater;
+import in.fortrainer.admin.models.AppPost;
 import in.fortrainer.admin.models.Event;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
 import in.fortrainer.admin.utilities.CommonRecyclerScreen;
@@ -27,64 +24,68 @@ import retrofit2.Response;
 
 import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 
-public class EventActivity extends AppCompatActivity {
+public class PostActivity extends AppCompatActivity {
 
-    List<Event> appEvents;
-    EventAdapter eventAdapter;
     int appId;
+    List<AppPost> appPosts;
+    PostAdpater postAdpater;
     CommonRecyclerScreen crs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event);
+        setContentView(R.layout.activity_post);
         if(getIntent().getIntExtra("APP_ID",0)!= 0){
             appId = getIntent().getIntExtra("APP_ID",0);
         }
         else{
-            Toast.makeText(EventActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
+            Toast.makeText(PostActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
         }
+        //set screen
         setScreen();
-    }
-    private void setScreen(){
-        crs = CommonRecyclerScreen.setupWithActivity(this);
-        eventAdapter = new EventAdapter(this,crs.recyclerItems);
-        crs.setLayoutManager(new LinearLayoutManager(this));
-        crs.attachAdapter(eventAdapter);
-        getEvents();
+
     }
 
-    private void getEvents() {
+    private void setScreen(){
+        crs = CommonRecyclerScreen.setupWithActivity(this);
+        postAdpater = new PostAdpater(this,crs.recyclerItems);
+        crs.setLayoutManager(new LinearLayoutManager(this));
+        crs.attachAdapter(postAdpater);
+        getPosts();
+    }
+
+    private void getPosts() {
         crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
-        Call<JsonObject> eventListCall = RetrofitHelper.getRetrofitService(context).getEventlist(appId);
+        Call<JsonObject> eventListCall = RetrofitHelper.getRetrofitService(context).getPostlist(appId);
         eventListCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-
-                if (response.isSuccessful()) {
+                if(response.isSuccessful()){
                     JsonObject jsonObject = response.body();
-                    appEvents = new Gson().fromJson(jsonObject.getAsJsonArray("app_events"), new TypeToken<List<Event>>() {
+                    appPosts = new Gson().fromJson(jsonObject.getAsJsonArray("app_posts"), new TypeToken<List<AppPost>>() {
                     }.getType());
 
-                    if (appEvents.size() == 0) {
-                        CommonRecyclerItem commonRecyclerItem = new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK, "No data yet", this);
+                    if (appPosts.size() == 0)
+                    {
+                        CommonRecyclerItem commonRecyclerItem =new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK,"No posts yet",this);
                         crs.recyclerItems.add(commonRecyclerItem);
-                    } else {
-                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.EVENTS, appEvents, this));
+                    }else {
+                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.POSTS, appPosts,this));
                     }
-                    eventAdapter.notifyDataSetChanged();
+                     postAdpater.notifyDataSetChanged();
                     crs.setScreen(CommonRecyclerScreen.ScreenMode.DONE);
 
-                } else {
-                    Toast.makeText(EventActivity.this, "please try again", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(PostActivity.this, "please try again", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
-                Toast.makeText(EventActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PostActivity.this, "failed", Toast.LENGTH_SHORT).show();
+
             }
-        });
-    }
+         }
+        );}
 
 }

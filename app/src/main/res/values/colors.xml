@@ -8,9 +8,12 @@
 
     <color name="appbarContentColor">#fff</color>
     <color name="appbarContentInactiveColor">@color/textColorSecondary</color>
+    <color name="FortrainerColor">#FFFFE1</color>
+
 
     <!--google colors-->
     <!--Google yellow palette-->
+
     <color name="google_yellow_50">#FFFDE7</color>
     <color name="google_yellow_100">#FFF9C4</color>
     <color name="google_yellow_200">#FFF59D</color>

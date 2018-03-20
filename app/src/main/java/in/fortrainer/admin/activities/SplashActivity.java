@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import in.fortrainer.admin.R;
+import in.fortrainer.admin.models.Admin;
+import in.fortrainer.admin.models.Home;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -17,8 +19,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run(){
                 try{
                     sleep(3000);
-                    Intent intent = new Intent(getApplicationContext(),WebViewActivity.class);
-                    startActivity(intent);
+                    launchNextActivity();
                     finish();
                 }catch (InterruptedException e){
                     e.printStackTrace();
@@ -28,5 +29,23 @@ public class SplashActivity extends AppCompatActivity {
 
         };
         myThread.start();
+
+
     }
+
+    private void launchNextActivity(){
+        if(Admin.isLoggedIn(this)){
+            Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }else{
+            Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
+       }
 }

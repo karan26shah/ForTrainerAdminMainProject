@@ -17,7 +17,11 @@ import java.util.List;
 
 import in.fortrainer.admin.R;
 import in.fortrainer.admin.adapters.OrderAdpater;
+import in.fortrainer.admin.adapters.PostAdpater;
+import in.fortrainer.admin.models.AppPost;
 import in.fortrainer.admin.models.Order;
+import in.fortrainer.admin.utilities.CommonRecyclerItem;
+import in.fortrainer.admin.utilities.CommonRecyclerScreen;
 import in.fortrainer.admin.utilities.RetrofitHelper;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,79 +29,66 @@ import retrofit2.Response;
 
 import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 
-public class OrderActivity extends AppCompatActivity implements OrderAdpater.OnPageEndReachedLstener {
+public class OrderActivity extends AppCompatActivity  {
 
-    public RecyclerView mRecyclerView;
-    public List<Order> orders = null;
-    OrderAdpater orderAdpater = null;
+
+    public List<Order> orders;
+    OrderAdpater orderAdpater;
     public int loadedpage;
     public static int PER_PAGE = 10;
-    private int totalEntries;
-    List<Order> receivedOrder;
+    //private int totalEntries;
+    int appId;
+    CommonRecyclerScreen crs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
-        mRecyclerView = findViewById(R.id.my_recycler_view);
+        if(getIntent().getIntExtra("APP_ID",0)!= 0){
+            appId = getIntent().getIntExtra("APP_ID",0);
+        }
+        else{
+            Toast.makeText(OrderActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
+        }
+        setScreen();
+    }
+    private void setScreen(){
+        crs = CommonRecyclerScreen.setupWithActivity(this);
+        orderAdpater = new OrderAdpater(this,crs.recyclerItems);
+        crs.setLayoutManager(new LinearLayoutManager(this));
+        crs.attachAdapter(orderAdpater);
         getOrders();
     }
 
     public void getOrders() {
-        Call<JsonObject> orderslistCall = RetrofitHelper.getRetrofitService(context).getOrderslist(loadedpage+1,PER_PAGE);
+        crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
+        Call<JsonObject> orderslistCall = RetrofitHelper.getRetrofitService(context).getOrderslist(appId,loadedpage+1,PER_PAGE);
         orderslistCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-
                 if (response.isSuccessful()) {
                     JsonObject jsonObject = response.body();
-                    totalEntries = response.body().get("total_entries").getAsInt();
-                    JsonArray jsonArray = response.body().get("app_orders").getAsJsonArray();
-                    Type listType = new TypeToken<ArrayList<Order>>(){}.getType();
-                    receivedOrder = new Gson().fromJson(jsonArray,listType);
-                    mRecyclerView.setLayoutManager(new LinearLayoutManager(OrderActivity.this));
-                    orderAdpater = new OrderAdpater(receivedOrder,OrderActivity.this,"ORDER");
-                    orderAdpater.SetOnPageEndReachedLstener(OrderActivity.this);
-                    mRecyclerView.setAdapter(orderAdpater);
-                    orderAdpater.notifyItemRangeInserted(receivedOrder.size() - receivedOrder.size(),receivedOrder.size());
-                    loadedpage++;
-                    if(receivedOrder.size() < totalEntries ){
-                        addLoadingMoreAtEnd();
-
+                    orders = new Gson().fromJson(jsonObject.getAsJsonArray("app_orders"), new TypeToken<List<Order>>() {
+                    }.getType());
+                    //totalEntries = response.body().get("total_entries").getAsInt();
+                    if (orders.size() == 0)
+                    {
+                        CommonRecyclerItem commonRecyclerItem =new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK,"No data yet",this);
+                        crs.recyclerItems.add(commonRecyclerItem);
+                    }else {
+                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.ORDERS, orders,this));
                     }
+                    orderAdpater.notifyDataSetChanged();
+                    crs.setScreen(CommonRecyclerScreen.ScreenMode.DONE);
+                }else{
+                    Toast.makeText(OrderActivity.this, "please try again", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
                 Toast.makeText(OrderActivity.this, "failed", Toast.LENGTH_SHORT).show();
             }
         });
     }
-
-    private void addLoadingMoreAtEnd() {
-        if(receivedOrder != null && receivedOrder.size()==0){
-            orderAdpater = new OrderAdpater(receivedOrder,OrderActivity.this,"LOADING");
-            mRecyclerView.setAdapter(orderAdpater);
-            orderAdpater.notifyItemInserted(receivedOrder.size()-1);
-
-            if(orderAdpater!=null){
-                orderAdpater.notifyItemInserted(receivedOrder.size()-1);
-            }
-        }
-    }
-
-    private void removeLoadingFromEnd() {
-        if(orderAdpater != null) {
-            receivedOrder.remove(receivedOrder.size() - 1);
-            orderAdpater.notifyItemRemoved(receivedOrder.size());
-        }
-    }
-
-
-    @Override
-    public void onPageEndReached() {
-        getOrders();
-
-    }
 }
+

@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 
 import java.util.List;
 
+import in.fortrainer.admin.models.Admin;
 import in.fortrainer.admin.models.Banner;
 import in.fortrainer.admin.models.userLogin;
 import retrofit2.Call;
@@ -21,22 +22,27 @@ import retrofit2.http.Query;
 public interface RetrofitService {
 
     @POST("users/sign_in")
-    Call<JsonObject> loginin(@Body userLogin userLogin);
+    Call<Admin> loginin(@Body userLogin userLogin);
 
-    @GET("app-events.json")
-    Call<JsonObject> getEventlist();
+    @GET("apps/{id}/events")
+    Call<JsonObject> getEventlist(@Path("id") int id);
 
+    @GET("apps/{id}/orders")
+    Call<JsonObject> getOrderslist(@Path("id") int id, @Query("page") int i,@Query("per_page") int perpage);
     @GET("users.json")
     Call<JsonObject> getuserslist(@Query("page") int i,@Query("per_page") int perpage);
 
-    @GET("app-orders.json")
-    Call<JsonObject> getOrderslist(@Query("page") int i,@Query("per_page") int perpage);
-
-    @GET("banners/index.json")
-    Call<List<Banner>> listBanner();
+    @GET("apps/{id}/banners")
+    Call<List<Banner>> listBanner(@Path("id") int id);
 
     @GET("apps.json")
     Call<JsonObject> getApplist();
+
+    @GET("apps/{id}/posts")
+    Call<JsonObject> getPostlist(@Path("id") int id);
+
+    @GET("apps/{id}/products")
+    Call<JsonObject> getProductslist(@Path("id") int id);
 
 
 }

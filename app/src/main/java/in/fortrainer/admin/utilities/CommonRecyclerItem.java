@@ -3,6 +3,8 @@ package in.fortrainer.admin.utilities;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.http.POST;
+
 /**
  * Created by HBB20 on 7/14/15.
  * Recycler view provides flexibility to show items of multiple types....
@@ -75,7 +77,12 @@ public class CommonRecyclerItem {
     public enum ItemType {
         LOADING(0),
         BANNER(1),
-        USER(2);
+        POSTS(2),
+        CARD_ACK(3),
+        ORDERS(4),
+        EVENTS(5),
+        PRODUCTS(6),
+        APPS(7);
 
 
         private final int id;
