@@ -14,7 +14,7 @@
         android:id="@+id/bt_order"
         android:layout_width="186dp"
         android:layout_height="100dp"
-        android:text="ORDER"
+        android:text="ORDERS"
         android:paddingRight="30dp" />
 
     <Button
@@ -39,7 +39,7 @@
         android:id="@+id/bt_post"
         android:layout_width="186dp"
         android:layout_height="100dp"
-        android:text="POST" />
+        android:text="POSTS" />
 </LinearLayout>
 
     <LinearLayout
@@ -51,23 +51,14 @@
         android:id="@+id/bt_user"
         android:layout_width="186dp"
         android:layout_height="100dp"
-        android:text="USER" />
+        android:text="USERS" />
 
-    <Button
-        android:id="@+id/bt_logout"
-        android:layout_width="186dp"
-        android:layout_height="100dp"
-        android:text="Logout" />
-     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ll3">
         <Button
             android:id="@+id/bt_product"
             android:layout_width="186dp"
             android:layout_height="100dp"
-            android:text="PRODUCT" />
-    </LinearLayout>
+            android:text="PRODUCTS" />
+     </LinearLayout>
+
+
 </RelativeLayout>

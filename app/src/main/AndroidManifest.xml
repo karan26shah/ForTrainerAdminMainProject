@@ -33,7 +33,8 @@
         <activity android:name=".activities.HomeActivity" />
         <activity android:name=".activities.UserDetailActivity" />
         <activity android:name=".activities.PostActivity" />
-        <activity android:name=".activities.ProductActivity"></activity>
+        <activity android:name=".activities.ProductActivity" />
+        <activity android:name=".activities.SettingActivity"></activity>
     </application>
 
 </manifest>
