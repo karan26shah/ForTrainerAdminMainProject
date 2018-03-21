@@ -15,6 +15,9 @@ public class App {
     @SerializedName("short_description")
     @Expose
     public String shortDescription;
+    @SerializedName("android_app_icon_image_url")
+    @Expose
+    private Object androidAppIconImageUrl;
 
     public Integer getAppId() {
         return AppId;
@@ -39,5 +42,10 @@ public class App {
     public void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
     }
-
+    public String getAndroidAppIconImageUrl() {
+        return (String) androidAppIconImageUrl;
+    }
+    public void setAndroidAppIconImageUrl(Object androidAppIconImageUrl) {
+        this.androidAppIconImageUrl = androidAppIconImageUrl;
+    }
 }

@@ -3,8 +3,8 @@
     android:id="@+id/ll_app"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp"
+    android:orientation="horizontal"
+    android:padding="8dp"
     android:clickable="true"
     android:background="?attr/selectableItemBackground">
 
@@ -13,47 +13,67 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:id="@+id/cv1">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_gravity="left">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="App_Id"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/App_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="App_id" />
+               <ImageView
+                   android:layout_width="100dp"
+                   android:layout_height="100dp"
+                    android:src="@mipmap/ic_launcher"
+                   android:id="@+id/app_iv"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name"
-                android:textStyle="bold"/>
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_marginLeft="8dp">
 
-            <TextView
-                android:id="@+id/App_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:text="Name" />
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="App_Id"
+                   android:textStyle="bold"/>
+               <TextView
+                   android:id="@+id/App_id"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="App_id" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Short_Description"
-                android:textStyle="bold"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Name"
+                   android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/App_sd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Short_description"/>
-        </LinearLayout>
+               <TextView
+                   android:id="@+id/App_name"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentTop="true"
+                   android:text="Name" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Short_Description"
+                   android:textStyle="bold"/>
+
+               <TextView
+                   android:id="@+id/App_sd"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Short_description"/>
+
+           </LinearLayout>
+       </LinearLayout>
 
     </android.support.v7.widget.CardView>
 </LinearLayout>

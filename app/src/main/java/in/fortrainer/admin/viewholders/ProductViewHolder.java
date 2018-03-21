@@ -4,9 +4,12 @@ import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import in.fortrainer.admin.R;
+import in.fortrainer.admin.activities.PostDetailActivity;
+import in.fortrainer.admin.activities.ProductDetailActivity;
 import in.fortrainer.admin.models.AppPost;
 import in.fortrainer.admin.models.AppProduct;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
@@ -23,6 +26,8 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
     TextView Product_sd;
     TextView Product_ld;
     TextView Product_price;
+    LinearLayout linearLayout;
+
 
 
     public ProductViewHolder(View itemView) {
@@ -37,6 +42,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
         Product_sd = itemView.findViewById(R.id.Product_sd);
         Product_ld = itemView.findViewById(R.id.Product_ld);
         Product_price = itemView.findViewById(R.id.Product_price);
+        linearLayout = itemView.findViewById(R.id.pd_ll);
     }
 
     public void bindData(Context context, CommonRecyclerItem commonRecyclerItem){
@@ -47,6 +53,17 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
         Product_sd.setText(appProduct.getShortDescription());
         Product_ld.setText(appProduct.getLongDescription());
         Product_price.setText(String.valueOf(appProduct.getPrice()));
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //launchEventDetailsScreen();
+                if(context!= null){
+                    ProductDetailActivity.onProductClicked(context,appProduct);
+                }
+
+            }
+        });
     }
 }
 

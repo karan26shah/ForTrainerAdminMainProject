@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ll_p1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product_Id"
+            android:textStyle="bold"
+            android:paddingRight="12dp"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/Product_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product_Id"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ll_p2"
+        android:layout_below="@id/ll_p1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product_Name"
+            android:textStyle="bold"
+            android:paddingRight="12dp"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/Product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Product_Name"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ll_p3"
+        android:layout_below="@id/ll_p2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Short_Description"
+            android:textStyle="bold"
+            android:paddingRight="12dp"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/Product_sd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Short_description"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ll_p4"
+        android:layout_below="@id/ll_p3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Long_Description"
+            android:textStyle="bold"
+            android:paddingRight="12dp"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/Product_ld"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Long_Description"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ll_p5"
+        android:layout_below="@id/ll_p4">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product_Price"
+            android:textStyle="bold"
+            android:paddingRight="12dp"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/Product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Product_Price"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/bt_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="41dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        app:srcCompat="@drawable/ic_edit_white_24dp" />
+
+
+</RelativeLayout>

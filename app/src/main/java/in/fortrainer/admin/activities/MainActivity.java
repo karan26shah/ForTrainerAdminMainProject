@@ -55,13 +55,13 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        button = findViewById(R.id.bt_logout);
+        /*button = findViewById(R.id.bt_logout);
         button.setOnClickListener( view -> {
             eraseCurrentUserData(context);
             Intent intent = new Intent(MainActivity.this,LoginActivity.class);
             intent.putExtra("APP_ID",appId);
             startActivity(intent);
-        });
+        });*/
 
         button = findViewById(R.id.bt_user);
         button.setOnClickListener( view -> {
@@ -87,9 +87,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        setAdapter();
+        /*setAdapter();
         setClickListener();
-        loadBanners();
+        loadBanners();*/
     }
 
     private void setAdapter() {
