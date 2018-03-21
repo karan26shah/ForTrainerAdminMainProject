@@ -34,7 +34,11 @@
         <activity android:name=".activities.UserDetailActivity" />
         <activity android:name=".activities.PostActivity" />
         <activity android:name=".activities.ProductActivity" />
-        <activity android:name=".activities.SettingActivity"></activity>
+        <activity android:name=".activities.SettingActivity" />
+        <activity android:name=".activities.PostDetailActivity" />
+        <activity android:name=".activities.PostEditActivity" />
+        <activity android:name=".activities.ProductDetailActivity" />
+        <activity android:name=".activities.ProductEditActivity"></activity>
     </application>
 
 </manifest>

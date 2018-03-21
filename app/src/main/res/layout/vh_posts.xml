@@ -10,15 +10,17 @@
         android:padding="16dp"
         android:id="@+id/cv1">
         <LinearLayout
+            android:id="@+id/ll_post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
             <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="Post_Id"
                    android:textStyle="bold"
-
                    android:paddingRight="12dp"/>
 
                <TextView

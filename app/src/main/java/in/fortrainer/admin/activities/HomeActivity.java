@@ -70,7 +70,7 @@ public class HomeActivity extends AppCompatActivity {
                         CommonRecyclerItem commonRecyclerItem =new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK,"No posts yet",this);
                         crs.recyclerItems.add(commonRecyclerItem);
                     }else {
-                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.POSTS, apps,this));
+                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.APPS, apps,this));
                     }
                     homeAdpater.notifyDataSetChanged();
                     crs.setScreen(CommonRecyclerScreen.ScreenMode.DONE);
@@ -98,7 +98,6 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.action_settings:
                 Intent intent = new Intent(HomeActivity.this,SettingActivity.class);
                 startActivity(intent);
-
         }
         return super.onOptionsItemSelected(item);
     }
