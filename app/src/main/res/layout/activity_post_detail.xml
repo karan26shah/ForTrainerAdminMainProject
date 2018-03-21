@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+            android:id="@+id/ll_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Post_Id"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingRight="12dp"/>
+
+            <TextView
+                android:id="@+id/Post_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Post_id" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_post1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/ll_post"
+        android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:paddingRight="12dp"/>
+
+            <TextView
+                android:id="@+id/Post_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="Titlte"
+                android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_post2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/ll_post1"
+        android:paddingTop="5dp">
+
+
+    <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Short_Description"
+                android:textStyle="bold"
+                android:paddingRight="12dp"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/Post_sd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Short_description"
+                android:textSize="20sp"/>
+
+
+        </LinearLayout>
+       <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_post2"
+            android:orientation="vertical"
+            android:id="@+id/linearLayout">
+            <Button
+                android:id="@+id/bt_edit"
+                android:layout_width="161dp"
+                android:layout_height="wrap_content"
+                android:text="EDIT" />
+        </LinearLayout>-->
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/bt_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="41dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        app:srcCompat="@drawable/ic_edit_white_24dp" />
+
+</RelativeLayout>

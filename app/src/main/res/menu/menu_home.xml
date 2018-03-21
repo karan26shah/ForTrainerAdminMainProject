@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+   <!-- <item
+        android:id="@+id/set_loyalty_program"
+        android:orderInCategory="100"
+        android:title="Update Loyalty Offer"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/bills"
+        android:orderInCategory="100"
+        android:title="All Bills"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/customers"
+        android:orderInCategory="100"
+        android:title="All Customers"
+        app:showAsAction="never" />-->
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Settings"
+        app:showAsAction="never" />
+</menu>

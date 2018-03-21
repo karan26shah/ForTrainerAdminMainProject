@@ -1,38 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.fortrainer.admin.activities.MainActivity">
+    tools:context="in.fortrainer.admin.activities.MainActivity"
+    android:background="@color/FortrainerColor">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll1">
 
     <Button
         android:id="@+id/bt_order"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:text="ORDERS"
+        android:paddingRight="30dp" />
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
-        android:text="ORDER" />
+        android:layout_below="@id/ll1"
+        android:id="@+id/ll2">
 
     <Button
         android:id="@+id/bt_event"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/bt_order"
-        android:layout_alignStart="@+id/bt_order"
-        android:layout_below="@+id/bt_order"
-        android:layout_marginTop="59dp"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
         android:text="EVENTS" />
+</LinearLayout>
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/ll2"
+    android:id="@+id/ll3">
     <Button
         android:id="@+id/bt_banner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/bt_event"
-        android:layout_alignStart="@+id/bt_event"
-        android:layout_below="@+id/bt_event"
-        android:layout_marginTop="74dp"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
         android:text="BANNERS" />
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll4"
+        android:layout_below="@id/ll3">
+
+    <Button
+        android:id="@+id/bt_post"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:text="POSTS" />
+</LinearLayout>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:id="@+id/ll5"
+    android:layout_below="@id/ll4">
+    <Button
+        android:id="@+id/bt_user"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:text="USERS" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll6"
+        android:layout_below="@id/ll5">
+
+        <Button
+            android:id="@+id/bt_product"
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:text="PRODUCTS" />
+     </LinearLayout>
+
+
 </RelativeLayout>

@@ -6,9 +6,6 @@
     android:id="@+id/activity_index"
     tools:context="in.fortrainer.admin.activities.BannerActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/bannerList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <include layout="@layout/layout_common_recycler"></include>
 
 </RelativeLayout>

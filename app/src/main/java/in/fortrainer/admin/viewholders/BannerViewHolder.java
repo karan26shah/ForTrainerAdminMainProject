@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import in.fortrainer.admin.R;
+import in.fortrainer.admin.models.AppPost;
 import in.fortrainer.admin.models.Banner;
+import in.fortrainer.admin.utilities.CommonRecyclerItem;
 
 
 public class BannerViewHolder extends RecyclerView.ViewHolder{
@@ -28,12 +30,12 @@ public class BannerViewHolder extends RecyclerView.ViewHolder{
         linkurl = (TextView)rootview.findViewById(R.id.linkurl);
     }
 
-    public void bindData(Context context, Banner bannerList){
-
-        id.setText(String.valueOf(bannerList.getId()));
-        title.setText(bannerList.getTitle());
+    public void bindData(Context context, CommonRecyclerItem commonRecyclerItem){
+        Banner banners = (Banner)commonRecyclerItem.getItem();
+        id.setText(String.valueOf(banners.getId()));
+        title.setText(banners.getTitle());
         //description.setText((CharSequence) bannerList.getDescription());
-        linkurl.setText((CharSequence) bannerList.getLinkUrl());
+        linkurl.setText((CharSequence) banners.getLinkUrl());
 
     }
 }

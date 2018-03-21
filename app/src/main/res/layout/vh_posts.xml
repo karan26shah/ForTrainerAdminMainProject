@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:id="@+id/cv1">
+        <LinearLayout
+            android:id="@+id/ll_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
+            <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Post_Id"
+                   android:textStyle="bold"
+                   android:paddingRight="12dp"/>
+
+               <TextView
+                   android:id="@+id/Post_id"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Post_id" />
+
+                <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Title"
+                   android:textStyle="bold"
+
+                   android:paddingRight="12dp"/>
+
+                <TextView
+                   android:id="@+id/Post_title"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentTop="true"
+                   android:text="Titlte" />
+
+                <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Short_Description"
+                   android:textStyle="bold"
+
+                   android:paddingRight="12dp"/>
+
+                <TextView
+                   android:id="@+id/Post_sd"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Short_description"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

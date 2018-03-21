@@ -1,22 +1,31 @@
 package in.fortrainer.admin.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import in.fortrainer.admin.R;
 import in.fortrainer.admin.adapters.EventAdapter;
 import in.fortrainer.admin.adapters.HomeAdpater;
+import in.fortrainer.admin.adapters.PostAdpater;
 import in.fortrainer.admin.models.App;
 import in.fortrainer.admin.models.Event;
+import in.fortrainer.admin.utilities.CommonRecyclerItem;
+import in.fortrainer.admin.utilities.CommonRecyclerScreen;
 import in.fortrainer.admin.utilities.RetrofitHelper;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,45 +36,69 @@ import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 public class HomeActivity extends AppCompatActivity {
     RecyclerView appList;
     HomeAdpater homeAdpater;
-    List<App> apps;
+    List<App> apps = new ArrayList();
+    CommonRecyclerScreen crs;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        appList = findViewById(R.id.appList);
+        setScreen();
+
+    }
+    private void setScreen(){
+        crs = CommonRecyclerScreen.setupWithActivity(this);
+        homeAdpater = new HomeAdpater(this,crs.recyclerItems);
+        crs.setLayoutManager(new LinearLayoutManager(this));
+        crs.attachAdapter(homeAdpater);
         getApps();
     }
 
     private void getApps() {
+        crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
         Call<JsonObject> appListCall = RetrofitHelper.getRetrofitService(context).getApplist();
         appListCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-
                 if (response.isSuccessful()) {
                     JsonObject jsonObject = response.body();
-
-                    apps = new Gson().fromJson(jsonObject.getAsJsonArray("app_events"), new TypeToken<List<Event>>() {
+                    apps = new Gson().fromJson(jsonObject.getAsJsonArray("apps"), new TypeToken<List<App>>() {
                     }.getType());
-                    setProductsToAdapter();
-                    // Show the products on the screen
+                    if (apps.size() == 0)
+                    {
+                        CommonRecyclerItem commonRecyclerItem =new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK,"No posts yet",this);
+                        crs.recyclerItems.add(commonRecyclerItem);
+                    }else {
+                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.APPS, apps,this));
+                    }
+                    homeAdpater.notifyDataSetChanged();
+                    crs.setScreen(CommonRecyclerScreen.ScreenMode.DONE);
 
-                    String name = apps.get(0).getName();
+                }else{
+                    Toast.makeText(HomeActivity.this, "please try again", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
                 Toast.makeText(HomeActivity.this, "failed", Toast.LENGTH_SHORT).show();
             }
         });
     }
-    private void setProductsToAdapter() {
-        appList.setLayoutManager(new LinearLayoutManager(this));
-        homeAdpater = new HomeAdpater(this,apps);
-        appList.setAdapter(homeAdpater);
-        homeAdpater.notifyDataSetChanged();
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_home,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_settings:
+                Intent intent = new Intent(HomeActivity.this,SettingActivity.class);
+                startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
