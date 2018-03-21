@@ -2,35 +2,15 @@ package in.fortrainer.admin.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 import in.fortrainer.admin.R;
 import in.fortrainer.admin.adapters.MainAdapter;
-import in.fortrainer.admin.adapters.OrderAdpater;
-import in.fortrainer.admin.models.Order;
 import in.fortrainer.admin.models.User;
-import in.fortrainer.admin.utilities.AdminHelper;
-import in.fortrainer.admin.utilities.CommonRecyclerItem;
 import in.fortrainer.admin.utilities.CommonRecyclerScreen;
-import in.fortrainer.admin.utilities.RetrofitHelper;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
-import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
-
-public class UserActivity extends AppCompatActivity implements MainAdapter.OnPageEndReachedListener {
+public class UserActivity extends AppCompatActivity  {
 
     CommonRecyclerScreen crs;
     public List<User> users;
@@ -56,15 +36,15 @@ public class UserActivity extends AppCompatActivity implements MainAdapter.OnPag
     }
 
     private void setAdapter() {
-        crs = CommonRecyclerScreen.setupWithActivity(this);
+    /*    crs = CommonRecyclerScreen.setupWithActivity(this);
         userAdapter = new MainAdapter(context, crs.getRecyclerItems());
         userAdapter.setOnPageEndReachedListener(this);
         crs.resetPagination(userAdapter);
         crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
-    }
+    */}
 
     public void getUsers() {
-        if (AdminHelper.isDataAdapterOn(this) && !crs.lockOnLoad && !crs.areAllEntriesFetched()) {
+      /*  if (AdminHelper.isDataAdapterOn(this) && !crs.lockOnLoad && !crs.areAllEntriesFetched()) {
             crs.lockOnLoad();
             Call<JsonObject> userslistCall = RetrofitHelper.getRetrofitService(context).getuserslist(loadedpage + 1, PER_PAGE);
             userslistCall.enqueue(new Callback<JsonObject>() {
@@ -108,12 +88,12 @@ public class UserActivity extends AppCompatActivity implements MainAdapter.OnPag
             crs.releaseLoadLock();
          //   crs.setScreen(CommonRecyclerScreen.ScreenMode.RETRY);
         }
-    }
+    */}
 
-    @Override
+   /* @Override
     public void onPageEndReached() {
         getUsers();
 
     }
-
+*/
 }

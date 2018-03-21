@@ -10,7 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -42,7 +41,7 @@ public class CommonRecyclerScreen {
     ScreenMode activeScreenMode = null;
     private android.support.v7.widget.RecyclerView recyclerView;
     private ImageView imageView_retryButton;
-    private LinearLayout llProgressHolder;
+    private RelativeLayout llProgressHolder;
 
     public CommonRecyclerScreen(Context context, View view, MasterAdapter adapter) {
         this.context = context;
