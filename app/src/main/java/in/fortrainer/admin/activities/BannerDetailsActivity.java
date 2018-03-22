@@ -98,7 +98,7 @@ public class BannerDetailsActivity extends AppCompatActivity {
                     public void onResponse(Call<JsonObject> removebannercall, Response<JsonObject> response) {
 
                         if (response.isSuccessful()) {
-                            Toast.makeText(BannerDetailsActivity.this, "Event Deleted Successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BannerDetailsActivity.this, "Banner Deleted Successfully", Toast.LENGTH_SHORT).show();
                         }
                     }
 
