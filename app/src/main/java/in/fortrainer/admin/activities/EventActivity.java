@@ -56,7 +56,7 @@ public class EventActivity extends AppCompatActivity {
 
     private void getEvents() {
         crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
-        Call<JsonObject> eventListCall = RetrofitHelper.getRetrofitService(context).getEventlist(appId);
+        Call<JsonObject> eventListCall = RetrofitHelper.getRetrofitService(context).getEventlist();
         eventListCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {

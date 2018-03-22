@@ -10,6 +10,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import in.fortrainer.admin.R;
+import in.fortrainer.admin.models.App;
 import in.fortrainer.admin.models.Banner;
 import in.fortrainer.admin.utilities.CommonRecyclerScreen;
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if(getIntent().getIntExtra("APP_ID",0)!= 0){
             appId = getIntent().getIntExtra("APP_ID",0);
+            App.saveCurrentapp(this,appId);
         }
         else{
             Toast.makeText(MainActivity.this,"FAIL",Toast.LENGTH_SHORT).show();

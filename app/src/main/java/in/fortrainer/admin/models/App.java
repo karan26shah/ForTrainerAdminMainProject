@@ -1,10 +1,18 @@
 
 package in.fortrainer.admin.models;
 
+import android.content.Context;
+
+import com.google.gson.Gson;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import in.fortrainer.admin.utilities.AppStorageManager;
+
+import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
+
 public class App {
+    private static String KEY_APPID="KEY_APPID";
 
     @SerializedName("id")
     @Expose
@@ -47,5 +55,13 @@ public class App {
     }
     public void setAndroidAppIconImageUrl(Object androidAppIconImageUrl) {
         this.androidAppIconImageUrl = androidAppIconImageUrl;
+    }
+
+    public static void saveCurrentapp(Context context,int appId){
+        AppStorageManager.setSharedStoreInt(context, KEY_APPID, appId);
+    }
+
+    public static int getCurrentapp(Context context){
+        return  AppStorageManager.getSharedStoredInt(context, KEY_APPID);
     }
 }

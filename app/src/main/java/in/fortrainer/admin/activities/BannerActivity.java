@@ -61,7 +61,7 @@ public class BannerActivity extends AppCompatActivity{
     private void listBannerList()
     {
         crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
-        Call<List<Banner>> call = RetrofitHelper.getRetrofitService(context).listBanner(appId);
+        Call<List<Banner>> call = RetrofitHelper.getRetrofitService(context).listBanner();
         call.enqueue(new Callback<List<Banner>>() {
             @Override
             public void onResponse(Call<List<Banner>> call, Response<List<Banner>> response) {

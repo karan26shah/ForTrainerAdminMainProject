@@ -55,7 +55,7 @@ public class ProductActivity extends AppCompatActivity {
 
     private void getProducts() {
         crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
-        Call<JsonObject> productListCall = RetrofitHelper.getRetrofitService(context).getProductslist(appId);
+        Call<JsonObject> productListCall = RetrofitHelper.getRetrofitService(context).getProductslist();
         productListCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
