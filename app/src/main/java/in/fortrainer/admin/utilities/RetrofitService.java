@@ -9,8 +9,12 @@ import in.fortrainer.admin.models.Banner;
 import in.fortrainer.admin.models.userLogin;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -19,22 +23,32 @@ public interface RetrofitService {
     @POST("users/sign_in")
     Call<Admin> loginin(@Body userLogin userLogin);
 
-    @GET("apps/{id}/events")
-    Call<JsonObject> getEventlist(@Path("id") int id);
+    @GET("app/events")
+    Call<JsonObject> getEventlist();
 
-    @GET("apps/{id}/orders")
-    Call<JsonObject> getOrderslist(@Path("id") int id, @Query("page") int i,@Query("per_page") int perpage);
+    @GET("app/orders")
+    Call<JsonObject> getOrderslist(@Query("page") int i,@Query("per_page") int perpage);
     @GET("users.json")
     Call<JsonObject> getuserslist(@Query("page") int i,@Query("per_page") int perpage);
 
-    @GET("apps/{id}/banners")
-    Call<List<Banner>> listBanner(@Path("id") int id);
+    @GET("app/banners")
+    Call<List<Banner>> listBanner();
+
+    @GET("app/banners/{banner_id}/banner_details.json")
+    Call<List<Banner>> getBannersDetails(@Path("banner_id") int Id);
+
+    @DELETE("app/banners/{banner_id}/banner_delete.json")
+    Call<JsonObject> deleteBanner(@Path("banner_id") int banner_id);
+
+    @FormUrlEncoded
+    @PUT("app/banners/{banner_id}/banner_update.json")
+    Call<JsonObject> updateBannerDetails(@Path("banner_id") int id, @Field("banner[title]") String title, @Field("banner[link_url]") String LinkUrl);
 
     @GET("apps.json")
     Call<JsonObject> getApplist();
 
-    @GET("apps/{id}/posts")
-    Call<JsonObject> getPostlist(@Path("id") int id);
+    @GET("app/posts")
+    Call<JsonObject> getPostlist();
 
     @FormUrlEncoded
     @PUT("app/posts/{post_id}/update")

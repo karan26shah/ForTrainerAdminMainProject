@@ -1,8 +1,9 @@
 package in.fortrainer.admin.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -12,9 +13,7 @@ import com.google.gson.reflect.TypeToken;
 import java.util.List;
 
 import in.fortrainer.admin.R;
-import in.fortrainer.admin.adapters.PostAdpater;
 import in.fortrainer.admin.adapters.ProductAdpater;
-import in.fortrainer.admin.models.AppPost;
 import in.fortrainer.admin.models.AppProduct;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
 import in.fortrainer.admin.utilities.CommonRecyclerScreen;
@@ -40,7 +39,8 @@ public class ProductActivity extends AppCompatActivity {
             appId = getIntent().getIntExtra("APP_ID",0);
         }
         else{
-            Toast.makeText(ProductActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
+            Log.d("ProductActivity","failed");
+            finish();
         }
         //set screen
         setScreen();

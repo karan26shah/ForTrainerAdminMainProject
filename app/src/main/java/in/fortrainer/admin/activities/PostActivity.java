@@ -1,8 +1,9 @@
 package in.fortrainer.admin.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -14,7 +15,6 @@ import java.util.List;
 import in.fortrainer.admin.R;
 import in.fortrainer.admin.adapters.PostAdpater;
 import in.fortrainer.admin.models.AppPost;
-import in.fortrainer.admin.models.Event;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
 import in.fortrainer.admin.utilities.CommonRecyclerScreen;
 import in.fortrainer.admin.utilities.RetrofitHelper;
@@ -39,7 +39,8 @@ public class PostActivity extends AppCompatActivity {
             appId = getIntent().getIntExtra("APP_ID",0);
         }
         else{
-            Toast.makeText(PostActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
+            Log.d("PostActivity","failed");
+            finish();
         }
         //set screen
         setScreen();

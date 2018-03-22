@@ -1,24 +1,19 @@
 package in.fortrainer.admin.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 import in.fortrainer.admin.R;
 import in.fortrainer.admin.adapters.OrderAdpater;
-import in.fortrainer.admin.adapters.PostAdpater;
-import in.fortrainer.admin.models.AppPost;
 import in.fortrainer.admin.models.Order;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
 import in.fortrainer.admin.utilities.CommonRecyclerScreen;
@@ -48,7 +43,8 @@ public class OrderActivity extends AppCompatActivity  {
             appId = getIntent().getIntExtra("APP_ID",0);
         }
         else{
-            Toast.makeText(OrderActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
+            Log.d("OrderActivity","failed");
+            finish();
         }
         setScreen();
     }

@@ -1,22 +1,14 @@
 package in.fortrainer.admin.activities;
 
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import in.fortrainer.admin.R;
-
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.util.List;
 
+import in.fortrainer.admin.R;
 import in.fortrainer.admin.adapters.BannerAdapter;
-import in.fortrainer.admin.adapters.PostAdpater;
 import in.fortrainer.admin.models.Banner;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
 import in.fortrainer.admin.utilities.CommonRecyclerScreen;
@@ -28,7 +20,7 @@ import retrofit2.Response;
 import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 
 
-public class BannerActivity extends AppCompatActivity{
+public class BannerListActivity extends AppCompatActivity{
     List<Banner> banners;
     //RecyclerView bannerlist;
     BannerAdapter bannerAdapter;
@@ -45,7 +37,8 @@ public class BannerActivity extends AppCompatActivity{
             appId = getIntent().getIntExtra("APP_ID",0);
         }
         else{
-            Toast.makeText(BannerActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
+            Log.d("BannerActivity","failed");
+                    finish();
         }
         setScreen();
 
