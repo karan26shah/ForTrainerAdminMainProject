@@ -39,8 +39,18 @@ public interface RetrofitService {
     @GET("apps/{id}/posts")
     Call<JsonObject> getPostlist(@Path("id") int id);
 
+    @FormUrlEncoded
+    @PUT("apps/{id}/posts/{post_id}/update")
+    Call<JsonObject> Updatepost(@Path("id") int id, @Path("post_id") int post_id, @Field("app_post[title]") String post_title, @Field("app_post[description]") String post_desc);
+
     @GET("apps/{id}/products")
     Call<JsonObject> getProductslist(@Path("id") int id);
+
+    @FormUrlEncoded
+    @PUT("apps/{id}/products/{product_id}/update")
+    Call<JsonObject> Updateproduct(@Path("id") int id, @Path("product_id") int product_id, @Field("app_product[name]") String product_name, @Field("app_product[price]") String product_price);
+
+
 
 
 }
