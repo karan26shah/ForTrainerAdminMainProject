@@ -50,7 +50,7 @@ public class ProductEditActivity extends AppCompatActivity {
         init();
     }
     public void doUpdateproduct() {
-        Call<JsonObject> productListCall = RetrofitHelper.getRetrofitService(context).Updateproduct(App.getCurrentapp(this),appProduct.getId(),pd_name.getText().toString(),pd_price.getText().toString());
+        Call<JsonObject> productListCall = RetrofitHelper.getRetrofitService(context).Updateproduct(appProduct.getId(),pd_name.getText().toString(),pd_price.getText().toString());
         productListCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {

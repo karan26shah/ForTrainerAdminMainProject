@@ -38,7 +38,8 @@
         <activity android:name=".activities.PostDetailActivity" />
         <activity android:name=".activities.PostEditActivity" />
         <activity android:name=".activities.ProductDetailActivity" />
-        <activity android:name=".activities.ProductEditActivity"></activity>
+        <activity android:name=".activities.ProductEditActivity" />
+        <activity android:name=".activities.OrderDetailActivity"></activity>
     </application>
 
 </manifest>

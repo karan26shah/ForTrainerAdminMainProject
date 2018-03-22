@@ -56,7 +56,7 @@ public class PostActivity extends AppCompatActivity {
 
     private void getPosts() {
         crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
-        Call<JsonObject> eventListCall = RetrofitHelper.getRetrofitService(context).getPostlist(appId);
+        Call<JsonObject> eventListCall = RetrofitHelper.getRetrofitService(context).getPostlist();
         eventListCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {

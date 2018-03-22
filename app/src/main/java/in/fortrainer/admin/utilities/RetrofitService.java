@@ -24,33 +24,30 @@ public interface RetrofitService {
     @POST("users/sign_in")
     Call<Admin> loginin(@Body userLogin userLogin);
 
-    @GET("apps/{id}/events")
-    Call<JsonObject> getEventlist(@Path("id") int id);
+    @GET("app/events")
+    Call<JsonObject> getEventlist();
 
-    @GET("apps/{id}/orders")
-    Call<JsonObject> getOrderslist(@Path("id") int id, @Query("page") int i,@Query("per_page") int perpage);
+    @GET("app/orders")
+    Call<JsonObject> getOrderslist( @Query("page") int i,@Query("per_page") int perpage);
 
-    @GET("apps/{id}/banners")
-    Call<List<Banner>> listBanner(@Path("id") int id);
+    @GET("app/banners")
+    Call<List<Banner>> listBanner();
 
     @GET("apps.json")
     Call<JsonObject> getApplist();
 
-    @GET("apps/{id}/posts")
-    Call<JsonObject> getPostlist(@Path("id") int id);
+    @GET("app/posts")
+    Call<JsonObject> getPostlist();
 
     @FormUrlEncoded
-    @PUT("apps/{id}/posts/{post_id}/update")
-    Call<JsonObject> Updatepost(@Path("id") int id, @Path("post_id") int post_id, @Field("app_post[title]") String post_title, @Field("app_post[description]") String post_desc);
+    @PUT("app/posts/{post_id}/update")
+    Call<JsonObject> Updatepost( @Path("post_id") int post_id, @Field("app_post[title]") String post_title, @Field("app_post[description]") String post_desc);
 
-    @GET("apps/{id}/products")
-    Call<JsonObject> getProductslist(@Path("id") int id);
+    @GET("app/products")
+    Call<JsonObject> getProductslist();
 
     @FormUrlEncoded
-    @PUT("apps/{id}/products/{product_id}/update")
-    Call<JsonObject> Updateproduct(@Path("id") int id, @Path("product_id") int product_id, @Field("app_product[name]") String product_name, @Field("app_product[price]") String product_price);
-
-
-
+    @PUT("app/products/{product_id}/update")
+    Call<JsonObject> Updateproduct(@Path("product_id") int product_id, @Field("app_product[name]") String product_name, @Field("app_product[price]") String product_price);
 
 }

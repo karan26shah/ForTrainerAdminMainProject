@@ -17,6 +17,7 @@ import javax.net.ssl.X509TrustManager;
 import in.fortrainer.admin.BuildConfig;
 import in.fortrainer.admin.R;
 import in.fortrainer.admin.models.Admin;
+import in.fortrainer.admin.models.App;
 import okhttp3.ConnectionSpec;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -116,6 +117,7 @@ public class RetrofitHelper {
                         if(Admin.isLoggedIn(context)) {
                             builder.addHeader("user-id", currentAdmin.getId().toString())
                                     .addHeader(context.getString(R.string.authHeader), getActiveAuthToken(context))
+                                    .addHeader("app-id", String.valueOf(App.getCurrentapp(context)))
                                     .method(original.method(), original.body());
                         }
                     }else{

@@ -59,7 +59,7 @@ public class PostEditActivity extends AppCompatActivity {
     }
 
     public void doUpdatepost() {
-        Call<JsonObject> productListCall = RetrofitHelper.getRetrofitService(context).Updatepost(App.getCurrentapp(this),appPost.getId(),edTitle.getText().toString(),edsd.getText().toString());
+        Call<JsonObject> productListCall = RetrofitHelper.getRetrofitService(context).Updatepost(appPost.getId(),edTitle.getText().toString(),edsd.getText().toString());
         productListCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {

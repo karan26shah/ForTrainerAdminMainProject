@@ -62,7 +62,7 @@ public class OrderActivity extends AppCompatActivity  {
 
     public void getOrders() {
         crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
-        Call<JsonObject> orderslistCall = RetrofitHelper.getRetrofitService(context).getOrderslist(appId,loadedpage+1,PER_PAGE);
+        Call<JsonObject> orderslistCall = RetrofitHelper.getRetrofitService(context).getOrderslist(loadedpage+1,PER_PAGE);
         orderslistCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
