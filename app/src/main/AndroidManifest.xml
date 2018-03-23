@@ -39,9 +39,12 @@
         <activity android:name=".activities.PostEditActivity" />
         <activity android:name=".activities.ProductDetailActivity" />
         <activity android:name=".activities.ProductEditActivity" />
-        <activity android:name=".activities.OrderDetailActivity"></activity>
-        <activity android:name=".activities.BannerDetailsActivity" />
-        <activity android:name=".activities.BannerEditActivity"></activity>
+        <activity android:name=".activities.OrderDetailActivity"/>
+        <activity android:name=".activities.BannerDetailsActivity"/>
+        <activity android:name=".activities.EventEditActivity"/>
+        <activity android:name=".activities.EventDetailActivity"/>
+        <activity android:name=".activities.BannerEditActivity">
+        </activity>
     </application>
 
 </manifest>
