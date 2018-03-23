@@ -1,0 +1,141 @@
+package in.fortrainer.admin.activities;
+
+import android.content.Context;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import in.fortrainer.admin.R;
+import in.fortrainer.admin.models.Event;
+import in.fortrainer.admin.utilities.RetrofitHelper;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
+public class EventDetailActivity extends AppCompatActivity {
+
+    Event event;
+
+    TextView id;
+    TextView name;
+    TextView venue;
+    TextView amt;
+    TextView starttime;
+    TextView endtime;
+
+
+    public Button btEdit;
+    public Button btremove;
+
+    public void editButtonClick(){
+
+        btEdit= (Button)findViewById(R.id.bt_edit);
+
+        btEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent =  new Intent(EventDetailActivity.this,EventEditActivity.class);
+                intent.putExtra("EVENT_DETAILS", new Gson().toJson(event, Event.class));
+                startActivity(intent);
+
+            }
+        });
+    }
+
+    public void removeButtonClick(){
+
+        btremove= (Button)findViewById(R.id.bt_remove);
+
+        btremove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Call<JsonObject> removeEventCall = RetrofitHelper.getRetrofitService(context).deleteEvent(event.getId());
+                removeEventCall.enqueue(new Callback<JsonObject>() {
+                    @Override
+                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+
+                        if (response.isSuccessful()) {
+                            Toast.makeText(EventDetailActivity.this, "Event Deleted Successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
+                        Toast.makeText(EventDetailActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                Intent intent =  new Intent(EventDetailActivity.this,EventActivity.class);
+                intent.putExtra("EVENT_DETAILS", new Gson().toJson(event, Event.class));
+                startActivity(intent);
+
+            }
+        });
+    }
+    public static void onEventClicked(Context context, Event event){
+        Intent intent = new Intent(context, EventDetailActivity.class);
+        intent.putExtra("EVENT_DETAILS", new Gson().toJson(event, Event.class));
+        context.startActivity(intent);
+    }
+
+    public void bindViews(){
+
+        id = (TextView)findViewById(R.id.id);
+        name =(TextView)findViewById(R.id.name);
+        venue = (TextView)findViewById(R.id.venue);
+        amt =(TextView)findViewById(R.id.amt);
+        starttime = (TextView)findViewById(R.id.starttime);
+        endtime = (TextView)findViewById(R.id.endtime);
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        readIntent();
+        setContentView(R.layout.activity_event_detail);
+        bindViews();
+        editButtonClick();
+        removeButtonClick();
+
+        if(event != null) {
+            setEventDetails();
+        }else{
+            Toast.makeText(this, "failed to get event details", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+
+    private void setEventDetails(){
+        id.setText(String.valueOf(event.getId()));
+        name.setText(event.getName());
+        venue.setText(event.getAddress().getAddressLine1());
+        if(event.getIsPaid()){
+            amt.setText(event.getPrice());
+        }else{
+            amt.setText(event.getPrice());
+        }
+        starttime.setText(event.getStartDatetime());
+        endtime.setText(event.getEndDatetime());
+    }
+
+    private void readIntent(){
+
+        if (getIntent().getStringExtra("EVENT_DETAILS") == null) {
+            Toast.makeText(this, "cant get event", Toast.LENGTH_SHORT).show();
+            finish();
+        }else{
+            event = new Gson().fromJson(getIntent().getStringExtra("EVENT_DETAILS"), Event.class);
+        }
+    }
+
+}

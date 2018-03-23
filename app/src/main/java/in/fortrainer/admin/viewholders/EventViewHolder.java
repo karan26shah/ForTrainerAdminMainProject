@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import in.fortrainer.admin.activities.EventDetailActivity;
+import in.fortrainer.admin.models.AppPost;
 import in.fortrainer.admin.models.Event;
 import in.fortrainer.admin.R;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
@@ -21,7 +23,9 @@ public class EventViewHolder extends RecyclerView.ViewHolder{
     TextView name;
     TextView venue;
     TextView amt;
-    TextView time;
+    TextView sttime;
+    TextView edtime;
+
     LinearLayout llEventHolder;
 
     public EventViewHolder(View itemView)
@@ -36,26 +40,39 @@ public class EventViewHolder extends RecyclerView.ViewHolder{
         name = rootView.findViewById(R.id.name);
         venue = rootView.findViewById(R.id.venue);
         amt = rootView.findViewById(R.id.amt);
-        time = rootView.findViewById(R.id.time);
+        sttime = rootView.findViewById(R.id.starttime);
+        edtime = rootView.findViewById(R.id.endtime);
         llEventHolder = rootView.findViewById(R.id.ll_event_holder);
 
     }
     public void bindData(Context context, CommonRecyclerItem commonRecyclerItem){
+
         Event event = (Event) commonRecyclerItem.getItem();
-        id.setText(String.valueOf(event.getId()));
+//       id.setText(String.valueOf(event.getId()));
         name.setText(event.getName());
-        venue.setText(event.getAddressLine1());
+        venue.setText(event.getAddress().getAddressLine1());
         if(event.getIsPaid()){
-            amt.setText("true");
+            amt.setText(event.getPrice());
         }else{
-            amt.setText("false");
+            amt.setText(event.getPrice());
         }
-        time.setText(event.getStartDatetime());
+        sttime.setText(event.getStartDatetime());
+        edtime.setText(event.getEndDatetime());
         llEventHolder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                //launchEventDetailsScreen();
+                if(context!= null){
+                    EventDetailActivity.onEventClicked(context,event);
+                }
             }
         });
     }
+
+    private void launchEventDetailsScreen(Context context, Event event){
+
+    }
+
+
 }

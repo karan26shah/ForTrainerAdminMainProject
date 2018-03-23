@@ -44,12 +44,12 @@ public class OrderActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
-        if(getIntent().getIntExtra("APP_ID",0)!= 0){
+       /* if(getIntent().getIntExtra("APP_ID",0)!= 0){
             appId = getIntent().getIntExtra("APP_ID",0);
         }
         else{
             Toast.makeText(OrderActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
-        }
+        }*/
         setScreen();
     }
     private void setScreen(){
