@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/FortrainerColor"
     tools:context="in.fortrainer.admin.activities.PostActivity">
 
     <include layout="@layout/layout_common_recycler">

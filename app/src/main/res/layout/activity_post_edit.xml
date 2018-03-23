@@ -7,7 +7,8 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:layout_margin="4dp"
 android:orientation="vertical"
-tools:context="in.fortrainer.admin.activities.PostEditActivity">
+tools:context="in.fortrainer.admin.activities.PostEditActivity"
+    android:background="@color/FortrainerColor">
 
 <LinearLayout
     android:layout_width="match_parent"

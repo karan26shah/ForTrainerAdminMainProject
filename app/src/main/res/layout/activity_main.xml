@@ -14,7 +14,7 @@
     <Button
         android:id="@+id/bt_order"
         android:layout_width="match_parent"
-        android:layout_height="84dp"
+        android:layout_height="87dp"
         android:text="ORDERS"
         android:paddingRight="30dp" />
 </LinearLayout>
@@ -28,7 +28,7 @@
     <Button
         android:id="@+id/bt_event"
         android:layout_width="match_parent"
-        android:layout_height="84dp"
+        android:layout_height="87dp"
         android:text="EVENTS" />
 </LinearLayout>
 
@@ -40,7 +40,7 @@
     <Button
         android:id="@+id/bt_banner"
         android:layout_width="match_parent"
-        android:layout_height="84dp"
+        android:layout_height="87dp"
         android:text="BANNERS" />
 </LinearLayout>
 
@@ -53,7 +53,7 @@
     <Button
         android:id="@+id/bt_post"
         android:layout_width="match_parent"
-        android:layout_height="84dp"
+        android:layout_height="87dp"
         android:text="POSTS" />
 </LinearLayout>
 
@@ -65,7 +65,7 @@
     <Button
         android:id="@+id/bt_user"
         android:layout_width="match_parent"
-        android:layout_height="84dp"
+        android:layout_height="87dp"
         android:text="USERS" />
     </LinearLayout>
 
@@ -78,9 +78,7 @@
         <Button
             android:id="@+id/bt_product"
             android:layout_width="match_parent"
-            android:layout_height="84dp"
+            android:layout_height="87dp"
             android:text="PRODUCTS" />
      </LinearLayout>
-
-
 </RelativeLayout>

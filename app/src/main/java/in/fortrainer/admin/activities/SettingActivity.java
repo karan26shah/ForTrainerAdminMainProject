@@ -18,13 +18,13 @@ public class SettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-        if(getIntent().getIntExtra("APP_ID",0)!= 0){
+       /* if(getIntent().getIntExtra("APP_ID",0)!= 0){
             appId = getIntent().getIntExtra("APP_ID",0);
         }
         else{
             Toast.makeText(SettingActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
         }
-        appId = getIntent().getIntExtra("APP_ID",0);
+        appId = getIntent().getIntExtra("APP_ID",0);*/
         View button = findViewById(R.id.bt_logout);
         button.setOnClickListener( view -> {
             eraseCurrentUserData(context);

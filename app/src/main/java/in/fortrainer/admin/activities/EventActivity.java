@@ -1,5 +1,7 @@
 package in.fortrainer.admin.activities;
 
+import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +16,7 @@ import java.util.List;
 
 import in.fortrainer.admin.R;
 import in.fortrainer.admin.adapters.EventAdapter;
+import in.fortrainer.admin.adapters.PostAdpater;
 import in.fortrainer.admin.models.Event;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
 import in.fortrainer.admin.utilities.CommonRecyclerScreen;

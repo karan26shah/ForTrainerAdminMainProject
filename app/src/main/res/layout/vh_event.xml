@@ -5,10 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
+    android:background="#FFFFE1"
     android:orientation="vertical"
-    android:id="@+id/ll_event_holder"
-    android:background="?attr/selectableItemBackground"
-    android:clickable="true"
     tools:context="in.fortrainer.admin.activities.EventActivity">
 
     <android.support.v7.widget.CardView
@@ -17,12 +15,15 @@
         android:layout_height="wrap_content"
         android:elevation="16dp"
         android:layout_margin="16dp"
+
         app:contentPadding="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
+            android:id="@+id/ll_event_holder"
+            android:clickable="true"
             android:orientation="vertical">
 
             <LinearLayout
@@ -32,60 +33,6 @@
                 android:baselineAligned="false"
                 android:orientation="horizontal"
                 android:weightSum="2">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:weightSum="2">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:weightSum="2">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="ID:" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="12sp"
-                            android:id="@+id/id" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:weightSum="2">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Venue:" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="12sp"
-                            android:id="@+id/venue" />
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -102,13 +49,13 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Name:" />
+                            android:text="Name:"
+                            android:textStyle="bold"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="12sp"
+                            android:textSize="16sp"
                             android:id="@+id/name" />
 
 
@@ -117,23 +64,63 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:weightSum="2">
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:id="@+id/linearlayout2">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Amount Paid:" />
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:weightSum="2">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="12sp"
-                            android:id="@+id/amt" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Venue:"
+                                android:textStyle="bold" />
 
+                            <TextView
+                                android:id="@+id/venue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp" />
+
+
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Price:"
+                                    android:textStyle="bold"/>
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="16sp"
+                                    android:id="@+id/amt" />
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
 
                     </LinearLayout>
+
+
+
 
 
                 </LinearLayout>
@@ -143,14 +130,40 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:weightSum="2">
 
                 <TextView
-                    android:id="@+id/time"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:text="Start Date :"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/starttime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="End Date :"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/endtime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>
