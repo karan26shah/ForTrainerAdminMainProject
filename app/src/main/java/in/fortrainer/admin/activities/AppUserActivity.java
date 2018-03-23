@@ -3,22 +3,18 @@ package in.fortrainer.admin.activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 import in.fortrainer.admin.R;
+import in.fortrainer.admin.adapters.AppUserAdapter;
 import in.fortrainer.admin.adapters.OrderAdpater;
-import in.fortrainer.admin.adapters.PostAdpater;
-import in.fortrainer.admin.models.AppPost;
+import in.fortrainer.admin.models.AppUser;
 import in.fortrainer.admin.models.Order;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
 import in.fortrainer.admin.utilities.CommonRecyclerScreen;
@@ -29,11 +25,10 @@ import retrofit2.Response;
 
 import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 
-public class OrderActivity extends AppCompatActivity  {
+public class AppUserActivity extends AppCompatActivity {
 
-
-    public List<Order> orders;
-    OrderAdpater orderAdpater;
+    public List<AppUser> AppUsers;
+    AppUserAdapter appUserAdapter;
     public int loadedpage;
     public static int PER_PAGE = 10;
     //private int totalEntries;
@@ -43,53 +38,54 @@ public class OrderActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order);
+        setContentView(R.layout.activity_user1);
         if(getIntent().getIntExtra("APP_ID",0)!= 0){
             appId = getIntent().getIntExtra("APP_ID",0);
         }
         else{
-            Toast.makeText(OrderActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
+            Toast.makeText(AppUserActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
         }
         setScreen();
     }
     private void setScreen(){
         crs = CommonRecyclerScreen.setupWithActivity(this);
-        orderAdpater = new OrderAdpater(this,crs.recyclerItems);
+        appUserAdapter = new AppUserAdapter(this,crs.recyclerItems);
         crs.setLayoutManager(new LinearLayoutManager(this));
-        crs.attachAdapter(orderAdpater);
-        getOrders();
+        crs.attachAdapter(appUserAdapter);
+        getAppUsers();
     }
 
-    public void getOrders() {
-        crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
-        Call<JsonObject> orderslistCall = RetrofitHelper.getRetrofitService(context).getOrderslist(appId,loadedpage+1,PER_PAGE);
-        orderslistCall.enqueue(new Callback<JsonObject>() {
+    public void getAppUsers() {
+         crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
+        Call<JsonObject> AppUserslistCall = RetrofitHelper.getRetrofitService(context).getAppUserslist(appId,loadedpage+1,PER_PAGE);
+        AppUserslistCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 if (response.isSuccessful()) {
                     JsonObject jsonObject = response.body();
-                    orders = new Gson().fromJson(jsonObject.getAsJsonArray("app_orders"), new TypeToken<List<Order>>() {
+                    AppUsers = new Gson().fromJson(jsonObject.getAsJsonArray("users"), new TypeToken<List<AppUser>>() {
                     }.getType());
                     //totalEntries = response.body().get("total_entries").getAsInt();
-                    if (orders.size() == 0)
+                    if (AppUsers.size() == 0)
                     {
                         CommonRecyclerItem commonRecyclerItem =new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK,"No data yet",this);
                         crs.recyclerItems.add(commonRecyclerItem);
                     }else {
-                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.ORDERS, orders,this));
+                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.APP_USER, AppUsers,this));
                     }
-                    orderAdpater.notifyDataSetChanged();
+                    appUserAdapter.notifyDataSetChanged();
                     crs.setScreen(CommonRecyclerScreen.ScreenMode.DONE);
-                    crs.removeLoadingFromEnd();
                 }else{
-                    Toast.makeText(OrderActivity.this, "please try again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AppUserActivity.this, "please try again", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
-                Toast.makeText(OrderActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AppUserActivity.this, "failed", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
+
 }
 

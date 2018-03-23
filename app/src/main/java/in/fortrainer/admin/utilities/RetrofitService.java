@@ -42,5 +42,7 @@ public interface RetrofitService {
     @GET("apps/{id}/products")
     Call<JsonObject> getProductslist(@Path("id") int id);
 
+    @GET("apps/{id}/app_users")
+    Call<JsonObject> getAppUserslist(@Path("id") int id, @Query("page") int i,@Query("per_page") int perpage);
 
 }

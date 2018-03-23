@@ -25,13 +25,13 @@
 
             <TextView
                 android:id="@+id/tv_mobile"
-                android:text="mobile"
-                android:textColor="#212121"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:paddingBottom="@dimen/google_1x"
                 android:paddingLeft="@dimen/google_1x"
                 android:paddingRight="@dimen/google_1x"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:text="mobile"
+                android:textColor="#212121" />
 
             <TextView
                 android:id="@+id/tv_email"
