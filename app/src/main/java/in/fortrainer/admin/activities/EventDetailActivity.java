@@ -2,15 +2,21 @@ package in.fortrainer.admin.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import in.fortrainer.admin.R;
 import in.fortrainer.admin.models.Event;
@@ -18,6 +24,8 @@ import in.fortrainer.admin.utilities.RetrofitHelper;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static android.content.ContentValues.TAG;
 import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 public class EventDetailActivity extends AppCompatActivity {
 
@@ -29,6 +37,7 @@ public class EventDetailActivity extends AppCompatActivity {
     TextView amt;
     TextView starttime;
     TextView endtime;
+    ImageView imageView;
 
 
     public Button btEdit;
@@ -94,6 +103,7 @@ public class EventDetailActivity extends AppCompatActivity {
         amt =(TextView)findViewById(R.id.amt);
         starttime = (TextView)findViewById(R.id.starttime);
         endtime = (TextView)findViewById(R.id.endtime);
+        imageView = findViewById(R.id.app_iv);
 
     }
 
@@ -126,6 +136,40 @@ public class EventDetailActivity extends AppCompatActivity {
         }
         starttime.setText(event.getStartDatetime());
         endtime.setText(event.getEndDatetime());
+        if (event.getImage() == null || event.getImage().getMediumImageUrl() == null) {
+            Log.d(TAG, "onViewCreated: image found null");
+            // tvLink.setText(banner.getTitle());
+            //progressBar.setVisibility(View.GONE);
+        } else {
+            Log.d(TAG, "onViewCreated: image is not null...trying to load it/");
+            //progressBar.setVisibility(View.VISIBLE);
+            Target target = new Target() {
+                @Override
+                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                    Log.d(TAG, "onBitmapLoaded: bitmap loaded");
+                    imageView.setImageBitmap(bitmap);
+                    //tvLink.setText(banner.getTitle());
+                    //tvLink.setVisibility(View.GONE);
+                    //progressBar.setVisibility(View.GONE);
+                    //imgReference.setVisibility(View.INVISIBLE);
+                }
+
+
+                @Override
+                public void onBitmapFailed(Drawable errorDrawable) {
+                    Log.d(TAG, "onBitmapFailed: BItmap failed");
+                    //tvLink.setText(banner.getTitle());
+                    //progressBar.setVisibility(View.GONE);
+                    //imgReference.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+                }
+            };
+            Picasso.with(context).load(event.getImage().getMediumImageUrl()).resize(600,300).into(target);
+        }
     }
 
     private void readIntent(){

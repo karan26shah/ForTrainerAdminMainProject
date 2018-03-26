@@ -5,6 +5,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/FortrainerColor">
 
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cv1">
+
     <LinearLayout
             android:id="@+id/ll_post"
             android:layout_width="match_parent"
@@ -25,14 +30,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:text="Post_id" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/ll_post1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/ll_post"
-        android:paddingTop="5dp">
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -49,15 +47,6 @@
                 android:layout_alignParentTop="true"
                 android:text="Titlte"
                 android:textSize="20sp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_post2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/ll_post1"
-        android:paddingTop="5dp">
 
 
     <TextView
@@ -77,6 +66,7 @@
 
 
         </LinearLayout>
+    </android.support.v7.widget.CardView>
        <!-- <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

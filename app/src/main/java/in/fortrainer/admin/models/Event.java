@@ -39,6 +39,9 @@ public class Event {
     @SerializedName("price")
     @Expose
     private String price;
+    @SerializedName("image")
+    @Expose
+    private Image image;
 
 
 
@@ -115,5 +118,13 @@ public class Event {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 }
