@@ -57,6 +57,9 @@ public interface RetrofitService {
     @GET("app/posts")
     Call<JsonObject> getPostlist();
 
+    @DELETE("app/posts/{post_id}/delete.json")
+    Call<JsonObject> deletePost(@Path("post_id") int post_id);
+
     @FormUrlEncoded
     @PUT("app/posts/{post_id}/update")
     Call<JsonObject> Updatepost( @Path("post_id") int post_id, @Field("app_post[title]") String post_title, @Field("app_post[description]") String post_desc);

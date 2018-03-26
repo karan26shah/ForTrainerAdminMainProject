@@ -16,6 +16,10 @@ public class AppPost {
     @Expose
     public String description;
 
+    @SerializedName("shared_image")
+    @Expose
+    public SharedImage sharedImage;
+
     public Integer getId() {
         return id;
     }
@@ -30,6 +34,14 @@ public class AppPost {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public SharedImage getImage() {
+        return sharedImage;
+    }
+
+    public void setImage(SharedImage sharedImage) {
+        this.sharedImage = sharedImage;
     }
 
     public String getDescription() {
