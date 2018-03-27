@@ -71,4 +71,7 @@ public interface RetrofitService {
     @PUT("app/products/{product_id}/update")
     Call<JsonObject> Updateproduct(@Path("product_id") int product_id, @Field("app_product[name]") String product_name, @Field("app_product[price]") String product_price);
 
+    @DELETE("app/products/{product_id}/delete")
+    Call<JsonObject> deleteProduct(@Path("product_id") int productId);
+
 }

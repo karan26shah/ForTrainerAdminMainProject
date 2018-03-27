@@ -24,6 +24,9 @@ public class AppProduct {
     @SerializedName("readable_price")
     @Expose
     public String readablePrice;
+    @SerializedName("image")
+    @Expose
+    private Image image;
 
     public Integer getId() {
         return id;
@@ -71,6 +74,14 @@ public class AppProduct {
 
     public void setReadablePrice(String readablePrice) {
         this.readablePrice = readablePrice;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 
 }
