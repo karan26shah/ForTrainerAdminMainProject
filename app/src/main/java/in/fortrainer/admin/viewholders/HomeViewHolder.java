@@ -38,7 +38,7 @@ import static android.content.ContentValues.TAG;
 public class HomeViewHolder extends RecyclerView.ViewHolder {
     LinearLayout ll_app;
     CardView cv1;
-    TextView App_id;
+    //TextView App_id;
     TextView App_name;
     TextView App_sd;
     ImageView App_iv;
@@ -51,7 +51,7 @@ public class HomeViewHolder extends RecyclerView.ViewHolder {
 
     private void bindViews(View itemView){
         cv1 = itemView.findViewById(R.id.cv1);
-        App_id = itemView.findViewById(R.id.App_id);
+      //  App_id = itemView.findViewById(R.id.App_id);
         App_name = itemView.findViewById(R.id.App_name);
         App_sd = itemView.findViewById(R.id.App_sd);
         ll_app = itemView.findViewById(R.id.ll_app);
@@ -61,7 +61,7 @@ public class HomeViewHolder extends RecyclerView.ViewHolder {
     public void bindData(Context context, CommonRecyclerItem commonRecyclerItem){
 
         App apps = (App) commonRecyclerItem.getItem();
-        App_id.setText(String.valueOf(apps.getAppId()));
+        //App_id.setText(String.valueOf(apps.getAppId()));
         App_name.setText(apps.getName());
         App_sd.setText(apps.getShortDescription());
         if (apps.getAndroidAppIconImageUrl() == null || apps.getAndroidAppIconImageUrl() == null) {
