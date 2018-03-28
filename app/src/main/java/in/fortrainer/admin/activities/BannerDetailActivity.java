@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,20 +32,19 @@ public class BannerDetailActivity extends AppCompatActivity {
     TextView Banner_id;
     TextView Banner_title;
     TextView link;
-    public Button btEdit;
-    Button btremove;
+    Button button;
     ImageView imageView;
-
     Target target;
     Banner banners;
+    LinearLayout linearLayout;
 
 
     public static String TAG = "c";
 
 
     public void init(){
-        btEdit= findViewById(R.id.bt_edit);
-        btEdit.setOnClickListener(new View.OnClickListener() {
+        button= findViewById(R.id.bt_edit);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent =  new Intent(BannerDetailActivity.this,BannerEditActivity.class);
@@ -70,9 +70,9 @@ public class BannerDetailActivity extends AppCompatActivity {
 
     public void editButtonClick(){
 
-        btEdit= (Button)findViewById(R.id.bt_edit);
+        button= (Button)findViewById(R.id.bt_edit);
 
-        btEdit.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -85,13 +85,10 @@ public class BannerDetailActivity extends AppCompatActivity {
     }
 
     public void removeButtonClick(){
-
-        btremove= (Button)findViewById(R.id.bt_remove);
-
-        btremove.setOnClickListener(new View.OnClickListener() {
+        button= (Button)findViewById(R.id.bt_remove);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Call<JsonObject> removebannercall = RetrofitHelper.getRetrofitService(context).deleteBanner(banners.getId());
                 removebannercall.enqueue(new Callback<JsonObject>() {
                     @Override
@@ -119,6 +116,8 @@ public class BannerDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_banner_detail);
+        button = (Button) findViewById(R.id.bt_nointernet);
+        linearLayout = (LinearLayout) findViewById(R.id.nointernet);
         bindViews();
         readIntent();
         init();

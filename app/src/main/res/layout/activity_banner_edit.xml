@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/FortrainerColor"
+    android:background="@color/google_gray_50"
     tools:context="in.fortrainer.admin.activities.BannerEditActivity">
 
     <LinearLayout
@@ -57,6 +57,7 @@
             android:text="SUBMIT"
             android:id="@+id/bt_submit"/>
     </LinearLayout>
+    <include layout="@layout/check_int"></include>
 
 
 </LinearLayout>

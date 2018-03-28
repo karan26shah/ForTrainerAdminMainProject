@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import in.fortrainer.admin.adapters.HomeAdpater;
 import in.fortrainer.admin.adapters.PostAdpater;
 import in.fortrainer.admin.models.App;
 import in.fortrainer.admin.models.Event;
+import in.fortrainer.admin.utilities.AdminHelper;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
 import in.fortrainer.admin.utilities.CommonRecyclerScreen;
 import in.fortrainer.admin.utilities.RetrofitHelper;
@@ -38,12 +40,16 @@ public class HomeActivity extends AppCompatActivity {
     HomeAdpater homeAdpater;
     List<App> apps = new ArrayList();
     CommonRecyclerScreen crs;
+    Button button;
+    LinearLayout linearLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        button = (Button) findViewById(R.id.bt_nointernet);
+        linearLayout = (LinearLayout) findViewById(R.id.nointernet);
         setScreen();
 
     }
@@ -56,34 +62,50 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void getApps() {
-        crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
-        Call<JsonObject> appListCall = RetrofitHelper.getRetrofitService(context).getApplist();
-        appListCall.enqueue(new Callback<JsonObject>() {
-            @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                if (response.isSuccessful()) {
-                    JsonObject jsonObject = response.body();
-                    apps = new Gson().fromJson(jsonObject.getAsJsonArray("apps"), new TypeToken<List<App>>() {
-                    }.getType());
-                    if (apps.size() == 0)
-                    {
-                        CommonRecyclerItem commonRecyclerItem =new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK,"No posts yet",this);
-                        crs.recyclerItems.add(commonRecyclerItem);
-                    }else {
-                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.APPS, apps,this));
+        if (AdminHelper.isDataAdapterOn(context)) {
+            crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
+            Call<JsonObject> appListCall = RetrofitHelper.getRetrofitService(context).getApplist();
+            appListCall.enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    if (response.isSuccessful()) {
+                        JsonObject jsonObject = response.body();
+                        apps = new Gson().fromJson(jsonObject.getAsJsonArray("apps"), new TypeToken<List<App>>() {
+                        }.getType());
+                        if (apps.size() == 0) {
+                            CommonRecyclerItem commonRecyclerItem = new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK, "No posts yet", this);
+                            crs.recyclerItems.add(commonRecyclerItem);
+                        } else {
+                            crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.APPS, apps, this));
+                        }
+                        homeAdpater.notifyDataSetChanged();
+                        crs.setScreen(CommonRecyclerScreen.ScreenMode.DONE);
+                    } else {
+                        Toast.makeText(HomeActivity.this, "please try again", Toast.LENGTH_SHORT).show();
                     }
-                    homeAdpater.notifyDataSetChanged();
-                    crs.setScreen(CommonRecyclerScreen.ScreenMode.DONE);
-
-                }else{
-                    Toast.makeText(HomeActivity.this, "please try again", Toast.LENGTH_SHORT).show();
                 }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    Toast.makeText(HomeActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else
+            {
+                Toast.makeText(HomeActivity.this, "check your internet connection", Toast.LENGTH_SHORT).show();
+                linearLayout.setVisibility(View.VISIBLE);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        linearLayout.setVisibility(View.GONE);
+                        getApps();
+
+                    }
+
+                });
+
             }
-            @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
-                Toast.makeText(HomeActivity.this, "failed", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override

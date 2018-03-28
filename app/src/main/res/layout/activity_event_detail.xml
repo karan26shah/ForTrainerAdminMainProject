@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="4dp"
     android:orientation="vertical"
-    android:background="#FFFFE1"
+    android:background="@color/google_gray_50"
     tools:context="in.fortrainer.admin.activities.EventDetailActivity">
 
     <LinearLayout
@@ -215,5 +215,6 @@
 
 
         </LinearLayout>
+    <include layout="@layout/check_int"></include>
 
 </LinearLayout>

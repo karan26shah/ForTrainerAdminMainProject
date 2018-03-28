@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="in.fortrainer.admin.activities.EventActivity"
-    android:background="@color/FortrainerColor">
+    android:background="@color/google_gray_50">
 
     <include layout="@layout/layout_common_recycler"></include>
+    <include layout="@layout/check_int"></include>
 </RelativeLayout>

@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="in.fortrainer.admin.activities.MainActivity"
-    android:background="@color/FortrainerColor"
+    android:background="@color/google_gray_50"
     android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,8 +29,8 @@
 
         <ImageView
             android:paddingLeft="10dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:src="@drawable/ic_add_shopping_cart_black_24dp"
             android:id="@+id/iv_1"
@@ -36,12 +47,12 @@
             android:paddingRight="74dp"
             />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="right"
-            android:src="@drawable/ic_navigate_next_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_chevron_right_black_48dp"
             android:id="@+id/iv_2"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:adjustViewBounds="true"/>
 
     </LinearLayout>
@@ -61,8 +72,8 @@
 
         <ImageView
             android:paddingLeft="10dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:src="@drawable/ic_reorder_black_24dp"
             android:id="@+id/iv_3"
@@ -79,13 +90,14 @@
             android:paddingRight="43dp"
             />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="right"
-            android:src="@drawable/ic_navigate_next_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_chevron_right_black_48dp"
             android:id="@+id/iv_4"
-            android:scaleType="fitXY"
-            android:adjustViewBounds="true"/>
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            />
 
     </LinearLayout>
     <View
@@ -104,8 +116,8 @@
 
         <ImageView
             android:paddingLeft="10dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:src="@drawable/ic_local_post_office_black_24dp"
             android:id="@+id/iv_5"
@@ -122,12 +134,12 @@
             android:paddingRight="92dp"
             />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="right"
-            android:src="@drawable/ic_navigate_next_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_chevron_right_black_48dp"
             android:id="@+id/iv_6"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:adjustViewBounds="true"/>
 
     </LinearLayout>
@@ -148,8 +160,8 @@
 
         <ImageView
             android:paddingLeft="10dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:src="@drawable/ic_art_track_black_24dp"
             android:id="@+id/iv_7"
@@ -165,12 +177,12 @@
             android:paddingLeft="70dp"
             android:paddingRight="57dp" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="right"
-            android:src="@drawable/ic_navigate_next_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_chevron_right_black_48dp"
             android:id="@+id/iv_8"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:adjustViewBounds="true"/>
 
     </LinearLayout>
@@ -191,8 +203,8 @@
 
         <ImageView
             android:paddingLeft="10dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:src="@drawable/ic_event_black_24dp"
             android:id="@+id/iv_9"
@@ -209,12 +221,12 @@
             android:paddingRight="77dp"
             />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="right"
-            android:src="@drawable/ic_navigate_next_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_chevron_right_black_48dp"
             android:id="@+id/iv_10"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:adjustViewBounds="true"/>
 
     </LinearLayout>
@@ -234,8 +246,8 @@
 
         <ImageView
             android:paddingLeft="10dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:src="@drawable/ic_accessibility_black_24dp"
             android:id="@+id/iv_11"
@@ -252,12 +264,12 @@
             android:paddingRight="93dp"
             />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="right"
-            android:src="@drawable/ic_navigate_next_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_chevron_right_black_48dp"
             android:id="@+id/iv_12"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:adjustViewBounds="true"/>
 
     </LinearLayout>
@@ -265,5 +277,7 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/black"/>
-
+        </LinearLayout>
+    </ScrollView>
+    <include layout="@layout/check_int"></include>
 </LinearLayout>

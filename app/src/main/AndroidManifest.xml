@@ -19,10 +19,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.UserActivity" />
-        <activity android:name=".activities.SplashActivity">
+        <activity android:name=".activities.SplashActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
