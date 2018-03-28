@@ -41,7 +41,9 @@
         <activity android:name=".activities.ProductEditActivity" />
         <activity android:name=".activities.OrderDetailActivity" />
         <activity android:name=".activities.EventDetailActivity" />
-        <activity android:name=".activities.EventEditActivity"></activity>
+        <activity android:name=".activities.EventEditActivity" />
+        <activity android:name=".activities.BannerDetailActivity" />
+        <activity android:name=".activities.BannerEditActivity"></activity>
     </application>
 
 </manifest>

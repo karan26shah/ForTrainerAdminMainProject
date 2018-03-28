@@ -40,7 +40,15 @@ public interface RetrofitService {
     @GET("app/banners")
     Call<List<Banner>> listBanner();
 
-    @GET("apps.json")
+    @DELETE("app/banners/{banner_id}/delete")
+    Call<JsonObject> deleteBanner(@Path("banner_id") int banner_id);
+
+    @FormUrlEncoded
+    @PUT("app/banners/{banner_id}/update")
+    Call<JsonObject> updateBannerDetails(@Path("banner_id") int id, @Field("banner[title]") String title, @Field("banner[link_url]") String LinkUrl);
+
+
+    @GET("apps")
     Call<JsonObject> getApplist();
 
     @GET("app/posts")

@@ -12,16 +12,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import in.fortrainer.admin.R;
 import in.fortrainer.admin.models.AppPost;
+import in.fortrainer.admin.utilities.RetrofitHelper;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 
 public class PostDetailActivity extends AppCompatActivity {
     AppPost appPost;
     TextView Post_id;
     TextView Post_title;
     TextView Post_sd;
-    public FloatingActionButton btEdit;
+    Button btEdit;
+    Button btremove;
 
     public void init(){
 
@@ -35,7 +43,36 @@ public class PostDetailActivity extends AppCompatActivity {
             }
         });
     }
+    public void removeButtonClick(){
 
+        btremove= (Button)findViewById(R.id.bt_remove);
+
+        btremove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Call<JsonObject> removepostcall = RetrofitHelper.getRetrofitService(context).deletePost(appPost.getId());
+                removepostcall.enqueue(new Callback<JsonObject>() {
+                    @Override
+                    public void onResponse(Call<JsonObject> removepostcall, Response<JsonObject> response) {
+
+                        if (response.isSuccessful()) {
+                            Toast.makeText(PostDetailActivity.this, "Post Deleted Successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
+                        Toast.makeText(PostDetailActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                Intent intent =  new Intent(PostDetailActivity.this,PostActivity.class);
+                intent.putExtra("POST_DETAILS", new Gson().toJson(appPost, AppPost.class));
+                startActivity(intent);
+
+            }
+        });
+    }
 
     public static void onPostClicked(Context context, AppPost appPost){
         Intent intent = new Intent(context, PostDetailActivity.class);

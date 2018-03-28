@@ -14,7 +14,7 @@
         android:id="@+id/cardview1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="20dp"
+        card_view:cardCornerRadius="2dp"
         card_view:cardElevation="4dp"
         android:layout_gravity="center_horizontal"
         card_view:contentPadding="10dp">

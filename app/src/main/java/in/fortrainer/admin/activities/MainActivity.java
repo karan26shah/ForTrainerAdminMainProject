@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     CommonRecyclerScreen crs;
     Button button;
+    LinearLayout linearLayout;
     int appId;
 
 
@@ -38,20 +40,20 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
         }
         appId = getIntent().getIntExtra("APP_ID",0);
-        button = findViewById(R.id.bt_order);
-        button.setOnClickListener( view -> {
+        linearLayout = findViewById(R.id.ll_p1);
+        linearLayout.setOnClickListener( view -> {
             Intent intent = new Intent(MainActivity.this,OrderActivity.class);
             intent.putExtra("APP_ID",appId);
             startActivity(intent);
         });
-        button = findViewById(R.id.bt_banner);
-        button.setOnClickListener( view -> {
+        linearLayout = findViewById(R.id.ll_p4);
+        linearLayout.setOnClickListener( view -> {
             Intent intent = new Intent(MainActivity.this,BannerActivity.class);
             intent.putExtra("APP_ID",appId);
             startActivity(intent);
         });
-        button = findViewById(R.id.bt_event);
-        button.setOnClickListener( view -> {
+        linearLayout = findViewById(R.id.ll_p5);
+        linearLayout.setOnClickListener( view -> {
             Intent intent = new Intent(MainActivity.this,EventActivity.class);
             intent.putExtra("APP_ID",appId);
             startActivity(intent);
@@ -65,22 +67,22 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });*/
 
-        button = findViewById(R.id.bt_user);
-        button.setOnClickListener( view -> {
+        linearLayout = findViewById(R.id.ll_p6);
+        linearLayout.setOnClickListener( view -> {
             Intent intent = new Intent(MainActivity.this,UserDetailActivity.class);
             intent.putExtra("APP_ID",appId);
             startActivity(intent);
         });
 
-        button = findViewById(R.id.bt_post);
-        button.setOnClickListener( view -> {
+        linearLayout = findViewById(R.id.ll_p3);
+        linearLayout.setOnClickListener( view -> {
             Intent intent = new Intent(MainActivity.this,PostActivity.class);
             intent.putExtra("APP_ID",appId);
             startActivity(intent);
         });
 
-        button = findViewById(R.id.bt_product);
-        button.setOnClickListener( view -> {
+        linearLayout = findViewById(R.id.ll_p2);
+        linearLayout.setOnClickListener( view -> {
             Intent intent = new Intent(MainActivity.this,ProductActivity.class);
             intent.putExtra("APP_ID",appId);
             startActivity(intent);

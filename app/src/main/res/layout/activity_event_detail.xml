@@ -9,10 +9,7 @@
     android:background="#FFFFE1"
     tools:context="in.fortrainer.admin.activities.EventDetailActivity">
 
-
-
-
-        <LinearLayout
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
