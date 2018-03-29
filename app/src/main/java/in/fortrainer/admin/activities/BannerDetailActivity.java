@@ -136,7 +136,7 @@ public class BannerDetailActivity extends AppCompatActivity {
         Banner_title.setText(banners.getTitle());
         //description.setText((CharSequence) bannerList.getDescription());
         link.setText((CharSequence) banners.getLinkUrl());
-        if (banners.getImage() == null || banners.getImage().getMediumImageUrl() == null) {
+        if (banners.getSharedImage() == null || banners.getSharedImage().getMediumImageUrl() == null) {
             Log.d(TAG, "onViewCreated: image found null");
         } else {
             Log.d(TAG, "onViewCreated: image is not null...trying to load it/");
@@ -159,7 +159,7 @@ public class BannerDetailActivity extends AppCompatActivity {
 
                 }
             };
-            Picasso.with(context).load(banners.getImage().getMediumImageUrl()).resize(600,300).into(target);
+            Picasso.with(context).load(banners.getSharedImage().getMediumImageUrl()).resize(600,300).into(target);
             //  imageView.setTag(target);
         }
     }

@@ -117,10 +117,4 @@ public class EventViewHolder extends RecyclerView.ViewHolder{
             }
         });
     }
-
-    private void launchEventDetailsScreen(Context context, Event event){
-
-    }
-
-
 }

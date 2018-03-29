@@ -20,12 +20,9 @@ import in.fortrainer.admin.utilities.CommonRecyclerItem;
 
 
 public class BannerViewHolder extends RecyclerView.ViewHolder{
-    TextView id;
+
     TextView title;
-    TextView description;
-    TextView linkurl;
     ImageView imageView;
-    Banner banner;
     Target target;
     public static String TAG = "c";
     LinearLayout linearLayout;
@@ -38,21 +35,16 @@ public class BannerViewHolder extends RecyclerView.ViewHolder{
     }
 
     public void bindViews(View rootview){
-        //  id = (TextView)rootview.findViewById(R.id.id1);
-        title = (TextView)rootview.findViewById(R.id.title);
-        //description = (TextView)rootview.findViewById(R.id.description);
-        // linkurl = (TextView)rootview.findViewById(R.id.linkurl);
-        imageView=(ImageView)rootview.findViewById(R.id.imageview);
-        linearLayout=(LinearLayout)rootview.findViewById(R.id.bd_l1);
+
+        title = rootview.findViewById(R.id.title);
+        imageView= rootview.findViewById(R.id.imageview);
+        linearLayout= rootview.findViewById(R.id.bd_l1);
     }
 
     public void bindData(Context context, CommonRecyclerItem commonRecyclerItem){
         Banner banners = (Banner)commonRecyclerItem.getItem();
-        //id.setText(String.valueOf(banners.getId()));
         title.setText(banners.getTitle());
-        //description.setText((CharSequence) bannerList.getDescription());
-        // linkurl.setText((CharSequence) banners.getLinkUrl());
-        if (banners.getImage() == null || banners.getImage().getMediumImageUrl() == null) {
+        if (banners.getSharedImage() == null || banners.getSharedImage().getMediumImageUrl() == null) {
             Log.d(TAG, "onViewCreated: image found null");
         } else {
             Log.d(TAG, "onViewCreated: image is not null...trying to load it/");
@@ -61,9 +53,8 @@ public class BannerViewHolder extends RecyclerView.ViewHolder{
                 public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                     Log.d(TAG, "onBitmapLoaded: bitmap loaded");
                     imageView.setImageBitmap(bitmap);
-                    imageView.setVisibility(View.VISIBLE);
+                   /* imageView.setVisibility(View.VISIBLE);*/
                 }
-
 
                 @Override
                 public void onBitmapFailed(Drawable errorDrawable) {
@@ -75,7 +66,7 @@ public class BannerViewHolder extends RecyclerView.ViewHolder{
 
                 }
             };
-            Picasso.with(context).load(banners.getImage().getMediumImageUrl()).resize(600,300).into(target);
+            Picasso.with(context).load(banners.getSharedImage().getMediumImageUrl()).resize(600,300).into(target);
             //  imageView.setTag(target);
         }
         linearLayout.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +82,5 @@ public class BannerViewHolder extends RecyclerView.ViewHolder{
         });
     }
 
-    private void launchEventDetailsScreen(Context context, Banner banners){
 
-    }
 }

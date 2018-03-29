@@ -48,8 +48,8 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        button = (Button) findViewById(R.id.bt_nointernet);
-        linearLayout = (LinearLayout) findViewById(R.id.nointernet);
+        button = findViewById(R.id.bt_nointernet);
+        linearLayout = findViewById(R.id.nointernet);
         setScreen();
 
     }

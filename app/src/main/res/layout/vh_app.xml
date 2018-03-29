@@ -28,12 +28,17 @@
                android:layout_gravity="left">
 
                <ImageView
-                   android:layout_width="100dp"
-                   android:layout_height="100dp"
+                   android:layout_width="110dp"
+                   android:layout_height="110dp"
                    android:scaleType="fitXY"
+                   android:layout_gravity="left"
                    android:adjustViewBounds="true"
                    android:src="@mipmap/ic_launcher"
-                   android:id="@+id/app_iv"/>
+                   android:id="@+id/app_iv"
+                   android:paddingLeft="10dp"
+                   android:paddingRight="10dp"
+                   android:paddingTop="10dp"
+                   android:paddingBottom="10dp"/>
 
            </LinearLayout>
            <LinearLayout

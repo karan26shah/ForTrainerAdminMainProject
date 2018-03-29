@@ -7,9 +7,7 @@
     android:background="@color/google_gray_50"
     tools:context="in.fortrainer.admin.activities.PostActivity">
 
-    <include layout="@layout/layout_common_recycler">
-
-    </include>
+    <include layout="@layout/layout_common_recycler"></include>
     <include layout="@layout/check_int"></include>
 
 </android.support.constraint.ConstraintLayout>

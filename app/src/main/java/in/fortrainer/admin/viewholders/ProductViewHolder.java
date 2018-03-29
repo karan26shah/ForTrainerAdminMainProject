@@ -31,7 +31,7 @@ import static android.content.ContentValues.TAG;
 public class ProductViewHolder extends RecyclerView.ViewHolder {
 
     CardView cv1;
-    TextView Product_id;
+    //TextView Product_id;
     TextView Product_name;
     ImageView Product_iv;
    // TextView Product_sd;
@@ -48,7 +48,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
 
     private void bindViews(View itemView) {
         cv1 = itemView.findViewById(R.id.cv1);
-        Product_id = itemView.findViewById(R.id.Product_id);
+       // Product_id = itemView.findViewById(R.id.Product_id);
         Product_name = itemView.findViewById(R.id.Product_name);
         Product_iv = itemView.findViewById(R.id.app_iv);
       //  Product_sd = itemView.findViewById(R.id.Product_sd);
@@ -60,7 +60,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
     public void bindData(Context context, CommonRecyclerItem commonRecyclerItem){
 
         AppProduct appProduct = (AppProduct) commonRecyclerItem.getItem();
-        Product_id.setText(String.valueOf(appProduct.getId()));
+       // Product_id.setText(String.valueOf(appProduct.getId()));
         Product_name.setText(appProduct.getName());
         //Product_sd.setText(appProduct.getShortDescription());
         //Product_ld.setText(appProduct.getLongDescription());
@@ -103,12 +103,9 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                //launchEventDetailsScreen();
                 if(context!= null){
                     ProductDetailActivity.onProductClicked(context,appProduct);
                 }
-
             }
         });
     }
