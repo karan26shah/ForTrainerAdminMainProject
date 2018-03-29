@@ -92,7 +92,7 @@ public class PostDetailActivity extends AppCompatActivity {
         Post_id = findViewById(R.id.Post_id);
         Post_title = findViewById(R.id.Post_title);
         Post_sd = findViewById(R.id.Post_sd);
-        imageView = findViewById(R.id.app_iv);
+        imageView = findViewById(R.id.imageview);
     }
 
     @Override
