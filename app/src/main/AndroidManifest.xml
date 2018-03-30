@@ -39,7 +39,8 @@
         <activity android:name=".activities.PostEditActivity" />
         <activity android:name=".activities.ProductDetailActivity" />
         <activity android:name=".activities.ProductEditActivity" />
-        <activity android:name=".activities.AppUserActivity"></activity>
+        <activity android:name=".activities.AppUsersListActivity"></activity>
+        <activity android:name=".activities.AppUserDetailsActivity" />
     </application>
 
 </manifest>

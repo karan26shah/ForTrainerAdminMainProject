@@ -84,7 +84,9 @@ public class CommonRecyclerItem {
         EVENTS(5),
         PRODUCTS(6),
         APPS(7),
-        APP_USER(8);
+        APP_USER(8),
+        APP_USER_LIST(9);
+
 
 
 

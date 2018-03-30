@@ -9,16 +9,15 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import in.fortrainer.admin.R;
-import in.fortrainer.admin.models.AppUser;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
+import in.fortrainer.admin.viewholders.AppUserListViewHolder;
 import in.fortrainer.admin.viewholders.AppUserviewHolder;
 import in.fortrainer.admin.viewholders.CardAckViewHolder;
-import in.fortrainer.admin.viewholders.OrderViewHolder;
 
 import static in.fortrainer.admin.utilities.CommonRecyclerItem.ItemType.CARD_ACK;
 import static in.fortrainer.admin.utilities.CommonRecyclerItem.ItemType.APP_USER;
+import static in.fortrainer.admin.utilities.CommonRecyclerItem.ItemType.APP_USER_LIST;
 
-import static in.fortrainer.admin.utilities.CommonRecyclerItem.ItemType.ORDERS;
 
 /**
  * Created by foram on 22/3/18.
@@ -43,9 +42,13 @@ public class AppUserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         RecyclerView.ViewHolder viewHolder = null;
         View rootView;
         if (APP_USER.matches(viewType)) {
-            rootView = inflater.inflate(R.layout.vh_user, parent, false);
+            rootView = inflater.inflate(R.layout.vh_appuserdetail, parent, false);
             viewHolder = new AppUserviewHolder(rootView);
-        } else if (CARD_ACK.matches(viewType)) {
+        }else if (APP_USER_LIST.matches(viewType)) {
+            rootView = inflater.inflate(R.layout.vh_appusers, parent, false);
+            viewHolder = new AppUserListViewHolder(rootView);
+        }
+        else if (CARD_ACK.matches(viewType)) {
             rootView = inflater.inflate(R.layout.vh_card_ack, parent, false);
             viewHolder = new CardAckViewHolder(rootView);
         }
@@ -58,7 +61,10 @@ public class AppUserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         int viewType = getItemViewType(position);
         if (APP_USER.matches(viewType)) {
             ((AppUserviewHolder)holder).bindData(context,recyclerItems.get(position));
-        } else if (CARD_ACK.matches(viewType)) {
+        }else if (APP_USER_LIST.matches(viewType)) {
+            ((AppUserListViewHolder)holder).bindData(context,recyclerItems.get(position));
+        }
+        else if (CARD_ACK.matches(viewType)) {
             ((CardAckViewHolder) holder).bindData(context, recyclerItems.get(position));
         }
     }
@@ -67,14 +73,19 @@ public class AppUserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         switch (recyclerItems.get(position).getItemType()){
             case APP_USER:
                 return APP_USER.getId();
+
             case CARD_ACK:
                 return CARD_ACK.getId();
+
+            case APP_USER_LIST:
+              return APP_USER_LIST.getId();
         }
         return APP_USER.getId();
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return recyclerItems.size();
     }
 

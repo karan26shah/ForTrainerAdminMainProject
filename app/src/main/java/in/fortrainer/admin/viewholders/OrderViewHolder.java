@@ -57,6 +57,6 @@ public class OrderViewHolder extends RecyclerView.ViewHolder {
     orderProcessed.setText(String.valueOf(order.processed));
     orderSucceeded.setText(String.valueOf(order.succeeded));
     userName.setText(order.getAppUser().getName());
-    userId.setText(String.valueOf(order.getAppUser().getId()));
+    userId.setText(String.valueOf(order.getAppUser().getUserId()));
     }
 }

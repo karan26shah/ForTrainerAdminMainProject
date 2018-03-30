@@ -1,16 +1,25 @@
 package in.fortrainer.admin.viewholders;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
+
 
 import java.text.CollationElementIterator;
 
 import in.fortrainer.admin.R;
+import in.fortrainer.admin.activities.UserDetailActivity;
 import in.fortrainer.admin.models.AppUser;
+//import in.fortrainer.admin.models.Banner;
 import in.fortrainer.admin.models.Order;
 import in.fortrainer.admin.utilities.CommonRecyclerItem;
 
@@ -20,11 +29,15 @@ import in.fortrainer.admin.utilities.CommonRecyclerItem;
 
 public class AppUserviewHolder extends RecyclerView.ViewHolder {
 
+    private static final String TAG = "";
     public LinearLayout ll_User_Holder;
     CardView cv_Holder;
     TextView name;
     TextView mobilenumber;
     TextView email;
+    //ImageView iv;
+    // Target target;
+    // LinearLayout linearLayout;
     public CollationElementIterator textView;
 
     public AppUserviewHolder(View itemView) {
