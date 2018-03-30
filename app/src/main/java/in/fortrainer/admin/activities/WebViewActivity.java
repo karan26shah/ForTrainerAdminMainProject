@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 
 import in.fortrainer.admin.R;
 
+public class WebViewActivity extends AppCompatActivity {
 
     private static final String TAG = "WebVIew";
     Context context;
