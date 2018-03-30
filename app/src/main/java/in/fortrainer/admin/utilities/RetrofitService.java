@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import java.util.List;
 
 import in.fortrainer.admin.models.Admin;
+import in.fortrainer.admin.models.AppUser;
 import in.fortrainer.admin.models.Banner;
 import in.fortrainer.admin.models.userLogin;
 import retrofit2.Call;
@@ -70,5 +71,10 @@ public interface RetrofitService {
 
     @DELETE("app/products/{product_id}/delete")
     Call<JsonObject> deleteProduct(@Path("product_id") int productId);
+    @GET("app/app_users")
+    Call<JsonObject> getAppUserslist(@Query("page") int i,@Query("per_page") int perpage);
+
+    @GET("app/app_users/{user_id}")
+    Call<AppUser> getAppUsersDetails(@Path("user_id") int userid);
 
 }

@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.fortrainer.admin.activities.UserActivity"
-    android:background="@color/google_gray_50">
-    <include layout="@layout/check_int"></include>
+    tools:context="in.fortrainer.admin.activities.WebViewActivity">
 
 </android.support.constraint.ConstraintLayout>

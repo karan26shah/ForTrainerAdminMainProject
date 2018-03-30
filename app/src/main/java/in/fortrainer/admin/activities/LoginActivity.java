@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<Admin> call, Throwable t) {
-                Toast.makeText(LoginActivity.this,"fail",Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this,"api fail",Toast.LENGTH_SHORT).show();
 
             }
         });

@@ -70,7 +70,7 @@ public class OrderDetailActivity extends AppCompatActivity {
         orderProcessed.setText(String.valueOf(order.processed));
         orderSucceeded.setText(String.valueOf(order.succeeded));
         userName.setText(order.getAppUser().getName());
-        userId.setText(String.valueOf(order.getAppUser().getId()));
+        userId.setText(String.valueOf(order.getAppUser().getUserId()));
     }
 
     private void readIntent(){

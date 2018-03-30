@@ -11,12 +11,24 @@
         style="@style/homescreen_recyclerview"
         app:layout_behavior="@string/collapsibleAppBarBehaviour" />
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/ll_iw_progress_holder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_centerInParent="true">
-        <include layout="@layout/layout_iw_progress_ring" />
-    </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/imageview_retry"

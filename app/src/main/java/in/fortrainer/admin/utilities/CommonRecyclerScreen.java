@@ -96,6 +96,7 @@ public class CommonRecyclerScreen {
                     case LOADING:
                         Log.d(TAG, "setting loading");
                         if (swipeRefreshLayout == null || !swipeRefreshLayout.isRefreshing())
+                            llProgressHolder.setVisibility(View.VISIBLE);
                           //  AdminHelper.startIWProgressRing(llProgressHolder);
                         break;
                     case RETRY:
@@ -109,6 +110,8 @@ public class CommonRecyclerScreen {
                             swipeRefreshLayout.setRefreshing(false);
                         }
                         recyclerView.setVisibility(View.VISIBLE);
+                        llProgressHolder.setVisibility(View.GONE);
+
                         break;
                 }
             } else {

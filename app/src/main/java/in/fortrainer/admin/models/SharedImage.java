@@ -73,4 +73,6 @@ public class SharedImage {
         this.largeImageUrl = largeImageUrl;
     }
 
+
+
 }

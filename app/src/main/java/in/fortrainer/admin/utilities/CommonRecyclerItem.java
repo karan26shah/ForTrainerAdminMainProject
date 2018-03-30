@@ -3,6 +3,7 @@ package in.fortrainer.admin.utilities;
 import java.util.ArrayList;
 import java.util.List;
 
+import in.fortrainer.admin.models.AppUser;
 import retrofit2.http.POST;
 
 /**
@@ -82,7 +83,12 @@ public class CommonRecyclerItem {
         ORDERS(4),
         EVENTS(5),
         PRODUCTS(6),
-        APPS(7);
+        APPS(7),
+        APP_USER(8),
+        APP_USER_LIST(9);
+
+
+
 
 
         private final int id;

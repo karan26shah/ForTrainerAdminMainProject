@@ -1,6 +1,5 @@
 package in.fortrainer.admin.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
         linearLayout = findViewById(R.id.ll_p6);
         linearLayout.setOnClickListener( view -> {
-            Intent intent = new Intent(MainActivity.this,UserDetailActivity.class);
+            Intent intent = new Intent(MainActivity.this,AppUsersListActivity.class);
             intent.putExtra("APP_ID",appId);
             startActivity(intent);
         });

@@ -18,10 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.UserActivity" />
         <activity android:name=".activities.SplashActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -38,13 +38,16 @@
         <activity android:name=".activities.PostEditActivity" />
         <activity android:name=".activities.ProductDetailActivity" />
         <activity android:name=".activities.ProductEditActivity" />
-        <activity android:name=".activities.AppUsersListActivity"></activity>
-        <activity android:name=".activities.AppUserDetailsActivity" />
+<<<<<<< HEAD
         <activity android:name=".activities.OrderDetailActivity" />
         <activity android:name=".activities.EventDetailActivity" />
         <activity android:name=".activities.EventEditActivity" />
         <activity android:name=".activities.BannerDetailActivity" />
         <activity android:name=".activities.BannerEditActivity"></activity>
+=======
+        <activity android:name=".activities.AppUsersListActivity"></activity>
+        <activity android:name=".activities.AppUserDetailsActivity" />
+>>>>>>> origin/foram
     </application>
 
 </manifest>
