@@ -4,77 +4,73 @@ package in.fortrainer.admin.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
 public class AppUser {
 
-    @SerializedName("user_id")
+    @SerializedName("id")
     @Expose
-    public int UserId;
+    private Integer id;
     @SerializedName("app_id")
     @Expose
-    public int AppId;
+    private Integer appId;
     @SerializedName("full_name")
     @Expose
-    public String name;
+    private String fullName;
     @SerializedName("email")
     @Expose
-    public String email;
+    private String email;
     @SerializedName("mobile_number")
     @Expose
-    public String mobilenumber;
-    @SerializedName("shared_image")
+    private String mobileNumber;
+    @SerializedName("profile_image_url")
     @Expose
-    public SharedImage sharedImage;
+    private String profileImageUrl;
 
-    public int getAppId() {
-        return AppId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setAppId(int appId) {
-        AppId = appId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public int getUserId() {
-        return UserId;
+    public Integer getAppId() {
+        return appId;
     }
 
-    public void setUserId(int userId) {
-        UserId = userId;
+    public void setAppId(Integer appId) {
+        this.appId = appId;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public String getMobilenumber() {
-        return mobilenumber;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public SharedImage getImage() {
-        return sharedImage;
+    public String getMobileNumber() {
+        return mobileNumber;
     }
 
-    public void setImage(SharedImage sharedImage) {
-        this.sharedImage = sharedImage;
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 
-    public void setMobilenumber(String mobilenumber) {
-        this.mobilenumber = mobilenumber;
+    public String getProfileImageUrl() {
+        return profileImageUrl;
     }
-    public static List<AppUser> getAppuserslist(int itemCount) {
-        return null;
+
+    public void setProfileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
     }
+
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_index"
+    tools:context="in.fortrainer.admin.activities.AppUsersListActivity"
+    android:background="@color/google_gray_50">
+
+    <include layout="@layout/layout_common_recycler"></include>
+    <include layout="@layout/check_int"></include>
+
+</RelativeLayout>

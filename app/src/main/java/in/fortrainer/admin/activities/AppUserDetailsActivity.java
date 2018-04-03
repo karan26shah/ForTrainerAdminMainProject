@@ -2,105 +2,115 @@ package in.fortrainer.admin.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
-
-import java.util.List;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import in.fortrainer.admin.R;
-import in.fortrainer.admin.adapters.AppUserAdapter;
 import in.fortrainer.admin.models.AppUser;
-import in.fortrainer.admin.utilities.CommonRecyclerItem;
-import in.fortrainer.admin.utilities.CommonRecyclerScreen;
-import in.fortrainer.admin.utilities.RetrofitHelper;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import in.fortrainer.admin.models.Banner;
 
 import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 
-/**
- * Created by foram on 29/3/18.
- */
-
 public class AppUserDetailsActivity extends AppCompatActivity {
-    public List<AppUser> AppUsers;
-    AppUserAdapter appUserAdapter;
-    public int loadedpage;
-    public static int PER_PAGE = 10;
-    //private int totalEntries;
-    int appId;
-    CommonRecyclerScreen crs;
+
+    LinearLayout linearLayout;
     AppUser appUser;
+    TextView user_id;
+    TextView user_name;
+    TextView user_mobile_number;
+    TextView user_emal;
+    Button button;
+    ImageView imageView;
+    Target target;
+
+
+    public static String TAG = "c";
+
 
 
     public static void onUserClicked(Context context, AppUser appUser) {
-        Intent intent = new Intent(context,AppUserDetailsActivity.class);
-        intent.putExtra("APP_ID",new Gson().toJson(appUser,AppUser.class));
+        Intent intent = new Intent(context, AppUserDetailsActivity.class);
+        intent.putExtra("APP_USERS_DETAILS", new Gson().toJson(appUser, AppUser.class));
         context.startActivity(intent);
+    }
+
+    public void bindViews() {
+        user_id = findViewById(R.id.id1);
+        user_name = findViewById(R.id.name);
+        user_emal = findViewById(R.id.email);
+        user_mobile_number = findViewById(R.id.mobile_number);
+        imageView = findViewById(R.id.imageview);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_app_user1);
-      readIntent();
-        setScreen();
+        setContentView(R.layout.activity_app_users_detail);
+        bindViews();
+        readIntent();
+
+        if (appUser!= null) {
+            setAppUsersDetails();
+        } else {
+            Toast.makeText(this, "failed to get users details", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    private void setAppUsersDetails() {
+        user_id.setText(String.valueOf(appUser.getId()));
+        user_name.setText(appUser.getFullName());
+        user_emal.setText(appUser.getEmail());
+        user_mobile_number.setText(appUser.getMobileNumber());
+
+        if (appUser.getProfileImageUrl() == null) {
+            Log.d(TAG, "onViewCreated: image found null");
+        } else {
+            Log.d(TAG, "onViewCreated: image is not null...trying to load it/");
+            target = new Target() {
+                @Override
+                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                    Log.d(TAG, "onBitmapLoaded: bitmap loaded");
+                    imageView.setImageBitmap(bitmap);
+                    //imageView.setVisibility(View.VISIBLE);
+                }
+
+
+                @Override
+                public void onBitmapFailed(Drawable errorDrawable) {
+                    Log.d(TAG, "onBitmapFailed: BItmap failed");
+                }
+
+                @Override
+                public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+                }
+            };
+            Picasso.with(context).load(appUser.getProfileImageUrl()).resize(600, 300).into(target);
+            //  imageView.setTag(target);
+        }
     }
 
     private void readIntent() {
-
-        appUser = new Gson().fromJson(getIntent().getStringExtra("APP_ID"),AppUser.class);
-
+        if (getIntent().getStringExtra("APP_USERS_DETAILS") == null) {
+            Toast.makeText(this, "cant get banners", Toast.LENGTH_SHORT).show();
+            finish();
+        } else {
+            appUser = new Gson().fromJson(getIntent().getStringExtra("APP_USERS_DETAILS"), AppUser.class);
+        }
     }
-
-    private void setScreen(){
-        crs = CommonRecyclerScreen.setupWithActivity(this);
-        appUserAdapter = new AppUserAdapter(this,crs.recyclerItems);
-        crs.setLayoutManager(new LinearLayoutManager(this));
-        crs.attachAdapter(appUserAdapter);
-        getAppUsers();
-    }
-
-    public void getAppUsers() {
-        crs.setScreen(CommonRecyclerScreen.ScreenMode.LOADING);
-        Call<AppUser> AppUserslistCall = RetrofitHelper.getRetrofitService(context).getAppUsersDetails(appUser.getUserId());
-        AppUserslistCall.enqueue(new Callback<AppUser>() {
-            @Override
-            public void onResponse(Call<AppUser> call, Response<AppUser> response) {
-                if (response.isSuccessful()) {
-
-                    appUser = response.body();
-                    //totalEntries = response.body().get("total_entries").getAsInt();
-                   // if (appUser.is == 0)
-                    //{
-                   //     CommonRecyclerItem commonRecyclerItem =new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK,"No data yet",this);
-                 //       crs.recyclerItems.add(commonRecyclerItem);
-                    //}else {
-                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.APP_USER, appUser,this));
-                   // }
-                    appUserAdapter.notifyDataSetChanged();
-                    crs.setScreen(CommonRecyclerScreen.ScreenMode.DONE);
-                }else{
-                    Toast.makeText(AppUserDetailsActivity.this, "please try again", Toast.LENGTH_SHORT).show();
-                }
-            }
-            @Override
-            public void onFailure(Call<AppUser> call, Throwable t) {
-                Toast.makeText(AppUserDetailsActivity.this, "failed", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-
-
-
 }

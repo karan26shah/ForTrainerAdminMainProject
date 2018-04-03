@@ -26,7 +26,7 @@ import retrofit2.Response;
 import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 
 public class AppUsersListActivity extends AppCompatActivity {
-    public List<AppUser> AppUsers;
+    public List<AppUser> appUsers;
     AppUserAdapter appUserAdapter;
     public int loadedpage;
     public static int PER_PAGE = 10;
@@ -34,16 +34,10 @@ public class AppUsersListActivity extends AppCompatActivity {
     int appId;
     CommonRecyclerScreen crs;
 
-    public static void onUserClicked(Context context, AppUser appUser) {
-        Intent intent = new Intent(context,AppUserDetailsActivity.class);
-        intent.putExtra("APP_ID",new Gson().toJson(appUser,AppUser.class));
-        context.startActivity(intent);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_app_user1);
+        setContentView(R.layout.activity_app_users);
         if(getIntent().getIntExtra("APP_ID",0)!= 0){
             appId = getIntent().getIntExtra("APP_ID",0);
         }
@@ -68,15 +62,15 @@ public class AppUsersListActivity extends AppCompatActivity {
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 if (response.isSuccessful()) {
                     JsonObject jsonObject = response.body();
-                    AppUsers = new Gson().fromJson(jsonObject.getAsJsonArray("users"), new TypeToken<List<AppUser>>() {
+                    appUsers = new Gson().fromJson(jsonObject.getAsJsonArray("app_users"), new TypeToken<List<AppUser>>() {
                     }.getType());
                     //totalEntries = response.body().get("total_entries").getAsInt();
-                    if (AppUsers.size() == 0)
+                    if (appUsers.size() == 0)
                     {
                         CommonRecyclerItem commonRecyclerItem =new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK,"No data yet",this);
                         crs.recyclerItems.add(commonRecyclerItem);
                     }else {
-                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.APP_USER_LIST, AppUsers,this));
+                        crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.APP_USER, appUsers,this));
                     }
                     appUserAdapter.notifyDataSetChanged();
                     crs.setScreen(CommonRecyclerScreen.ScreenMode.DONE);
