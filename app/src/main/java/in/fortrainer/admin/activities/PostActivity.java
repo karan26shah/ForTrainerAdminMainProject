@@ -1,11 +1,18 @@
 package in.fortrainer.admin.activities;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -28,13 +35,14 @@ import retrofit2.Response;
 
 import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 
-public class PostActivity extends AppCompatActivity {
+public class PostActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener  {
 
     List<AppPost> appPosts;
     PostAdpater postAdpater;
     CommonRecyclerScreen crs;
     Button button;
     LinearLayout linearLayout;
+    FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +51,63 @@ public class PostActivity extends AppCompatActivity {
         button = findViewById(R.id.bt_nointernet);
         linearLayout = findViewById(R.id.nointernet);
         setScreen();
+        floatingActionButton = findViewById(R.id.bt_newpost);
+        /*registerForContextMenu(floatingActionButton);*/
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+               showMenu(v);
+            }
+        });
+    }
+
+   /* @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+        super.onCreateContextMenu(menu,v,menuInfo);
+        menu.setHeaderTitle("Select Post Type");
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+    }
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item1:
+                startActivity(new Intent(this, PostImageActivity.class));
+                return true;
+            case R.id.item2:
+                startActivity(new Intent(this, PostVideoActivity.class));
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }*/
+    public void showPopup(View v) {
+        PopupMenu popup = new PopupMenu(this, v);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.menu_main, popup.getMenu());
+        popup.show();
+    }
+
+    public void showMenu(View v) {
+        PopupMenu popup = new PopupMenu(this, v);
+        // This activity implements OnMenuItemClickListener
+        popup.setOnMenuItemClickListener(this);
+        popup.inflate(R.menu.menu_main);
+        popup.show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item1:
+                startActivity(new Intent(this, PostImageActivity.class));
+                return true;
+            case R.id.item2:
+                startActivity(new Intent(this, PostVideoActivity.class));
+                return true;
+            default:
+                return false;
+        }
     }
 
     private void setScreen() {
@@ -105,6 +169,9 @@ public class PostActivity extends AppCompatActivity {
 
         }
 
+
     }
+
+
 }
 
