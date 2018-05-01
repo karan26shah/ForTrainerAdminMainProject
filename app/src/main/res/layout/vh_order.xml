@@ -31,7 +31,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ID"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"/>
 
 
             <TextView
@@ -39,15 +40,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:text="id" />
+                android:text="id"
+                android:layout_marginLeft="5dp"/>
 
             <TextView
+                android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ORDER__CODE"
                 android:textStyle="bold"/>
 
             <TextView
+                android:layout_marginLeft="5dp"
             android:id="@+id/order_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,6 +60,7 @@
                 />
 
             <TextView
+                android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ORDER_TOTAL"
@@ -63,6 +68,7 @@
 
 
             <TextView
+                android:layout_marginLeft="5dp"
             android:id="@+id/order_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,12 +76,14 @@
             android:text="ordertotal" />
 
             <TextView
+                android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="PROCESS_STATUS"
                 android:textStyle="bold"/>
 
             <TextView
+                android:layout_marginLeft="5dp"
             android:id="@+id/order_processed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -83,12 +91,14 @@
             android:text="processed_status" />
 
             <TextView
+                android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ORDER_PROCESSED"
                 android:textStyle="bold"/>
 
             <TextView
+                android:layout_marginLeft="5dp"
             android:id="@+id/order_succeeded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

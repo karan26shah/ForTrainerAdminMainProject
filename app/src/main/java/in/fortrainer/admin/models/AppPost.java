@@ -33,6 +33,43 @@ public class AppPost {
     @SerializedName("shared_image")
     @Expose
     private SharedImage sharedImage;
+    @SerializedName("post_type")
+    @Expose
+    public PostType postType;
+    @SerializedName("youtube_url")
+    @Expose
+    private String youtubeUrl;
+
+
+    @SerializedName("youtube_image_url")
+    @Expose
+    public String youtubeImageUrl;
+
+    public PostType getPostType() {
+        return postType;
+    }
+
+    public void setPostType(PostType postType) {
+        this.postType = postType;
+    }
+
+
+    public String getYoutubeUrl() {
+        return youtubeUrl;
+    }
+
+    public void setYoutubeUrl(String youtubeUrl) {
+        this.youtubeUrl = youtubeUrl;
+    }
+
+    public String getYoutubeImageUrl() {
+        return youtubeImageUrl;
+    }
+
+    public void setYoutubeImageUrl(String youtubeImageUrl) {
+        this.youtubeImageUrl = youtubeImageUrl;
+    }
+
 
     public Integer getId() {
         return id;

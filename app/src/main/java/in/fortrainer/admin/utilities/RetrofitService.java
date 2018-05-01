@@ -7,6 +7,7 @@ import java.util.List;
 import in.fortrainer.admin.models.Admin;
 import in.fortrainer.admin.models.AppUser;
 import in.fortrainer.admin.models.Banner;
+import in.fortrainer.admin.models.Video;
 import in.fortrainer.admin.models.userLogin;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,7 +49,6 @@ public interface RetrofitService {
     @PUT("app/banners/{banner_id}/update")
     Call<JsonObject> updateBannerDetails(@Path("banner_id") int id, @Field("banner[title]") String title, @Field("banner[link_url]") String LinkUrl);
 
-
     @GET("apps")
     Call<JsonObject> getApplist();
 
@@ -60,7 +60,7 @@ public interface RetrofitService {
 
     @FormUrlEncoded
     @PUT("app/posts/{post_id}/update")
-    Call<JsonObject> Updatepost( @Path("post_id") int post_id, @Field("app_post[title]") String post_title, @Field("app_post[description]") String post_desc);
+    Call<JsonObject> Updatepost( @Path("post_id") int post_id, @Field("post[title]") String post_title, @Field("post[description]") String post_desc);
 
     @GET("app/products")
     Call<JsonObject> getProductslist();
@@ -71,10 +71,19 @@ public interface RetrofitService {
 
     @DELETE("app/products/{product_id}/delete")
     Call<JsonObject> deleteProduct(@Path("product_id") int productId);
+
     @GET("app/app_users")
     Call<JsonObject> getAppUserslist(@Query("page") int i,@Query("per_page") int perpage);
 
-    @GET("app/app_users/{user_id}")
-    Call<AppUser> getAppUsersDetails(@Path("user_id") int userid);
 
+    @GET("embed/youtube")
+    Call<JsonObject> getYouTubeVideoUrl(@Query("url") String url);
+
+    @FormUrlEncoded
+    @POST("app/posts")
+    Call<JsonObject> CreatePost( @Field("post[title]") String post_title, @Field("post[description]") String post_desc,@Field("post[link_url]") String link_url,@Field("post[youtube_url]") String youtube_url,@Field("post[youtube_image_url]") String youtube_image_url,@Field("post[youtube_video_id]") String youtube_video_id);
+
+    @FormUrlEncoded
+    @POST("shared_images")
+    Call<JsonObject> CreateSharedImageId( @Field("owner_type") String owner_type,@Field("column_name") String column_name,@Field("filename") String filename);
 }

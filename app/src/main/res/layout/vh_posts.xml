@@ -27,6 +27,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
+
                     android:id="@+id/app_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -56,23 +57,27 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="Title"
-                   android:textStyle="bold" />
+                   android:textStyle="bold"
+                    android:layout_marginLeft="5dp"/>
 
                 <TextView
                    android:id="@+id/Post_title"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_alignParentTop="true"
-                   android:text="Titlte" />
+                   android:text="Titlte"
+                    android:layout_marginLeft="5dp"/>
 
                 <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="Short_Description"
-                   android:textStyle="bold" />
+                   android:textStyle="bold"
+                    android:layout_marginLeft="5dp"/>
 
                 <TextView
                    android:id="@+id/Post_sd"
+                    android:layout_marginLeft="5dp"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="Short_description"/>

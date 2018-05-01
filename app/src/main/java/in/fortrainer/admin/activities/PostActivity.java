@@ -1,7 +1,9 @@
 package in.fortrainer.admin.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -35,7 +37,7 @@ import retrofit2.Response;
 
 import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 
-public class PostActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener  {
+public class PostActivity extends AppCompatActivity   {
 
     List<AppPost> appPosts;
     PostAdpater postAdpater;
@@ -57,7 +59,7 @@ public class PostActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             @Override
             public void onClick(View v) {
 
-               showMenu(v);
+                selectImage();
             }
         });
     }
@@ -81,7 +83,7 @@ public class PostActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 return super.onContextItemSelected(item);
         }
     }*/
-    public void showPopup(View v) {
+   /* public void showPopup(View v) {
         PopupMenu popup = new PopupMenu(this, v);
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.menu_main, popup.getMenu());
@@ -108,6 +110,24 @@ public class PostActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             default:
                 return false;
         }
+    }*/
+
+    private void selectImage() {
+        final CharSequence[] items = {"Image", "Video",
+                };
+        AlertDialog.Builder builder = new AlertDialog.Builder(PostActivity.this);
+        builder.setTitle("Select Post Type");
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                if (items[item].equals("Image")) {
+                    startActivity(new Intent(PostActivity.this, PostImageActivity.class));
+                } else if (items[item].equals("Video")) {
+                    startActivity(new Intent(PostActivity.this, PostVideoActivity.class));
+                }
+            }
+        });
+        builder.show();
     }
 
     private void setScreen() {
