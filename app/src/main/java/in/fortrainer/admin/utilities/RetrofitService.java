@@ -2,6 +2,7 @@ package in.fortrainer.admin.utilities;
 
 import com.google.gson.JsonObject;
 
+import java.io.File;
 import java.util.List;
 
 import in.fortrainer.admin.models.Admin;
@@ -86,4 +87,8 @@ public interface RetrofitService {
     @FormUrlEncoded
     @POST("shared_images")
     Call<JsonObject> CreateSharedImageId( @Field("owner_type") String owner_type,@Field("column_name") String column_name,@Field("filename") String filename);
+
+    @FormUrlEncoded
+    @PUT("shared_images/{id}/image_uploaded")
+    Call<JsonObject> ImageUploaded( @Path("id") int id, @Field("image_name") String image_name);
 }
