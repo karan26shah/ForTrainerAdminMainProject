@@ -53,6 +53,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 import in.fortrainer.admin.R;
 import in.fortrainer.admin.models.CreateSharedImage;
+import in.fortrainer.admin.models.SharedImage;
 import in.fortrainer.admin.models.Video;
 import in.fortrainer.admin.utilities.RetrofitHelper;
 import retrofit2.Call;
@@ -75,10 +76,12 @@ public class PostImageActivity extends AppCompatActivity {
     private byte[] bitmapdata;
     ByteArrayOutputStream bos;
     CreateSharedImage createSharedImage;
+    SharedImage sharedImage;
     EditText et_title;
     EditText et_des;
     private String uploadUrl;
     URL myURL = null;
+    String sid;
 
 
     @Override
@@ -162,6 +165,7 @@ public class PostImageActivity extends AppCompatActivity {
                     InputStream stream = this
                             .getContentResolver().openInputStream(data.getData());
                     tempBitmap = BitmapFactory.decodeStream(stream);
+
                     stream.close();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -192,12 +196,13 @@ public class PostImageActivity extends AppCompatActivity {
                         dy = (originalHeight - finalDim) / 2;
                     }
 
-                    tempBitmap = Bitmap.createBitmap(tempBitmap, dx, dy, finalDim, finalDim);
-                    //trial-code /
-                    tempBitmap = Bitmap.createScaledBitmap(tempBitmap, 350, 350, true);
-                    tempBitmap.compress(Bitmap.CompressFormat.PNG, 100 /*ignored for PNG*/, bos);
-                    imageView.setImageBitmap(tempBitmap);
+                    //tempBitmap = Bitmap.createBitmap(tempBitmap, dx, dy, finalDim, finalDim);
+                    //tempBitmap = Bitmap.createScaledBitmap(tempBitmap, 350, 350, true);
+                    tempBitmap.compress(Bitmap.CompressFormat.JPEG, 50 /*ignored for PNG*/,bos);
+
                     bitmapdata = bos.toByteArray();
+                    Bitmap compressedBitmap = BitmapFactory.decodeByteArray(bitmapdata,0,bitmapdata.length);
+                    imageView.setImageBitmap(compressedBitmap);
                     //write the bytes in file
                     fos = new FileOutputStream(tempImageFile);
                     fos.write(bitmapdata);
@@ -224,6 +229,7 @@ public class PostImageActivity extends AppCompatActivity {
     private void SharedImageId() {
         Call<JsonObject> SICall = RetrofitHelper.getRetrofitService(context).CreateSharedImageId("Post", "image_id", String.valueOf(tempImageFile.getName()));
         SICall.enqueue(new Callback<JsonObject>() {
+            @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 if (response.isSuccessful()) {
@@ -231,6 +237,7 @@ public class PostImageActivity extends AppCompatActivity {
                     createSharedImage = new Gson().fromJson(jsonObject, new TypeToken<CreateSharedImage>() {
                     }.getType());
                     uploadUrl = createSharedImage.getUrl().toString();
+                     sid= createSharedImage.getId().toString();
                     startUserImageUpload(uploadUrl);
 
                 } else {
@@ -245,6 +252,7 @@ public class PostImageActivity extends AppCompatActivity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     public void startUserImageUpload(String uploadUrl) {
         long sizeOfFile = tempImageFile.length();
         String uploadURL = uploadUrl;
@@ -263,6 +271,7 @@ public class PostImageActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     private class UploadImage extends AsyncTask<File, Integer, String> {
 
         @Override
@@ -301,7 +310,7 @@ public class PostImageActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     Toast.makeText(PostImageActivity.this, "ImageUploaded Successfully", Toast.LENGTH_SHORT).show();
-                   // launchPostActivity();
+                    uploadImagePost();
                 }
             }
             @Override
@@ -311,7 +320,31 @@ public class PostImageActivity extends AppCompatActivity {
         });
 
     }
+
+    private void uploadImagePost() {
+        Call<JsonObject> uploadImagePostCall = RetrofitHelper.getRetrofitService(context).CreateImagePost(et_title.getText().toString(),et_des.getText().toString(),sid);
+        uploadImagePostCall.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(PostImageActivity.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
+                    launchActivity();
+                }
+            }
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                Toast.makeText(PostImageActivity.this, "failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void launchActivity() {
+        Intent intent = new Intent(PostImageActivity.this, PostActivity.class);
+        startActivity(intent);
+        finish();
+
+    }
 }
+
 
 
 

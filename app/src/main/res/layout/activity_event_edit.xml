@@ -17,14 +17,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name :"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:text="Name:"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_name"
@@ -39,14 +41,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Venue :"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="Venue:"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_venue"
@@ -61,14 +65,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Start Time :"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="Start Time:"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/et_sttime"
@@ -82,32 +88,28 @@
                 android:layout_height="50dp"
                 android:background="@drawable/ic_date_range_black_24dp"
                 android:id="@+id/bt_calendar"/>
-
-
-
-
-
         </LinearLayout>
 
-        <CalendarView
+    <CalendarView
             android:layout_width="match_parent"
             android:layout_height="310dp"
             android:visibility="gone"
             android:id="@+id/calendar">
-
-        </CalendarView>
+    </CalendarView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="End Time :"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="End Time:"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/et_edtime"
@@ -121,11 +123,6 @@
                 android:layout_height="50dp"
                 android:background="@drawable/ic_date_range_black_24dp"
                 android:id="@+id/bt_calendar1"/>
-
-
-
-
-
         </LinearLayout>
 
         <CalendarView
@@ -141,14 +138,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price :"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="Price:"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/et_price"
@@ -162,10 +161,12 @@
 
         <Button
             android:id="@+id/submit"
-            android:layout_width="117dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:text="Submit" />
     <include layout="@layout/check_int"></include>
 </LinearLayout>

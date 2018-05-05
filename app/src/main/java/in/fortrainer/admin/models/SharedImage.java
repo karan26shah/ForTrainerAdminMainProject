@@ -25,7 +25,7 @@ public class SharedImage {
     @Expose
     private String largeImageUrl;
 
-    public Integer getId() {
+    public  Integer getId() {
         return id;
     }
 

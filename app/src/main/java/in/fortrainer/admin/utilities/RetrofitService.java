@@ -91,4 +91,8 @@ public interface RetrofitService {
     @FormUrlEncoded
     @PUT("shared_images/{id}/image_uploaded")
     Call<JsonObject> ImageUploaded( @Path("id") int id, @Field("image_name") String image_name);
+
+    @FormUrlEncoded
+    @PUT("app/posts")
+    Call<JsonObject> CreateImagePost( @Field("post[title]") String post_title, @Field("post[description]") String post_desc,@Field("post[image_id]") String image_id);
 }

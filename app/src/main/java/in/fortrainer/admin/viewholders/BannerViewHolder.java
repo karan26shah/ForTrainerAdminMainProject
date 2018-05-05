@@ -66,7 +66,7 @@ public class BannerViewHolder extends RecyclerView.ViewHolder{
 
                 }
             };
-            Picasso.with(context).load(banners.getSharedImage().getMediumImageUrl()).resize(600,300).into(target);
+            Picasso.with(context).load(banners.getSharedImage().getMediumImageUrl()).resize(700,300).into(target);
             //  imageView.setTag(target);
         }
         linearLayout.setOnClickListener(new View.OnClickListener() {

@@ -32,7 +32,7 @@ import static in.fortrainer.admin.utilities.EECMultiDexApplication.context;
 
 public class PostDetailActivity extends AppCompatActivity {
     AppPost appPost;
-    TextView Post_id;
+    //TextView Post_id;
     TextView Post_title;
     TextView Post_sd;
     Button btEdit;
@@ -87,7 +87,7 @@ public class PostDetailActivity extends AppCompatActivity {
     }
 
     public void bindViews(){
-        Post_id = findViewById(R.id.Post_id);
+        //Post_id = findViewById(R.id.Post_id);
         Post_title = findViewById(R.id.Post_title);
         Post_sd = findViewById(R.id.Post_sd);
         imageView = findViewById(R.id.imageview);
@@ -109,7 +109,7 @@ public class PostDetailActivity extends AppCompatActivity {
         }
     }
     private void setPostDetails() {
-        Post_id.setText(String.valueOf(appPost.getId()));
+        //Post_id.setText(String.valueOf(appPost.getId()));
         Post_title.setText(appPost.getTitle());
         Post_sd.setText(appPost.getDescription());
         if (appPost.postType.code.equals("IMAGE")) {

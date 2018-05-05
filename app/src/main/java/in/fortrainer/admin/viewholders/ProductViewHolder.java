@@ -97,7 +97,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
 
                 }
             };
-            Picasso.with(context).load(appProduct.getImage().getMediumImageUrl()).resize(600,300).into(target);
+            Picasso.with(context).load(appProduct.getImage().getMediumImageUrl()).resize(700,300).into(target);
         }
 
         linearLayout.setOnClickListener(new View.OnClickListener() {

@@ -63,9 +63,14 @@
                 android:textStyle="bold"/>
             <ImageView
                 android:layout_marginLeft="5dp"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="8dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
                 android:id="@+id/iv_pv"/>
 
             <Button
