@@ -7,69 +7,69 @@
     android:orientation="vertical"
     android:background="@color/google_gray_50">
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:scaleType="fitXY"
-                android:adjustViewBounds="true"
-                android:src="@mipmap/ic_launcher" />
+        <ImageView
+            android:id="@+id/imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Title"
-                android:textStyle="bold"
-                />
-
-            <TextView
-                android:id="@+id/Post_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:text="Title"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Short_Description"
-                android:textStyle="bold"
-                />
-
-            <TextView
-                android:id="@+id/Post_sd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Short_description" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:weightSum="2"
-            android:orientation="horizontal">
+            android:text="Title"
+            android:textStyle="bold"
+            />
 
-            <Button
-                android:id="@+id/bt_edit"
-                android:layout_width="161dp"
-                android:layout_height="wrap_content"
-                android:text="EDIT" />
+        <TextView
+            android:id="@+id/Post_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Title"
+            />
 
-            <Button
-                android:id="@+id/bt_remove"
-                android:layout_width="161dp"
-                android:layout_height="wrap_content"
-                android:text="Remove" />
-        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Short_Description"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/Post_sd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Short_description" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_edit"
+            android:layout_width="161dp"
+            android:layout_height="wrap_content"
+            android:text="EDIT" />
+
+        <Button
+            android:id="@+id/bt_remove"
+            android:layout_width="161dp"
+            android:layout_height="wrap_content"
+            android:text="Remove" />
+    </LinearLayout>
 
 
     <include layout="@layout/check_int"></include>

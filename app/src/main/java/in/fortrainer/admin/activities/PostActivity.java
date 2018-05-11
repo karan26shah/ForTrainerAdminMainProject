@@ -1,20 +1,26 @@
 package in.fortrainer.admin.activities;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -44,14 +50,26 @@ public class PostActivity extends AppCompatActivity   {
     CommonRecyclerScreen crs;
     Button button;
     LinearLayout linearLayout;
+    LinearLayout linearLayout1;
+    LinearLayout linearLayout2;
     FloatingActionButton floatingActionButton;
+    RelativeLayout relativeLayout;
+    ImageView imageView1;
 
+
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
+        //android.app.ActionBar actionBar = getActionBar();
+        //actionBar.setTitle("Post");
         button = findViewById(R.id.bt_nointernet);
         linearLayout = findViewById(R.id.nointernet);
+        linearLayout1 = findViewById(R.id.relative_header);
+        linearLayout2 = findViewById(R.id.rl_home_text);
+        relativeLayout = findViewById(R.id.rl_icon_holder);
+        imageView1 = findViewById(R.id.imageView_buttonUp);
         setScreen();
         floatingActionButton = findViewById(R.id.bt_newpost);
         /*registerForContextMenu(floatingActionButton);*/
@@ -62,8 +80,20 @@ public class PostActivity extends AppCompatActivity   {
                 selectImage();
             }
         });
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(PostActivity.this,HomeActivity.class);
+        startActivity(intent);
+       // super.onBackPressed();
+    }
    /* @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
         super.onCreateContextMenu(menu,v,menuInfo);
@@ -191,7 +221,5 @@ public class PostActivity extends AppCompatActivity   {
 
 
     }
-
-
 }
 

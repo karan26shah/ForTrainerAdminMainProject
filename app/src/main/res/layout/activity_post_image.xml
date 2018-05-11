@@ -71,7 +71,8 @@
                 android:layout_marginRight="8dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
-                android:id="@+id/iv_pv"/>
+                android:id="@+id/iv_pv"
+                />
 
             <Button
                 android:id="@+id/bt_iu"
@@ -80,16 +81,35 @@
                 android:layout_width="200dp"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:text="Upload Image"/>
+                android:text="Choose Image"/>
+
+            <Button
+                android:id="@+id/image_orientation_change"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="image_orientation"
+                android:padding="12dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
 
             <Button
                 android:id="@+id/bt_post"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:layout_width="200dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:text="Post"/>
+
+            </LinearLayout>
 
 
         </LinearLayout>

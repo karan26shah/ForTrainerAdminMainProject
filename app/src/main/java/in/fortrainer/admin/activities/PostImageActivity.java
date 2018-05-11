@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -68,6 +70,7 @@ public class PostImageActivity extends AppCompatActivity {
 
     Button button;
     Button button1;
+    Button button2;
     public static final int CAMERA_REQUEST_FO_PROFILE_PIC = 32;
     private static final int PICK_IMAGE_REQUEST = 2;
     Bitmap tempBitmap = null;
@@ -82,6 +85,8 @@ public class PostImageActivity extends AppCompatActivity {
     private String uploadUrl;
     URL myURL = null;
     String sid;
+    private ExifInterface exifObject;
+    Bitmap compressedBitmap;
 
 
     @Override
@@ -96,6 +101,7 @@ public class PostImageActivity extends AppCompatActivity {
     }
 
     private void bindViews() {
+        button2 = findViewById(R.id.image_orientation_change);
         button1 = findViewById(R.id.bt_post);
         et_title = findViewById(R.id.et_title);
         et_des = findViewById(R.id.et_des);
@@ -109,7 +115,23 @@ public class PostImageActivity extends AppCompatActivity {
                 selectImage();
             }
         });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ExifInterface exif = null;
+                try {
+                    exifObject = new ExifInterface(tempImageFile.getPath());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                int orientation = exifObject.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
+                Bitmap imageRotate = rotateBitmap(compressedBitmap,orientation);
+                imageView.setImageBitmap(imageRotate);
+            }
+        });
     }
+    
 
     private void selectImage() {
         final CharSequence[] items = {"Take Photo", "Choose from Library",
@@ -195,11 +217,9 @@ public class PostImageActivity extends AppCompatActivity {
                         finalDim = originalWidth;
                         dy = (originalHeight - finalDim) / 2;
                     }
-
-                    //tempBitmap = Bitmap.createBitmap(tempBitmap, dx, dy, finalDim, finalDim);
+                    // tempBitmap = Bitmap.createBitmap(tempBitmap, dx, dy, finalDim, finalDim);
                     //tempBitmap = Bitmap.createScaledBitmap(tempBitmap, 350, 350, true);
-                    tempBitmap.compress(Bitmap.CompressFormat.JPEG, 50 /*ignored for PNG*/,bos);
-
+                    tempBitmap.compress(Bitmap.CompressFormat.JPEG, 50 ,bos);
                     bitmapdata = bos.toByteArray();
                     Bitmap compressedBitmap = BitmapFactory.decodeByteArray(bitmapdata,0,bitmapdata.length);
                     imageView.setImageBitmap(compressedBitmap);
@@ -216,6 +236,48 @@ public class PostImageActivity extends AppCompatActivity {
         }
     }
 
+    public static Bitmap rotateBitmap(Bitmap compressedBitmap, int orientation) {
+        Matrix matrix = new Matrix();
+        switch (orientation) {
+            case ExifInterface.ORIENTATION_NORMAL:
+                return compressedBitmap;
+            case ExifInterface.ORIENTATION_FLIP_HORIZONTAL:
+                matrix.setScale(-1, 1);
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                matrix.setRotate(180);
+                break;
+            case ExifInterface.ORIENTATION_FLIP_VERTICAL:
+                matrix.setRotate(180);
+                matrix.postScale(-1, 1);
+                break;
+            case ExifInterface.ORIENTATION_TRANSPOSE:
+                matrix.setRotate(90);
+                matrix.postScale(-1, 1);
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                matrix.setRotate(90);
+                break;
+            case ExifInterface.ORIENTATION_TRANSVERSE:
+                matrix.setRotate(-90);
+                matrix.postScale(-1, 1);
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                matrix.setRotate(-90);
+                break;
+            default:
+                return compressedBitmap;
+        }
+        try {
+            Bitmap bmRotated = Bitmap.createBitmap(compressedBitmap, 0, 0, compressedBitmap.getWidth(), compressedBitmap.getHeight(), matrix, true);
+            compressedBitmap.recycle();
+            return bmRotated;
+        }
+        catch (OutOfMemoryError e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     private void init() {
         button1.setOnClickListener(new View.OnClickListener() {

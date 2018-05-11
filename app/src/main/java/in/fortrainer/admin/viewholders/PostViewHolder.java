@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -40,6 +41,10 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
     TextView Post_sd;
     LinearLayout linearLayout;
     ImageView imageView;
+
+    TextView textView;
+
+
     PostType postType;
     String imageUrlToLoad;
 
@@ -54,7 +59,11 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         Post_title = itemView.findViewById(R.id.Post_title);
         Post_sd = itemView.findViewById(R.id.Post_sd);
         imageView = itemView.findViewById(R.id.app_iv);
+
+
         linearLayout = itemView.findViewById(R.id.ll_post);
+
+
     }
 
     public void setupImage(AppPost appPost) {
