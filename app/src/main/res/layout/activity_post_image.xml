@@ -83,13 +83,13 @@
                 android:layout_height="wrap_content"
                 android:text="Choose Image"/>
 
-            <Button
+            <!--<Button
                 android:id="@+id/image_orientation_change"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="image_orientation"
-                android:padding="12dp"/>
+                android:padding="12dp"/>-->
 
             <LinearLayout
                 android:layout_width="match_parent"

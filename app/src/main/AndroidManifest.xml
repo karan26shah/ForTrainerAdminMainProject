@@ -38,48 +38,155 @@
         <activity android:name=".activities.LoginActivity"
             android:label="Login"/>
         <activity android:name=".activities.OrderActivity"
-            android:label="Orders"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="Orders">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
         <activity android:name=".activities.BannerActivity"
-            android:label="Banners"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="Banners">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
         <activity android:name=".activities.EventActivity"
-            android:label="Events"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="Events">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".activities.MainActivity" />
+        </activity>
         <activity android:name=".activities.HomeActivity"
             android:label="Apps"/>
         <activity android:name=".activities.PostActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.MainActivity"
             android:label="Posts">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
         </activity>
         <activity android:name=".activities.ProductActivity"
-            android:label="Products"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="Products">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
         <activity android:name=".activities.SettingActivity"
             android:label="Setting"/>
         <activity android:name=".activities.PostDetailActivity"
-            android:label="Post"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.PostActivity"
+            android:label="Post">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.PostActivity" />
+        </activity>
         <activity android:name=".activities.PostEditActivity"
-            android:label="Edit Post"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.PostDetailActivity"
+            android:label="Edit Post">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.PostDetailActivity" />
+        </activity>
         <activity android:name=".activities.ProductDetailActivity"
-            android:label="Product"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.ProductActivity"
+            android:label="Product">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.ProductActivity" />
+        </activity>
         <activity android:name=".activities.ProductEditActivity"
-            android:label="Edit Product"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.ProductDetailActivity"
+            android:label="Edit Product">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.ProductDetailActivity" />
+        </activity>
         <activity android:name=".activities.AppUsersListActivity"
-            android:label="AppUsers"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="AppUsers">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
         <activity android:name=".activities.AppUserDetailsActivity"
-            android:label="AppUser"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.AppUsersListActivity"
+            android:label="AppUser">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.AppUsersListActivity" />
+        </activity>
         <activity android:name=".activities.OrderDetailActivity"
-            android:label="Order"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.OrderActivity"
+            android:label="Order">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.OrderActivity" />
+        </activity>
         <activity android:name=".activities.EventDetailActivity"
-            android:label="Event"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.EventActivity"
+            android:label="Event">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.EventActivity" />
+        </activity>
         <activity android:name=".activities.EventEditActivity"
-            android:label="Edit Event"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.EventDetailActivity"
+            android:label="Edit Event">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.EventDetailActivity" />
+        </activity>
         <activity android:name=".activities.BannerDetailActivity"
-            android:label="Banner"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.BannerActivity"
+            android:label="Banner">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.BannerActivity" />
+        </activity>
         <activity android:name=".activities.BannerEditActivity"
-            android:label="Edit Banner"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.BannerDetailActivity"
+            android:label="Edit Banner">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.BannerDetailActivity" />
+        </activity>
         <activity android:name=".activities.PostImageActivity"
             android:label="Image Post"/>
         <activity android:name=".activities.PostVideoActivity"
-            android:label="Video Post"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.PostActivity"
+            android:label="Video Post">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.PostActivity" />
+        </activity>
         <activity android:name=".activities.PostVideoDetailActivity"
-            android:label="Video Post"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.PostVideoActivity"
+            android:label="Video Post">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.PostVideoActivity" />
+        </activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="in.fortrainer.admin.fileprovider"

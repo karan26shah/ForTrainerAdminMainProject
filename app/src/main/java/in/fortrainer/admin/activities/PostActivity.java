@@ -52,8 +52,9 @@ public class PostActivity extends AppCompatActivity   {
     LinearLayout linearLayout;
     LinearLayout linearLayout1;
     LinearLayout linearLayout2;
+
     FloatingActionButton floatingActionButton;
-    RelativeLayout relativeLayout;
+    RelativeLayout relativeLayout,relativeLayout1;
     ImageView imageView1;
 
 
@@ -62,14 +63,19 @@ public class PostActivity extends AppCompatActivity   {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
         //android.app.ActionBar actionBar = getActionBar();
         //actionBar.setTitle("Post");
         button = findViewById(R.id.bt_nointernet);
         linearLayout = findViewById(R.id.nointernet);
-        linearLayout1 = findViewById(R.id.relative_header);
-        linearLayout2 = findViewById(R.id.rl_home_text);
-        relativeLayout = findViewById(R.id.rl_icon_holder);
-        imageView1 = findViewById(R.id.imageView_buttonUp);
+        //linearLayout1 = findViewById(R.id.relative_header);
+        //linearLayout2 = findViewById(R.id.rl_home_text);
+       // relativeLayout = findViewById(R.id.rl_icon_holder);
+        //relativeLayout1 = findViewById(R.id.rl_homeText);
+        //imageView1 = findViewById(R.id.imageView_buttonUp);
         setScreen();
         floatingActionButton = findViewById(R.id.bt_newpost);
         /*registerForContextMenu(floatingActionButton);*/
@@ -80,20 +86,20 @@ public class PostActivity extends AppCompatActivity   {
                 selectImage();
             }
         });
-        relativeLayout.setOnClickListener(new View.OnClickListener() {
+      /*  relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
-        });
+        });*/
     }
 
-    @Override
+   /* @Override
     public void onBackPressed() {
         Intent intent = new Intent(PostActivity.this,HomeActivity.class);
         startActivity(intent);
        // super.onBackPressed();
-    }
+    }*/
    /* @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
         super.onCreateContextMenu(menu,v,menuInfo);

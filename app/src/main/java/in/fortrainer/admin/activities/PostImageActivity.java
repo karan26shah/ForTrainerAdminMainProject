@@ -101,7 +101,7 @@ public class PostImageActivity extends AppCompatActivity {
     }
 
     private void bindViews() {
-        button2 = findViewById(R.id.image_orientation_change);
+        //button2 = findViewById(R.id.image_orientation_change);
         button1 = findViewById(R.id.bt_post);
         et_title = findViewById(R.id.et_title);
         et_des = findViewById(R.id.et_des);
@@ -116,7 +116,7 @@ public class PostImageActivity extends AppCompatActivity {
             }
         });
 
-        button2.setOnClickListener(new View.OnClickListener() {
+      /*  button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ExifInterface exif = null;
@@ -129,7 +129,7 @@ public class PostImageActivity extends AppCompatActivity {
                 Bitmap imageRotate = rotateBitmap(compressedBitmap,orientation);
                 imageView.setImageBitmap(imageRotate);
             }
-        });
+        });*/
     }
     
 
@@ -236,7 +236,7 @@ public class PostImageActivity extends AppCompatActivity {
         }
     }
 
-    public static Bitmap rotateBitmap(Bitmap compressedBitmap, int orientation) {
+   /* public static Bitmap rotateBitmap(Bitmap compressedBitmap, int orientation) {
         Matrix matrix = new Matrix();
         switch (orientation) {
             case ExifInterface.ORIENTATION_NORMAL:
@@ -278,7 +278,7 @@ public class PostImageActivity extends AppCompatActivity {
             return null;
         }
     }
-
+*/
     private void init() {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,63 +11,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-    <LinearLayout
-        android:id="@+id/relative_header"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/appbar_height"
-        android:background="@color/FortrainerColor"
-        android:elevation="16dp"
-        android:gravity="center_vertical">
-
-    <RelativeLayout
-        android:id="@+id/rl_icon_holder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackgroundBorderless">
-
-        <ImageView
-            android:id="@+id/imageView_buttonUp"
-            style="@style/upButton"/>
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/rl_home_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:weightSum="2">
-
-        <TextView
-            style="@style/customAppbarTitle"
-            android:text="Posts"/>
-
-
-    </LinearLayout>
-    </LinearLayout>
-
-
-   <!-- <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/my_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppbarEventOverlay"
-            />
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/FortrainerColor"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-    </android.support.design.widget.AppBarLayout>-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <include layout="@layout/layout_common_recycler"></include>
-    <include layout="@layout/check_int"></include>
-    </RelativeLayout>
+            <include layout="@layout/layout_common_recycler"></include>
+            <include layout="@layout/check_int"></include>
+        </RelativeLayout>
     </LinearLayout>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/bt_newpost"

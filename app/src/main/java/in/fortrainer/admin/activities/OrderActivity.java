@@ -1,9 +1,14 @@
 package in.fortrainer.admin.activities;
 
+import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -45,15 +50,39 @@ public class OrderActivity extends AppCompatActivity {
     CommonRecyclerScreen crs;
     Button button;
     LinearLayout linearLayout;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
         button = findViewById(R.id.bt_nointernet);
         linearLayout = findViewById(R.id.nointernet);
         setScreen();
     }
+
+    /*@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main1, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.back) {
+            Intent intent = new Intent(OrderActivity.this,HomeActivity.class);
+            startActivity(intent);
+            }
+        return super.onOptionsItemSelected(item);
+    }
+*/
 
     private void setScreen() {
         crs = CommonRecyclerScreen.setupWithActivity(this);
