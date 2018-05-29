@@ -80,7 +80,13 @@
                 android:value=".activities.MainActivity" />
         </activity>
         <activity android:name=".activities.SettingActivity"
-            android:label="Setting"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.HomeActivity"
+            android:label="Setting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.HomeActivity" />
+        </activity>
         <activity android:name=".activities.PostDetailActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName=".activities.PostActivity"

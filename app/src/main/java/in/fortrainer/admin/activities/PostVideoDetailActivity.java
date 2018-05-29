@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,8 +22,6 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 import in.fortrainer.admin.R;
-import in.fortrainer.admin.models.Admin;
-import in.fortrainer.admin.models.AppPost;
 import in.fortrainer.admin.models.Video;
 import in.fortrainer.admin.utilities.RetrofitHelper;
 import retrofit2.Call;
@@ -38,6 +37,8 @@ public class PostVideoDetailActivity extends AppCompatActivity {
     EditText et_title,et_des;
     TextView textView;
     ImageView imageView;
+    CheckBox checkBox;
+    String notifyuser="no";
 
 
     @Override
@@ -91,7 +92,7 @@ public class PostVideoDetailActivity extends AppCompatActivity {
 
     }
     private void uploadPost() {
-        Call<JsonObject> uploadPostCall = RetrofitHelper.getRetrofitService(context).CreatePost(et_title.getText().toString(),et_des.getText().toString(),video.getProviderUrl(),textView.getText().toString(),video.getThumbnailUrl(),video.getYoutubeVideoId());
+        Call<JsonObject> uploadPostCall = RetrofitHelper.getRetrofitService(context).CreatePost(et_title.getText().toString(),et_des.getText().toString(),video.getProviderUrl(),textView.getText().toString(),video.getThumbnailUrl(),video.getYoutubeVideoId(), notifyuser);
         uploadPostCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
@@ -118,6 +119,7 @@ public class PostVideoDetailActivity extends AppCompatActivity {
         et_des = findViewById(R.id.et_des);
         textView = findViewById(R.id.tv_url);
         imageView = findViewById(R.id.iv_pv);
+        checkBox = findViewById(R.id.checkbox);
     }
 
     private void readIntent() {
@@ -127,6 +129,24 @@ public class PostVideoDetailActivity extends AppCompatActivity {
         }else{
             video = new Gson().fromJson(getIntent().getStringExtra("POST_VIDEO"), Video.class);
         }
+    }
+
+    public boolean onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+
+        // Check which checkbox was clicked
+        switch(view.getId()) {
+            case R.id.checkbox:
+                if (checked){
+                    notifyuser="yes";
+                    //return true;
+                    } else {
+                    notifyuser="no";
+                }
+
+        }
+        return checked;
     }
 }
 

@@ -82,7 +82,7 @@ public interface RetrofitService {
 
     @FormUrlEncoded
     @POST("app/posts")
-    Call<JsonObject> CreatePost( @Field("post[title]") String post_title, @Field("post[description]") String post_desc,@Field("post[link_url]") String link_url,@Field("post[youtube_url]") String youtube_url,@Field("post[youtube_image_url]") String youtube_image_url,@Field("post[youtube_video_id]") String youtube_video_id);
+    Call<JsonObject> CreatePost( @Field("post[title]") String post_title, @Field("post[description]") String post_desc,@Field("post[link_url]") String link_url,@Field("post[youtube_url]") String youtube_url,@Field("post[youtube_image_url]") String youtube_image_url,@Field("post[youtube_video_id]") String youtube_video_id,@Field("post[notify_user]") String notify_user);
 
     @FormUrlEncoded
     @POST("shared_images")

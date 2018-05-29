@@ -98,7 +98,14 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:text="POST"/>
-
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notify Users"
+            android:layout_gravity="right"
+            android:onClick="onCheckboxClicked"
+             />
 
     </LinearLayout>
 </android.support.v7.widget.CardView>
