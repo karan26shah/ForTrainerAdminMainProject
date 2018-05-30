@@ -66,17 +66,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="2"
+        android:layout_marginLeft="4dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/bt_edit"
-            android:layout_width="161dp"
+            android:layout_width="176dp"
             android:layout_height="wrap_content"
             android:text="EDIT" />
 
         <Button
             android:id="@+id/bt_remove"
-            android:layout_width="161dp"
+            android:layout_width="176dp"
             android:layout_height="wrap_content"
             android:text="Remove" />
     </LinearLayout>

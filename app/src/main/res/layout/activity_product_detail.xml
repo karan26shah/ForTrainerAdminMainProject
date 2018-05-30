@@ -41,103 +41,90 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:clickable="true"
-        android:layout_below="@+id/ll_1">
+        android:layout_below="@+id/ll_1"
+        android:layout_marginLeft="12dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Product_Id"
-            android:textStyle="bold"
-            android:paddingRight="12dp"
-           />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/Product_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Product_Id"
-           />
+            android:text="Product_Id" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Product_Name"
-            android:textStyle="bold"
-            android:paddingRight="12dp"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/Product_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:text="Product_Name"
-            />
+            android:text="Product_Name" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Short_Description"
-            android:textStyle="bold"
-            android:paddingRight="12dp"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/Product_sd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Short_description"
-            />
+            android:text="Short_description" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Long_Description"
-            android:textStyle="bold"
-            android:paddingRight="12dp"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/Product_ld"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Long_Description"
-            />
+            android:text="Long_Description" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Product_Price"
-            android:textStyle="bold"
-            android:paddingRight="12dp"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/Product_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:text="Product_Price"
-            />
+            android:text="Product_Price" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingLeft="4dp"
         android:weightSum="2">
 
         <Button
-            android:layout_width="190dp"
+            android:layout_width="176dp"
             android:layout_height="wrap_content"
             android:id="@+id/bt_edit"
             android:text="EDIT"/>
 
         <Button
-            android:layout_width="190dp"
+            android:layout_width="176dp"
             android:layout_height="wrap_content"
             android:id="@+id/bt_remove"
             android:text="REMOVE"/>

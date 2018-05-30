@@ -176,7 +176,13 @@
                 android:value=".activities.BannerDetailActivity" />
         </activity>
         <activity android:name=".activities.PostImageActivity"
-            android:label="Image Post"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.PostActivity"
+            android:label="Image Post">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.PostActivity" />
+        </activity>
         <activity android:name=".activities.PostVideoActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName=".activities.PostActivity"

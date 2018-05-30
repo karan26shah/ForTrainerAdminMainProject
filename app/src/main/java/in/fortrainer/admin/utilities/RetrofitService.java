@@ -94,5 +94,5 @@ public interface RetrofitService {
 
     @FormUrlEncoded
     @PUT("app/posts")
-    Call<JsonObject> CreateImagePost( @Field("post[title]") String post_title, @Field("post[description]") String post_desc,@Field("post[image_id]") String image_id);
+    Call<JsonObject> CreateImagePost( @Field("post[title]") String post_title, @Field("post[description]") String post_desc,@Field("post[image_id]") String image_id,@Field("post[notify_user]") String notify_user);
 }

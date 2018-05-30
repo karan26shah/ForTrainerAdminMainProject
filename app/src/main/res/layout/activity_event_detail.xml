@@ -215,13 +215,13 @@
 
                 <Button
                     android:id="@+id/bt_edit"
-                    android:layout_width="161dp"
+                    android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:text="EDIT" />
 
                 <Button
                     android:id="@+id/bt_remove"
-                    android:layout_width="161dp"
+                    android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:text="Remove"
                     />

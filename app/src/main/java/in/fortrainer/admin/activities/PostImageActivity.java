@@ -19,10 +19,13 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -87,12 +90,18 @@ public class PostImageActivity extends AppCompatActivity {
     String sid;
     private ExifInterface exifObject;
     Bitmap compressedBitmap;
+    CheckBox checkBox;
+    String notifyuser="no";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_image);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
         button = findViewById(R.id.bt_iu);
         imageView = findViewById(R.id.iv_pv);
         bindViews();
@@ -105,6 +114,7 @@ public class PostImageActivity extends AppCompatActivity {
         button1 = findViewById(R.id.bt_post);
         et_title = findViewById(R.id.et_title);
         et_des = findViewById(R.id.et_des);
+        checkBox = findViewById(R.id.checkbox);
     }
 
     private void setupClickListener() {
@@ -384,7 +394,7 @@ public class PostImageActivity extends AppCompatActivity {
     }
 
     private void uploadImagePost() {
-        Call<JsonObject> uploadImagePostCall = RetrofitHelper.getRetrofitService(context).CreateImagePost(et_title.getText().toString(),et_des.getText().toString(),sid);
+        Call<JsonObject> uploadImagePostCall = RetrofitHelper.getRetrofitService(context).CreateImagePost(et_title.getText().toString(),et_des.getText().toString(),sid,notifyuser);
         uploadImagePostCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
@@ -404,6 +414,24 @@ public class PostImageActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
 
+    }
+
+    public boolean onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+
+        // Check which checkbox was clicked
+        switch(view.getId()) {
+            case R.id.checkbox:
+                if (checked){
+                    notifyuser="yes";
+                    //return true;
+                } else {
+                    notifyuser="no";
+                }
+
+        }
+        return checked;
     }
 }
 
