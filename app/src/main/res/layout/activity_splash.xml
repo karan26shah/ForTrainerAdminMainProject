@@ -5,15 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="in.fortrainer.admin.activities.SplashActivity"
-    android:background="@color/FortrainerColor">
+    android:background="@color/white">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-
         android:paddingVertical="@dimen/google_9x"
-        android:src="@drawable/ft_logo" />
+        android:src="@drawable/teachmore_logo_d1" />
 
 </RelativeLayout>
