@@ -94,6 +94,7 @@ public class PostImageActivity extends AppCompatActivity {
     String notifyuser="no";
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -227,7 +228,7 @@ public class PostImageActivity extends AppCompatActivity {
                         finalDim = originalWidth;
                         dy = (originalHeight - finalDim) / 2;
                     }
-                    // tempBitmap = Bitmap.createBitmap(tempBitmap, dx, dy, finalDim, finalDim);
+                     //tempBitmap = Bitmap.createBitmap(tempBitmap, dx, dy, finalDim, finalDim);
                     //tempBitmap = Bitmap.createScaledBitmap(tempBitmap, 350, 350, true);
                     tempBitmap.compress(Bitmap.CompressFormat.JPEG, 50 ,bos);
                     bitmapdata = bos.toByteArray();
