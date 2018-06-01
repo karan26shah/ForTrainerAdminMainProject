@@ -73,7 +73,7 @@ public class AppUsersListActivity extends AppCompatActivity {
                     //totalEntries = response.body().get("total_entries").getAsInt();
                     if (appUsers.size() == 0)
                     {
-                        CommonRecyclerItem commonRecyclerItem =new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK,"No data yet",this);
+                        CommonRecyclerItem commonRecyclerItem =new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK,"No Users yet",this);
                         crs.recyclerItems.add(commonRecyclerItem);
                     }else {
                         crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.APP_USER, appUsers,this));

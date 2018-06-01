@@ -74,7 +74,7 @@ public class ProductActivity extends AppCompatActivity {
                         }.getType());
 
                         if (appProducts.size() == 0) {
-                            CommonRecyclerItem commonRecyclerItem = new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK, "No posts yet", this);
+                            CommonRecyclerItem commonRecyclerItem = new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK, "No Products yet", this);
                             crs.recyclerItems.add(commonRecyclerItem);
                         } else {
                             crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.POSTS, appProducts, this));

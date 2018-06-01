@@ -81,7 +81,7 @@ public class BannerActivity extends AppCompatActivity {
                 public void onResponse(Call<List<Banner>> call, Response<List<Banner>> response) {
                     banners = response.body();
                     if (banners.size() == 0) {
-                        CommonRecyclerItem commonRecyclerItem = new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK, "No posts yet", this);
+                        CommonRecyclerItem commonRecyclerItem = new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK, "No Banners yet", this);
                         crs.recyclerItems.add(commonRecyclerItem);
                     } else {
                         crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.BANNER, banners, this));

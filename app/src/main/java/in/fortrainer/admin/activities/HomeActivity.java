@@ -79,7 +79,7 @@ public class HomeActivity extends AppCompatActivity {
                         apps = new Gson().fromJson(jsonObject.getAsJsonArray("apps"), new TypeToken<List<App>>() {
                         }.getType());
                         if (apps.size() == 0) {
-                            CommonRecyclerItem commonRecyclerItem = new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK, "No posts yet", this);
+                            CommonRecyclerItem commonRecyclerItem = new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK, "No Apps yet", this);
                             crs.recyclerItems.add(commonRecyclerItem);
                         } else {
                             crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.APPS, apps, this));

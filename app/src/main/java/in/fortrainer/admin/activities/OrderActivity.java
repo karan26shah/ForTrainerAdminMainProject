@@ -105,7 +105,7 @@ public class OrderActivity extends AppCompatActivity {
                         }.getType());
                         //totalEntries = response.body().get("total_entries").getAsInt();
                         if (orders.size() == 0) {
-                            CommonRecyclerItem commonRecyclerItem = new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK, "No data yet", this);
+                            CommonRecyclerItem commonRecyclerItem = new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK, "No Orders yet", this);
                             crs.recyclerItems.add(commonRecyclerItem);
                         } else {
                             crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.ORDERS, orders, this));

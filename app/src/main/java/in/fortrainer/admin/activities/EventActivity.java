@@ -76,7 +76,7 @@ public class EventActivity extends AppCompatActivity {
                         }.getType());
 
                         if (appEvents.size() == 0) {
-                            CommonRecyclerItem commonRecyclerItem = new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK, "No data yet", this);
+                            CommonRecyclerItem commonRecyclerItem = new CommonRecyclerItem(CommonRecyclerItem.ItemType.CARD_ACK, "No Events yet", this);
                             crs.recyclerItems.add(commonRecyclerItem);
                         } else {
                             crs.recyclerItems.addAll(CommonRecyclerItem.generate(CommonRecyclerItem.ItemType.EVENTS, appEvents, this));
