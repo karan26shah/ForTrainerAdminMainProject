@@ -76,8 +76,16 @@ public class CommonRecyclerItem {
     }
 
     public enum ItemType {
-        LOADING(0),
-        BANNER(1);
+         LOADING(0),
+        BANNER(1),
+        POSTS(2),
+        CARD_ACK(3),
+        ORDERS(4),
+        EVENTS(5),
+        PRODUCTS(6),
+        APPS(7),
+        APP_USER(8),
+        APP_USER_LIST(9);
 
 
         private final int id;
