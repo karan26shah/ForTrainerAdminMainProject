@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.fortrainer.admin.activities.HomeActivity">
+    android:orientation="vertical"
+    tools:context="in.fortrainer.admin.activities.HomeActivity"
+    android:background="@color/google_gray_50">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/appList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+ <android.support.v7.widget.Toolbar
+     android:id="@+id/my_toolbar"
+     android:layout_width="match_parent"
+     android:layout_height="?attr/actionBarSize"
+     android:background="@color/FortrainerColor"
+     android:elevation="4dp"
+     android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-</RelativeLayout>
+ <!-- <LinearLayout
+      android:id="@+id/nointernet"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_centerInParent="true"
+      android:gravity="center"
+      android:orientation="vertical"
+      android:visibility="gone">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_error_outline_black_24dp"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No internet connection"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/bt_nointernet"
+        android:background="@color/google_blue_300"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Try Again "
+        android:textSize="20dp"/>
+  </LinearLayout>
+-->
+  <include layout="@layout/check_int"></include>
+  <include layout="@layout/layout_common_recycler"></include>
+
+</LinearLayout>

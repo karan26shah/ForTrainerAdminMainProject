@@ -1,21 +1,17 @@
 
 package in.fortrainer.admin.models;
 
-import android.content.Context;
-import android.support.annotation.Nullable;
-
-import com.google.gson.Gson;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import in.fortrainer.admin.utilities.AppStorageManager;
-
 public class AppUser {
-    private static final String KEY_USER_JSON = "jUserObject";
 
     @SerializedName("id")
     @Expose
     private Integer id;
+    @SerializedName("app_id")
+    @Expose
+    private Integer appId;
     @SerializedName("full_name")
     @Expose
     private String fullName;
@@ -24,13 +20,10 @@ public class AppUser {
     private String email;
     @SerializedName("mobile_number")
     @Expose
-    private Object mobileNumber;
-    @SerializedName("auth_key")
+    private String mobileNumber;
+    @SerializedName("profile_image_url")
     @Expose
-    private String authKey;
-    @SerializedName("is_admin")
-    @Expose
-    private Boolean isAdmin;
+    private String profileImageUrl;
 
     public Integer getId() {
         return id;
@@ -38,6 +31,14 @@ public class AppUser {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getAppId() {
+        return appId;
+    }
+
+    public void setAppId(Integer appId) {
+        this.appId = appId;
     }
 
     public String getFullName() {
@@ -56,69 +57,20 @@ public class AppUser {
         this.email = email;
     }
 
-    public Object getMobileNumber() {
+    public String getMobileNumber() {
         return mobileNumber;
     }
 
-    public void setMobileNumber(Object mobileNumber) {
+    public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
 
-    public String getAuthKey() {
-        return authKey;
+    public String getProfileImageUrl() {
+        return profileImageUrl;
     }
 
-    public void setAuthKey(String authKey) {
-        this.authKey = authKey;
+    public void setProfileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
     }
 
-    public Boolean getIsAdmin() {
-        return isAdmin;
-    }
-
-    public void setIsAdmin(Boolean isAdmin) {
-        this.isAdmin = isAdmin;
-    }
-
-    public static boolean isUserPreferenceStored(Context context) {
-        if (isLoggedIn(context)) {
-            // String storedPref = getCurrentUser(context).getCourseOfferingIds();
-            //return storedPref != null && storedPref.length() > 0;
-        } else {
-            return false;
-        }
-        return false;
-        }
-
-    public static boolean isLoggedIn(Context context) {
-        try {
-            if (AppStorageManager.getSharedStoredString(context, KEY_USER_JSON) != null) {
-                AppUser appUser = new Gson().fromJson(AppStorageManager.getSharedStoredString(context, KEY_USER_JSON), AppUser.class);
-                if (appUser != null && appUser.getId() != 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        } catch (Exception e) {
-            return false;
-        }
-
-    }
-
-    @Nullable
-    public static User getCurrentUser(Context context) {
-        try {
-            return new Gson().fromJson(AppStorageManager.getSharedStoredString(context, KEY_USER_JSON), User.class);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public static void eraseCurrentUserData(Context context) {
-        AppStorageManager.removeEntry(context, KEY_USER_JSON);
-       // setNotificationAllowed(context, true);
-    }
 }

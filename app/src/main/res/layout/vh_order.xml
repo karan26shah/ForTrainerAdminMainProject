@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="vertical"
-android:padding="16dp">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginTop="4dp"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp">
 
 <android.support.v7.widget.CardView
     android:id="@+id/cv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:padding="10dp"
+    card_view:cardCornerRadius="2dp">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -19,13 +23,16 @@ android:padding="16dp">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ID"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"/>
 
 
             <TextView
@@ -33,15 +40,18 @@ android:padding="16dp">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:text="id" />
+                android:text="id"
+                android:layout_marginLeft="5dp"/>
 
             <TextView
+                android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ORDER__CODE"
                 android:textStyle="bold"/>
 
             <TextView
+                android:layout_marginLeft="5dp"
             android:id="@+id/order_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,6 +60,7 @@ android:padding="16dp">
                 />
 
             <TextView
+                android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ORDER_TOTAL"
@@ -57,6 +68,7 @@ android:padding="16dp">
 
 
             <TextView
+                android:layout_marginLeft="5dp"
             android:id="@+id/order_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,12 +76,14 @@ android:padding="16dp">
             android:text="ordertotal" />
 
             <TextView
+                android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="PROCESS_STATUS"
                 android:textStyle="bold"/>
 
             <TextView
+                android:layout_marginLeft="5dp"
             android:id="@+id/order_processed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,12 +91,14 @@ android:padding="16dp">
             android:text="processed_status" />
 
             <TextView
+                android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ORDER_PROCESSED"
                 android:textStyle="bold"/>
 
             <TextView
+                android:layout_marginLeft="5dp"
             android:id="@+id/order_succeeded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,7 +114,7 @@ android:padding="16dp">
             android:orientation="vertical"
             android:padding="16dp">
 
-            <android.support.v7.widget.CardView
+           <!-- <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
@@ -144,7 +160,7 @@ android:padding="16dp">
 
                     </LinearLayout>
                 </RelativeLayout>
-            </android.support.v7.widget.CardView>
+            </android.support.v7.widget.CardView>-->
         </LinearLayout>
     </RelativeLayout>
 </android.support.v7.widget.CardView>

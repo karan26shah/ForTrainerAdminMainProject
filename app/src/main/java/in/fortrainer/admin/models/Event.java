@@ -1,5 +1,7 @@
 package in.fortrainer.admin.models;
 
+
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -21,21 +23,29 @@ public class Event {
     @SerializedName("start_datetime")
     @Expose
     private String startDatetime;
+    @SerializedName("end_datetime")
+    @Expose
+    private String endDatetime;
     @SerializedName("is_full")
     @Expose
     private Boolean isFull;
     @SerializedName("is_paid")
     @Expose
     private Boolean isPaid;
-    @SerializedName("address_line_1")
+
+    @SerializedName("address")
     @Expose
-    private String addressLine1;
-    @SerializedName("address_line_2")
+    private Address address;
+    @SerializedName("price")
     @Expose
-    private String addressLine2;
-    @SerializedName("address_line_3")
+    private String price;
+    @SerializedName("image")
     @Expose
-    private String addressLine3;
+    private Image image;
+
+
+
+
 
     public Integer getId() {
         return id;
@@ -85,28 +95,36 @@ public class Event {
         this.isPaid = isPaid;
     }
 
-    public String getAddressLine1() {
-        return addressLine1;
+
+    public String getPrice() {
+        return price;
     }
 
-    public void setAddressLine1(String addressLine1) {
-        this.addressLine1 = addressLine1;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
-    public String getAddressLine2() {
-        return addressLine2;
+    public String getEndDatetime() {
+        return endDatetime;
     }
 
-    public void setAddressLine2(String addressLine2) {
-        this.addressLine2 = addressLine2;
+    public void setEndDatetime(String endDatetime) {
+        this.endDatetime = endDatetime;
     }
 
-    public String getAddressLine3() {
-        return addressLine3;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setAddressLine3(String addressLine3) {
-        this.addressLine3 = addressLine3;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
 }

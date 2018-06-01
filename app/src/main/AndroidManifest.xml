@@ -11,27 +11,199 @@
     <application
         android:name=".utilities.EECMultiDexApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/fortrainer_logo"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.UserActivity" />
-        <activity android:name=".activities.SplashActivity">
+        <activity android:name=".activities.MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:label="Select Option"
+            />
+        <activity
+            android:name=".activities.SplashActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.OrderActivity" />
-        <activity android:name=".activities.BannerActivity" />
-        <activity android:name=".activities.EventActivity" />
-        <activity android:name=".activities.HomeActivity" />
-        <activity android:name=".activities.WebViewActivity"></activity>
+        <activity android:name=".activities.LoginActivity"
+            android:label="Login"/>
+        <activity android:name=".activities.OrderActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="Orders">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity android:name=".activities.BannerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="Banners">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity android:name=".activities.EventActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="Events">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".activities.MainActivity" />
+        </activity>
+        <activity android:name=".activities.HomeActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:label="Apps"/>
+        <activity android:name=".activities.PostActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="Posts">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity android:name=".activities.ProductActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="Products">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity android:name=".activities.SettingActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.HomeActivity"
+            android:label="Setting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.HomeActivity" />
+        </activity>
+        <activity android:name=".activities.PostDetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.PostActivity"
+            android:label="Post">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.PostActivity" />
+        </activity>
+        <activity android:name=".activities.PostEditActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.PostDetailActivity"
+            android:label="Edit Post">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.PostDetailActivity" />
+        </activity>
+        <activity android:name=".activities.ProductDetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.ProductActivity"
+            android:label="Product">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.ProductActivity" />
+        </activity>
+        <activity android:name=".activities.ProductEditActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.ProductDetailActivity"
+            android:label="Edit Product">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.ProductDetailActivity" />
+        </activity>
+        <activity android:name=".activities.AppUsersListActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="AppUsers">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity android:name=".activities.AppUserDetailsActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.AppUsersListActivity"
+            android:label="AppUser">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.AppUsersListActivity" />
+        </activity>
+        <activity android:name=".activities.OrderDetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.OrderActivity"
+            android:label="Order">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.OrderActivity" />
+        </activity>
+        <activity android:name=".activities.EventDetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.EventActivity"
+            android:label="Event">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.EventActivity" />
+        </activity>
+        <activity android:name=".activities.EventEditActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.EventDetailActivity"
+            android:label="Edit Event">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.EventDetailActivity" />
+        </activity>
+        <activity android:name=".activities.BannerDetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.BannerActivity"
+            android:label="Banner">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.BannerActivity" />
+        </activity>
+        <activity android:name=".activities.BannerEditActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.BannerDetailActivity"
+            android:label="Edit Banner">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.BannerDetailActivity" />
+        </activity>
+        <activity android:name=".activities.PostImageActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.PostActivity"
+            android:label="Image Post">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.PostActivity" />
+        </activity>
+        <activity android:name=".activities.PostVideoActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.PostActivity"
+            android:label="Video Post">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.PostActivity" />
+        </activity>
+        <activity android:name=".activities.PostVideoDetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".activities.PostVideoActivity"
+            android:label="Video Post">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.PostVideoActivity" />
+        </activity>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="in.fortrainer.admin.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
     </application>
 
 </manifest>

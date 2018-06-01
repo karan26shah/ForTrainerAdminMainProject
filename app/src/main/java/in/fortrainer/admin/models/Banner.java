@@ -18,6 +18,9 @@ public class Banner {
     @SerializedName("link_url")
     @Expose
     public Object linkUrl;
+    @SerializedName("shared_image")
+    @Expose
+    private SharedImage sharedImage;
 
     public Integer getId() {
         return id;
@@ -49,6 +52,14 @@ public class Banner {
 
     public void setLinkUrl(Object linkUrl) {
         this.linkUrl = linkUrl;
+    }
+
+    public SharedImage getSharedImage() {
+        return sharedImage;
+    }
+
+    public void setSharedImage(SharedImage sharedImage) {
+        this.sharedImage = sharedImage;
     }
 
 }

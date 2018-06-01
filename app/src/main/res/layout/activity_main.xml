@@ -1,38 +1,292 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.fortrainer.admin.activities.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="in.fortrainer.admin.activities.MainActivity"
+    android:background="@color/google_gray_50"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/my_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/FortrainerColor"
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
 
-    <Button
-        android:id="@+id/bt_order"
-        android:layout_width="wrap_content"
+            <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
-        android:text="ORDER" />
+        android:id="@+id/ll_p1"
+        android:padding="22dp"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground">
 
-    <Button
-        android:id="@+id/bt_event"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/bt_order"
-        android:layout_alignStart="@+id/bt_order"
-        android:layout_below="@+id/bt_order"
-        android:layout_marginTop="59dp"
-        android:text="EVENTS" />
+        <ImageView
+            android:paddingLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:src="@drawable/ic_add_shopping_cart_black_24dp"
+            android:id="@+id/iv_1"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="ORDERS"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:paddingTop="7dp"
+            android:paddingLeft="70dp"
+            android:paddingRight="74dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_chevron_right_black_48dp"
+            android:id="@+id/iv_2"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"/>
 
-    <Button
-        android:id="@+id/bt_banner"
-        android:layout_width="wrap_content"
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/bt_event"
-        android:layout_alignStart="@+id/bt_event"
-        android:layout_below="@+id/bt_event"
-        android:layout_marginTop="74dp"
-        android:text="BANNERS" />
-</RelativeLayout>
+        android:id="@+id/ll_p2"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        android:padding="22dp">
+
+        <ImageView
+            android:paddingLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:src="@drawable/ic_reorder_black_24dp"
+            android:id="@+id/iv_3"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="PRODUCTS"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:paddingTop="7dp"
+            android:paddingLeft="70dp"
+            android:paddingRight="43dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_chevron_right_black_48dp"
+            android:id="@+id/iv_4"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            />
+
+    </LinearLayout>
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_p3"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:padding="22dp"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:paddingLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:src="@drawable/ic_local_post_office_black_24dp"
+            android:id="@+id/iv_5"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="POSTS"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:paddingTop="7dp"
+            android:paddingLeft="70dp"
+            android:paddingRight="92dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_chevron_right_black_48dp"
+            android:id="@+id/iv_6"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"/>
+
+    </LinearLayout>
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:padding="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_p4"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:paddingLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:src="@drawable/ic_art_track_black_24dp"
+            android:id="@+id/iv_7"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="BANNERS"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:paddingTop="7dp"
+            android:paddingLeft="70dp"
+            android:paddingRight="57dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_chevron_right_black_48dp"
+            android:id="@+id/iv_8"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"/>
+
+    </LinearLayout>
+    <View
+        android:paddingLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:padding="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_p5"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:paddingLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:src="@drawable/ic_event_black_24dp"
+            android:id="@+id/iv_9"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="EVENTS"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:paddingTop="7dp"
+            android:paddingLeft="70dp"
+            android:paddingRight="77dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_chevron_right_black_48dp"
+            android:id="@+id/iv_10"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:padding="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_p6"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:paddingLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:src="@drawable/ic_accessibility_black_24dp"
+            android:id="@+id/iv_11"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="USERS"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:paddingTop="7dp"
+            android:paddingLeft="70dp"
+            android:paddingRight="93dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_chevron_right_black_48dp"
+            android:id="@+id/iv_12"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black"/>
+        </LinearLayout>
+    </ScrollView>
+    <include layout="@layout/check_int"></include>
+</LinearLayout>
